@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { demo } from '@common/constants';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-
+import MyScrollBox from '@common/components/MyScrollBox';
 function App() {
   return (
     <Router>
