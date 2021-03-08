@@ -39,7 +39,12 @@ module.exports = {
               },
             },
           },
-          'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              options: {},
+            },
+          },
           'less-loader',
         ],
       },

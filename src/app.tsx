@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import MyScrollBox from '@common/components/MyScrollBox';
+import { HashRouter as Router, Redirect } from 'react-router-dom';
+import ROUTERS from '@common/constants/router';
+import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
+import Root from './container/root';
+import Resume from './container/resume';
+
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route path="/">
-          <div>可视化简历平台</div>
-        </Route>
-      </Switch>
+      <CacheSwitch>
+        <CacheRoute path={ROUTERS.root} component={Root} />
+        <CacheRoute path={ROUTERS.resume} component={Resume} />
+        <Redirect from={ROUTERS.root} to={ROUTERS.root} />
+      </CacheSwitch>
     </Router>
   );
 }
