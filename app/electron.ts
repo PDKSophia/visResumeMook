@@ -2,7 +2,7 @@
  * @desc electron 主入口
  */
 import path from 'path';
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 
 function isDev() {
   return process.env.NODE_ENV === 'development';
@@ -35,4 +35,9 @@ app.whenReady().then(() => {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
+});
+
+const ROOT_PATH = path.join(app.getAppPath(), '../');
+ipcMain.on('get-root-path', (event, arg) => {
+  event.reply('reply-root-path', ROOT_PATH);
 });
