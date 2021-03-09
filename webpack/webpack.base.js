@@ -10,7 +10,11 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       '@src': path.join(__dirname, '../', 'src/'),
+      '@config': path.join(__dirname, '../', 'config/'),
       '@common': path.join(__dirname, '../', 'common/'),
+      '@store': path.join(__dirname, '../', 'src/model/store/'),
+      '@indexDB': path.join(__dirname, '../', 'src/model/indexDB/'),
+      '@jsonFile': path.join(__dirname, '../', 'src/model/jsonFile/'),
     },
   },
   module: {
