@@ -5,16 +5,20 @@ import ROUTERS from '@common/constants/router';
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
 import Root from './container/root';
 import Resume from './container/resume';
+import { Provider } from 'react-redux';
+import store from '@src/model/store';
 
 function App() {
   return (
-    <Router>
-      <CacheSwitch>
-        <CacheRoute path={ROUTERS.root} component={Root} />
-        <CacheRoute path={ROUTERS.resume} component={Resume} />
-        <Redirect from={ROUTERS.root} to={ROUTERS.root} />
-      </CacheSwitch>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <CacheSwitch>
+          <CacheRoute path={ROUTERS.root} component={Root} />
+          <CacheRoute path={ROUTERS.resume} component={Resume} />
+          <Redirect from={ROUTERS.root} to={ROUTERS.root} />
+        </CacheSwitch>
+      </Router>
+    </Provider>
   );
 }
 
