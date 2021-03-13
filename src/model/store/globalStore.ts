@@ -1,8 +1,27 @@
-const globalModel = {
+import { ThemeType } from '@common/types/theme';
+export interface GModel {
+  namespace: string;
+  openSeamlessImmutable: boolean;
+  state: GStore;
+}
+
+interface GStore {
+  rootPath: string;
+  currentTheme: ThemeType;
+  themeList: ThemeType[];
+}
+
+const globalModel: GModel = {
   namespace: 'globalModel',
   openSeamlessImmutable: true,
   state: {
-    rootPath: '',
+    rootPath: '', // 项目路径
+    currentTheme: {
+      id: '',
+      fontColor: '',
+      backgroundColor: '',
+    },
+    themeList: [],
   },
 };
 
