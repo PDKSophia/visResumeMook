@@ -1,31 +1,11 @@
 {
   "name": "配置注册表",
-  "defaultTheme": "dark",
-  "theme": {
-    "dark": {
-      "uuid": "dark",
-      "fontColor": "#ffffff",
-      "backgroundColor": "#27292c"
-    },
-    "blue": {
-      "uuid": "blue",
-      "fontColor": "#ffffff",
-      "backgroundColor": "#35495e"
-    },
-    "green": {
-      "uuid": "green",
-      "fontColor": "#ffffff",
-      "backgroundColor": "#416f5b"
-    },
-    "purple": {
-      "uuid": "purple",
-      "fontColor": "#ffffff",
-      "backgroundColor": "#54546c"
-    },
-    "princess": {
-      "uuid": "princess",
-      "fontColor": "#ffffff",
-      "backgroundColor": "#945454"
-    }
-  }
+  "currentTheme": "dark",
+  "themeList": [
+    { "id": "dark", "fontColor": "#ffffff", "backgroundColor": "#27292c" },
+    { "id": "blue", "fontColor": "#ffffff", "backgroundColor": "#35495e" },
+    { "id": "green", "fontColor": "#ffffff", "backgroundColor": "#416f5b" },
+    { "id": "purple", "fontColor": "#ffffff", "backgroundColor": "#54546c" },
+    { "id": "princess", "fontColor": "#ffffff", "backgroundColor": "#945454" }
+  ]
 }

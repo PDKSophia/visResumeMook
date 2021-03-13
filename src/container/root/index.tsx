@@ -6,24 +6,27 @@
 import React, { useEffect } from 'react';
 import './index.less';
 import Logo from '../../../assets/logo.png';
-import useInitStore from '@src/hooks/useInitStore';
-import { useSelector } from 'react-redux';
+import MyTheme from '@common/components/MyTheme';
+import useInitStoreHooks from '@src/hooks/useInitStoreHooks';
+import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 
 function Root() {
-  const initStore = useInitStore();
-  const rootPath = useSelector((state: any) => state.globalModel.rootPath);
+  const initStoreHooks = useInitStoreHooks();
+  const [currentTheme] = useGetCurrentThemeAction();
   useEffect(() => {
-    initStore();
+    initStoreHooks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log('rootPath: ', rootPath);
-
   return (
-    <div styleName="root">
+    <div styleName="root" style={{ backgroundColor: currentTheme?.backgroundColor }}>
       <div styleName="container">
         <img src={Logo} alt="" />
         <div styleName="title">VisResumeMook</div>
         <div styleName="tips">一个模板简历制作平台, 让你的简历更加出众 ~</div>
+        <div styleName="theme">
+          <MyTheme />
+        </div>
       </div>
     </div>
   );

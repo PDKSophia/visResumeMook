@@ -22,6 +22,21 @@ export function getPathHack(filePath: string) {
 }
 
 /**
+ * @description 更新 json 文件内容
+ * @param filePath
+ * @param updateContent
+ */
+export function updateJsonFile(filePath: string, updateContent: any) {
+  if (filePath && hasFile(filePath)) {
+    if (typeof updateContent !== 'string') {
+      fs.writeFileSync(filePath, JSON.stringify(updateContent));
+    } else {
+      fs.writeFileSync(filePath, updateContent);
+    }
+  }
+}
+
+/**
  * @description 读取 文件 内容
  */
 export function readFile(filePath: string) {
