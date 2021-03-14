@@ -13,9 +13,9 @@ function App() {
     <Provider store={store}>
       <Router>
         <CacheSwitch>
-          <CacheRoute path={ROUTERS.root} component={Root} />
-          <CacheRoute path={ROUTERS.resume} component={Resume} />
-          <Redirect from={ROUTERS.root} to={ROUTERS.root} />
+          <CacheRoute path={ROUTERS.root} exact component={Root} />
+          <CacheRoute path={ROUTERS.resume} exact component={Resume} />
+          <Redirect from={ROUTERS.root} exact to={ROUTERS.root} />
         </CacheSwitch>
       </Router>
     </Provider>
