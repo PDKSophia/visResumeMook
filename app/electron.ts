@@ -11,8 +11,10 @@ function isDev() {
 function createWindow() {
   // 创建浏览器窗口
   const mainWindow = new BrowserWindow({
-    width: 1200,
+    width: 1314,
     height: 800,
+    resizable: false,
+    focusable: true,
     webPreferences: {
       devTools: true,
       webSecurity: true,

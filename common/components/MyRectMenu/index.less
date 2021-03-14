@@ -1,0 +1,53 @@
+@default-parent-width: 1200px;
+@default-left-width: 272px;
+@default-right-width: 872px;
+
+@large-to-middle-width: 1400px;
+@middle-to-small-width: 1272px;
+
+// 正常情况下样式
+:global {
+  .parent-box {
+    margin: 0 auto;
+    position: relative;
+    .clear;
+    .rect-menu {
+      display: none;
+      position: fixed; // 作业报告中由子元素撑开，故而如果使用absolute定位会存在问题
+      z-index: 2;
+      top: 50%;
+      width: 32px;
+      height: 64px;
+      line-height: 64px;
+      text-align: center;
+      margin-top: -32px;
+      background: #ffffff;
+      box-shadow: 8px 0 8px 0 rgba(0, 0, 0, 0.1);
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      .rect-svg {
+        fill: #198cff;
+        color: #198cff;
+        transition: all 0.5s;
+        &.rect-svg-hide {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+// <1272px尺寸适配，但是因为滚动条原因，导致会出现小屏时不出现 rect-menu 不显示情况
+@media screen and (max-width: @middle-to-small-width - 1) {
+  :global {
+    .parent-box {
+      .left-box {
+        transition: left 0.5s;
+      }
+      .rect-menu {
+        display: block;
+        // transition: all 0.5s;
+      }
+    }
+  }
+}

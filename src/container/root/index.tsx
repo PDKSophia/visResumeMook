@@ -13,17 +13,11 @@ import { RouterType } from '@common/types/router';
 import Logo from '../../../assets/logo.png';
 import MyTheme from '@common/components/MyTheme';
 import Copyright from '@common/components/Copyright';
-import useInitStoreHooks from '@src/hooks/useInitStoreHooks';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 
 function Root() {
   const history = useHistory();
-  const initStoreHooks = useInitStoreHooks();
   const [currentTheme] = useGetCurrentThemeAction();
-  useEffect(() => {
-    initStoreHooks();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const onRouterToLink = (r: RouterType) => {
     if (isUrl(r.url)) {
