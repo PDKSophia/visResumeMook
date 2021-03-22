@@ -1,8 +1,8 @@
 /**
  * @desc 项目经历
  * @author pengdaokuan
- * @createTime 2020-04-27
- * @lastModify 2020-04-27
+ * @createTime 2021-03-22
+ * @lastModify 2021-03-22
  */
 import React from 'react';
 import './index.less';
@@ -17,29 +17,37 @@ function Project() {
             <p>2020.08-2020.09</p>
           </div>
           <div styleName="right">
-            <p>erek-resumes 云简历平台 - 前端工程师</p>
+            <p>rc-redux-model 中间件 - 前端工程师</p>
           </div>
           <div styleName="text">
-            <ul styleName="utext">
-              <li styleName="liname">实现首页主题设置, 接入API，封装请求request, 使用i18n, 实现中英版本切换</li>
-              <li styleName="liname">
-                sessionStorage缓存用户信息, 解决刷新丢失用户数据, vuex缓存用户信息，实现数据双向响应
+            <ul styleName="item-box">
+              <li styleName="item-content">
+                <span>阅读 redux 源码，阅读 redux-thunk 源码，参考 dva.js 数据设计</span>
               </li>
-              <li styleName="liname">实现一份信息，多份简历模板，支持PDF打印下载</li>
+              <li styleName="item-content">
+                <span> 内部实现 thunk，所有的 dispatch action 都是异步 action，内部实现异步 action 机制</span>
+              </li>
             </ul>
           </div>
         </li>
         <li styleName="flex">
           <div styleName="left">
-            <p>2020.04-2020.05</p>
+            <p>2021.03-2021.08</p>
           </div>
           <div styleName="right">
-            <p>vue-erek-manage 后台管理平台 - 前端工程师</p>
+            <p>visResumeMook 可视化简历平台 - 前端工程师</p>
           </div>
           <div styleName="text">
-            <ul styleName="utext">
-              <li styleName="liname">基于 Vue 2.5 + iView UI 进行开发，快速搭建后台管理平台，自定义页面</li>
-              <li styleName="liname">借鉴模仿 pro-ant-design的设计，适用于小型项目后台管理</li>
+            <ul styleName="item-box">
+              <li styleName="item-content">
+                <span>Electron + React Hooks 打造简历平台，只需输入一次信息，套用多份模版</span>
+              </li>
+              <li styleName="item-content">
+                <span>通过 jsonfile 方式实现主题换肤，支持导出 PDF 简历文档</span>
+              </li>
+              <li styleName="item-content">
+                <span>通过 indexDB 方式实现历史简历缓存，通过可视化拖拽形式，自定义组件模版</span>
+              </li>
             </ul>
           </div>
         </li>

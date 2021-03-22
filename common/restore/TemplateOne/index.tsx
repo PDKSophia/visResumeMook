@@ -36,7 +36,7 @@ function TemplateOne(props: any) {
         <Synopsis />
         <div styleName="listData">
           <Skill />
-          <Post />
+          {/* <Post /> */}
           <Project />
           <Work />
         </div>
