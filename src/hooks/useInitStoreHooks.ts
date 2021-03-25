@@ -33,18 +33,17 @@ export default function () {
         nextTheme = initTheme;
       }
       dispatch({
-        type: 'globalModel/setStore',
-        payload: {
-          key: 'currentTheme',
-          values: nextTheme,
-        },
-      });
-      dispatch({
-        type: 'globalModel/setStore',
-        payload: {
-          key: 'themeList',
-          values: themeList,
-        },
+        type: 'globalModel/setStoreList',
+        payload: [
+          {
+            key: 'currentTheme',
+            values: nextTheme,
+          },
+          {
+            key: 'themeList',
+            values: themeList,
+          },
+        ],
       });
     });
   };
