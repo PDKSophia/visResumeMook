@@ -3,7 +3,7 @@ import './index.less';
 import ResumeActions from './components/ResumeActions';
 import ResumeSlider from './components/ResumeSlider';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
-import { TemplateOne } from '@common/restore';
+import * as Template from '@src/template';
 function Resume() {
   const [currentTheme] = useGetCurrentThemeAction();
 
@@ -12,7 +12,7 @@ function Resume() {
       <ResumeActions />
       <ResumeSlider />
       <div styleName="box">
-        <TemplateOne />
+        <Template.TemplateOne />
       </div>
     </div>
   );

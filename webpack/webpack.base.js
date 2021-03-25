@@ -10,6 +10,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       '@src': path.join(__dirname, '../', 'src/'),
+      '@assets': path.join(__dirname, '../', 'assets/'),
       '@config': path.join(__dirname, '../', 'config/'),
       '@common': path.join(__dirname, '../', 'common/'),
       '@store': path.join(__dirname, '../', 'src/model/store/'),
