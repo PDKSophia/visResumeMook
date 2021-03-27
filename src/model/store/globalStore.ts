@@ -5,7 +5,7 @@ export interface GModel {
   state: GStore;
 }
 
-interface GStore {
+export interface GStore {
   rootPath: string;
   currentTheme: ThemeType;
   themeList: ThemeType[];

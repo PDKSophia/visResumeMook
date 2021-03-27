@@ -1,4 +1,4 @@
-import ResumeType from '@common/types/resume';
+import ResumeType, { ResumeTemplate } from '@common/types/resume';
 
 export interface RModel {
   namespace: string;
@@ -6,8 +6,9 @@ export interface RModel {
   state: RStore;
 }
 
-interface RStore {
+export interface RStore {
   userResume: ResumeType;
+  resumeTemplateList: ResumeTemplate[];
   selectResumeTemplateName: string;
   selectResumeTemplateIndex: number;
 }
@@ -111,6 +112,7 @@ const resumeModel: RModel = {
         },
       ],
     },
+    resumeTemplateList: [],
     selectResumeTemplateName: '测试模版',
     selectResumeTemplateIndex: 0,
   },
