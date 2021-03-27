@@ -8,7 +8,8 @@ import RcReduxModel from 'rc-redux-model';
 import logger from 'redux-logger';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import globalStore from './globalStore';
-const reduxModel = new RcReduxModel([globalStore]);
+import resumeStore from './resumeStore';
+const reduxModel = new RcReduxModel([globalStore, resumeStore]);
 const reducerList = combineReducers(reduxModel.reducers);
 
 export default createStore(reducerList, applyMiddleware(reduxModel.thunk, logger));
