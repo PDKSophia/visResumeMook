@@ -1,0 +1,57 @@
+.navigation {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.01), 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+  margin-top: 16px;
+  position: absolute;
+  width: 272px;
+  padding: 12px;
+  box-sizing: border-box;
+  height: calc(100vh - 60px - 16px - 16px); // 减去头部+头底间距
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  .template {
+    width: 248px;
+    height: 320px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-sizing: border-box;
+    margin-bottom: 12px;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+      &::after {
+        position: absolute;
+        z-index: 1;
+      }
+      :global {
+        .use-btn {
+          display: block;
+        }
+      }
+    }
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+  }
+  :global {
+    .use-btn {
+      z-index: 2;
+      display: none;
+      left: 0;
+      position: absolute;
+      bottom: 16px;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
