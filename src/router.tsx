@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import { HashRouter, Redirect } from 'react-router-dom';
 import ROUTERS from '@common/constants/router';
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route';

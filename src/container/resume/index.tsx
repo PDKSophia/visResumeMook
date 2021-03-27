@@ -4,6 +4,7 @@ import ResumeActions from './components/ResumeActions';
 import ResumeSlider from './components/ResumeSlider';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 import * as Template from '@src/template';
+
 function Resume() {
   const [currentTheme] = useGetCurrentThemeAction();
 

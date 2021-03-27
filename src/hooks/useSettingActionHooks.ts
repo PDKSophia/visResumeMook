@@ -4,7 +4,7 @@
  */
 import path from 'path';
 import { getAppPath } from '@common/utils/rootPath';
-import { hasFile, readJsonFile, updateJsonFile } from '@common/utils';
+import { hasFile, readJsonFile, updateJsonFile } from '@common/utils/fsfile';
 
 // 读取配置绝对路径
 function useReadSettingConfigPathAction() {

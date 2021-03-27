@@ -55,3 +55,10 @@ export default interface ResumeType {
   workExperience?: WorkExperience; // 工作经历
   projectExperience?: ProjectExperience; // 项目经历
 }
+
+// 简历模版
+export interface ResumeTemplate {
+  id: string;
+  name: string;
+  cover: string;
+}

@@ -14,6 +14,7 @@ import Skill from './components/Skill';
 import Post from './components/Post';
 import Project from './components/Project';
 import Work from './components/Work';
+import MyA4Hoc from '@common/components/MyA4Hoc';
 
 function TemplateOne() {
   // 必须带有id，以方便导出时获取DOM元素内容
@@ -46,4 +47,4 @@ function TemplateOne() {
   );
 }
 
-export default TemplateOne;
+export default MyA4Hoc(TemplateOne);
