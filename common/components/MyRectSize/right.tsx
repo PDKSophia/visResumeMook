@@ -6,13 +6,14 @@ import React from 'react';
 interface IProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  key?: string;
 }
 
 class RightComponent extends React.PureComponent<IProps> {
   render() {
-    const { style = {}, children } = this.props;
+    const { key = '', style = {}, children } = this.props;
     return (
-      <div className="right-box" style={style}>
+      <div key={key} className="right-box" style={style}>
         {children}
       </div>
     );

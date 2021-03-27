@@ -63,10 +63,12 @@ class ParentComponent extends React.Component<IProps, IState> {
         rectSize: this.state.rectSize,
         style: { ...this.getLeftStyle(), ...(leftElement.props.style || {}) },
         boxRef: this.leftBoxRef,
+        key: 'left',
       }),
       React.cloneElement(rightElement, {
         rectSize: this.state.rectSize,
         style: { ...this.getRightStyle(), ...(rightElement.props.style || {}) },
+        key: 'right',
       }),
     ];
   }

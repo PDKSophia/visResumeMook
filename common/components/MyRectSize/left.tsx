@@ -8,6 +8,7 @@ import { setPollPromise, reducePX, transformStringToNumber } from '@common/utils
 interface IProps {
   style?: React.CSSProperties;
   boxRef?: any;
+  key?: string;
 }
 
 interface IState {
@@ -70,9 +71,9 @@ class LeftComponent extends React.Component<IProps, IState> {
 
   render() {
     const { showMenu, width } = this.state;
-    const { style = {}, children } = this.props;
+    const { key = '', style = {}, children } = this.props;
     return (
-      <>
+      <div key={key}>
         <div ref={this.boxRef} className="left-box" style={{ width, ...style, left: showMenu ? style?.left : -width }}>
           {children}
         </div>
@@ -93,7 +94,7 @@ class LeftComponent extends React.Component<IProps, IState> {
             })}
           />
         </div>
-      </>
+      </div>
     );
   }
 }
