@@ -10,11 +10,15 @@
   .parent-box {
     margin: 0 auto;
     position: relative;
-    .clear;
+    &:after {
+      content: '';
+      clear: both;
+      display: block;
+    }
     .rect-menu {
       display: none;
-      position: fixed; // 作业报告中由子元素撑开，故而如果使用absolute定位会存在问题
-      z-index: 2;
+      position: fixed;
+      z-index: 999;
       top: 50%;
       width: 32px;
       height: 64px;
@@ -25,11 +29,17 @@
       box-shadow: 8px 0 8px 0 rgba(0, 0, 0, 0.1);
       border-radius: 0 8px 8px 0;
       cursor: pointer;
-      .rect-svg {
-        fill: #198cff;
-        color: #198cff;
+      .rect-icon {
+        background-image: url('../../../assets/icon/back_blank.png');
+        background-size: cover;
+        background-repeat: no-repeat;
         transition: all 0.5s;
-        &.rect-svg-hide {
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        top: 25px;
+        left: 9px;
+        &.rect-icon-hidden {
           transform: rotate(180deg);
         }
       }
