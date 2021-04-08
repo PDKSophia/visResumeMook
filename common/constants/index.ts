@@ -2,6 +2,7 @@ export const PDF_A4 = {
   WIDTH: 820,
   HEIGHT: 1160,
 };
+
 export const RESUME_SLIDER_ACTION = {
   PERSONAL: 'PERSONAL', // 个人基本信息
   EDUCATION: 'EDUCATION', // 教育信息
@@ -14,26 +15,3 @@ export const RESUME_SLIDER_ACTION = {
   SKILL: 'SKILL', // 掌握技能
   TEST_DEMO: 'TEST_DEMO', // 测试用例
 };
-
-export const ROUTE_MAPS = [
-  {
-    url: 'https://github.com/PDKSophia/visResumeMook',
-    key: 'intro',
-    text: '介绍',
-  },
-  {
-    url: '/resume',
-    key: 'resume',
-    text: '简历',
-  },
-  {
-    url: '/template',
-    key: 'template',
-    text: '模板',
-  },
-  {
-    url: 'https://github.com/PDKSophia/visResumeMook',
-    key: 'code',
-    text: '源码',
-  },
-];
