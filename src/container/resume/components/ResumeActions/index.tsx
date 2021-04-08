@@ -3,23 +3,32 @@
  */
 import React, { useState } from 'react';
 import './index.less';
-import { useHistory } from 'react-router';
-import { PDF_A4 } from '@common/constants';
+import { useHistory, useParams } from 'react-router';
 import { toPrintPdf } from '@common/utils/htmlToPdf';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 import MyModal from '@common/components/MyModal';
 import MyButton from '@common/components/MyButton';
+import ROUTER, { ROUTER_KEY } from '@common/constants/router';
+import { compilePath } from '@common/utils/router';
 
 function ResumeActions() {
+  const routerParams = useParams<{ templateId: string; fromPath: string }>();
   const history = useHistory();
   const [showModal, setShowModal] = useState(false);
   const [currentTheme] = useGetCurrentThemeAction();
 
   function goBack() {
-    history.push('/');
+    if (routerParams.fromPath === ROUTER_KEY.root) {
+      history.push(ROUTER.root);
+    } else if (routerParams.fromPath === ROUTER_KEY.template) {
+      history.push(ROUTER.template);
+    } else {
+      console.log('here');
+    }
   }
+
   return (
-    <div styleName="actions" style={{ width: PDF_A4.WIDTH }}>
+    <div styleName="actions">
       <div styleName="back" onClick={goBack}>
         返回
       </div>

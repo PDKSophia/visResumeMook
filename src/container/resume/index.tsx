@@ -2,18 +2,24 @@ import React from 'react';
 import './index.less';
 import ResumeActions from './components/ResumeActions';
 import ResumeSlider from './components/ResumeSlider';
+import MyScrollBox from '@common/components/MyScrollBox';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 import * as Template from '@src/template';
 
 function Resume() {
+  const height = document.body.clientHeight;
   const [currentTheme] = useGetCurrentThemeAction();
 
   return (
     <div styleName="container" style={{ backgroundColor: currentTheme?.backgroundColor }}>
-      <ResumeActions />
+      <div styleName="header">
+        <ResumeActions />
+      </div>
       <ResumeSlider />
       <div styleName="box">
-        <Template.TemplateOne />
+        <MyScrollBox maxHeight={height - 76 - 16}>
+          <Template.TemplateOne />
+        </MyScrollBox>
       </div>
     </div>
   );

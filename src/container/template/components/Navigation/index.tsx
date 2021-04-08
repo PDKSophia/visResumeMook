@@ -1,6 +1,7 @@
 /**
  * @description 模版简历悬浮器
  * @author {pengdaokuan}
+ * @createTime 2021-04-08 19:57:20
  */
 import React from 'react';
 import './index.less';
@@ -31,13 +32,13 @@ function Navigation() {
                   {selectResumeTemplate?.id !== t.id && (
                     <MyButton
                       size="middle"
-                      className="use-btn"
+                      className="view-btn"
                       styles={{ backgroundColor: currentTheme?.backgroundColor, color: currentTheme?.fontColor }}
                       onClick={() => {
                         console.log(1);
                       }}
                     >
-                      使用
+                      预览
                     </MyButton>
                   )}
                 </div>

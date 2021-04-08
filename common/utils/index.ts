@@ -1,36 +1,12 @@
-/**
- * @desc 判断是否属于外部连接
- * @param {string} url - 链接
- */
-export function isUrl(url: string): boolean {
-  let regRule = /(http|https):\/\/([\w.]+\/?)\S*/;
-  return regRule.test(url.toLowerCase());
-}
-
-/**
- * 获取URL中的参数的值
- * @param {string} paras 参数key
- * @returns {string} 返回参数的value
- */
-export function getUrlParam(paras?: string) {
-  let url = window.location.search;
-  let paramString = url.substring(url.indexOf('?') + 1, url.length).split('&');
-  let paraObj: {
-    [key: string]: string;
-  } = {};
-  let j = '';
-  for (let i = 0; (j = paramString[i]); i++) {
-    const key = j.substring(0, j.indexOf('=')).toLowerCase();
-    const value = j.substring(j.indexOf('=') + 1, j.length);
-    paraObj[key] = value;
-  }
-  let returnValue: any;
-  if (paras) {
-    returnValue = paraObj[paras.toLowerCase()];
-  } else {
-    returnValue = { ...paraObj };
-  }
-  return typeof returnValue === 'undefined' ? '' : returnValue;
+// 创建uid
+export function createUID() {
+  return 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'
+    .replace(/[xy]/g, (c) => {
+      let r = (Math.random() * 16) | 0;
+      let v = c === 'x' ? r : (r & 3) | 8;
+      return v.toString(16);
+    })
+    .toUpperCase();
 }
 
 /**
@@ -94,15 +70,4 @@ export function setPollPromise(funcs: any, time = 300, max?: number | string) {
       }
     }, time);
   });
-}
-
-// 创建uid
-export function createUID() {
-  return 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'
-    .replace(/[xy]/g, (c) => {
-      let r = (Math.random() * 16) | 0;
-      let v = c === 'x' ? r : (r & 3) | 8;
-      return v.toString(16);
-    })
-    .toUpperCase();
 }
