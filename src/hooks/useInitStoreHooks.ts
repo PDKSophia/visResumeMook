@@ -25,21 +25,25 @@ export default function () {
           throw new Error(err.message);
         } else {
           if (files.length > 0) {
+            const list = files.map((fileName: string) => {
+              return {
+                id: createUID(),
+                name: fileName,
+                cover: `data:image/png;base64,${readFile(`${rootPath}assets/images/template/${fileName}`, 'base64')}`,
+              };
+            });
             dispatch({
-              type: 'resumeModel/setStore',
-              payload: {
-                key: 'resumeTemplateList',
-                values: files.map((fileName: string) => {
-                  return {
-                    id: createUID(),
-                    name: fileName,
-                    cover: `data:image/png;base64,${readFile(
-                      `${rootPath}assets/images/template/${fileName}`,
-                      'base64'
-                    )}`,
-                  };
-                }),
-              },
+              type: 'resumeModel/setStoreList',
+              payload: [
+                {
+                  key: 'resumeTemplateList',
+                  values: list,
+                },
+                {
+                  key: 'selectResumeTemplate',
+                  values: list[2], // 默认选中第二条，因为当前就第二条有模版
+                },
+              ],
             });
           }
         }

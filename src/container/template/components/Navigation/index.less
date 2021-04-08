@@ -19,19 +19,40 @@
     box-sizing: border-box;
     margin-bottom: 12px;
     position: relative;
-    cursor: pointer;
-    &:hover {
-      img {
-        transform: scale(1.02);
-      }
-      &::after {
+    .mask {
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      display: none;
+      img.use {
+        width: 64px;
+        height: 64px;
+        left: 0;
         position: absolute;
-        z-index: 1;
+        top: 50%;
+        margin-left: 50%;
+        transform: translate(-50%, -50%);
       }
       :global {
         .use-btn {
-          display: block;
+          z-index: 2;
+          left: 0;
+          position: absolute;
+          top: 50%;
+          margin-left: 50%;
+          transform: translate(-50%, -50%);
         }
+      }
+    }
+    &:hover {
+      img.cover {
+        transform: scale(0.98);
+      }
+      .mask {
+        display: block;
       }
     }
   }
@@ -42,16 +63,5 @@
     width: 100%;
     height: 100%;
     transition: all 0.5s;
-  }
-  :global {
-    .use-btn {
-      z-index: 2;
-      display: none;
-      left: 0;
-      position: absolute;
-      bottom: 16px;
-      margin-left: 50%;
-      transform: translateX(-50%);
-    }
   }
 }

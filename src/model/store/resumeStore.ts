@@ -7,10 +7,9 @@ export interface RModel {
 }
 
 export interface RStore {
-  userResume: ResumeType;
-  resumeTemplateList: ResumeTemplate[];
-  selectResumeTemplateName: string;
-  selectResumeTemplateIndex: number;
+  userResume: ResumeType; // 用户信息
+  resumeTemplateList: ResumeTemplate[]; // 简历模版
+  selectResumeTemplate: ResumeTemplate; // 当前选中的简历模版
 }
 
 const resumeModel: RModel = {
@@ -113,8 +112,11 @@ const resumeModel: RModel = {
       ],
     },
     resumeTemplateList: [],
-    selectResumeTemplateName: '测试模版',
-    selectResumeTemplateIndex: 0,
+    selectResumeTemplate: {
+      id: '',
+      name: '',
+      cover: '',
+    },
   },
 };
 

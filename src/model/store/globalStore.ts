@@ -6,16 +6,16 @@ export interface GModel {
 }
 
 export interface GStore {
-  rootPath: string;
-  currentTheme: ThemeType;
-  themeList: ThemeType[];
+  rootPath: string; // 项目路径
+  currentTheme: ThemeType; // 当前主题
+  themeList: ThemeType[]; // 主题列表
 }
 
 const globalModel: GModel = {
   namespace: 'globalModel',
   openSeamlessImmutable: true,
   state: {
-    rootPath: '', // 项目路径
+    rootPath: '',
     currentTheme: {
       id: '',
       fontColor: '',
