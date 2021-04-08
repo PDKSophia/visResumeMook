@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import fs from 'fs';
+import { readFile } from '@common/utils/fsfile';
 import { useDispatch } from 'react-redux';
 import { getAppPath } from '@common/utils/rootPath';
 import { ThemeType } from '@common/types/theme';
@@ -29,15 +30,13 @@ export default function () {
               payload: {
                 key: 'resumeTemplateList',
                 values: files.map((fileName: string) => {
-                  let fileRead = new FileReader();
                   return {
                     id: createUID(),
                     name: fileName,
-                    // cover: fileRead.readAsDataURL(
-                    //   new Blob([readFile(`${rootPath}assets/images/template/${fileName}`, 'base64')])
-                    // ),
-                    cover:
-                      'https://dev-private-test.seewo.com/seewo-drive-test/7f93ec3ee4dd4d5ba547ba5a39615ee2?e=1679925488&token=8nJLxlsdAhTqpjhpbx9uA-z75KqwEIPU1vzi9yRE:qOFKp0t-F1sEvCouBC-4kN4YZ2s=',
+                    cover: `data:image/png;base64,${readFile(
+                      `${rootPath}assets/images/template/${fileName}`,
+                      'base64'
+                    )}`,
                   };
                 }),
               },

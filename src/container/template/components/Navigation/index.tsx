@@ -22,7 +22,7 @@ function Navigation() {
           !!resumeTemplateList.length &&
           resumeTemplateList.map((t: ResumeTemplate) => {
             return (
-              <div styleName="template">
+              <div styleName="template" key={t.id}>
                 <img src={t.cover} />
                 <MyButton
                   size="middle"
