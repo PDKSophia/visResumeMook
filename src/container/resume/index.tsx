@@ -17,7 +17,7 @@ function Resume() {
       </div>
       <ResumeSlider />
       <div styleName="box">
-        <MyScrollBox maxHeight={height - 76 - 16}>
+        <MyScrollBox maxHeight={height - 92}>
           <Template.TemplateOne />
         </MyScrollBox>
       </div>

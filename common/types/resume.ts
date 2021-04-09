@@ -62,3 +62,11 @@ export interface ResumeTemplate {
   name: string;
   cover: string;
 }
+
+// 简历工具条模块
+export interface ResumeSliderType {
+  key: string;
+  name: string;
+  summary: string;
+  require: boolean; // 是否必须
+}
