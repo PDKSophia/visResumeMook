@@ -9,13 +9,12 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-      '@src': path.join(__dirname, '../', 'src/'),
+      '@src': path.join(__dirname, '../', 'app/renderer/'),
       '@assets': path.join(__dirname, '../', 'assets/'),
       '@config': path.join(__dirname, '../', 'config/'),
       '@common': path.join(__dirname, '../', 'common/'),
-      '@store': path.join(__dirname, '../', 'src/model/store/'),
-      '@indexDB': path.join(__dirname, '../', 'src/model/indexDB/'),
-      '@jsonFile': path.join(__dirname, '../', 'src/model/jsonFile/'),
+      '@store': path.join(__dirname, '../', 'app/renderer/model/store/'),
+      '@components': path.join(__dirname, '../', 'app/renderer/components/'),
     },
   },
   module: {

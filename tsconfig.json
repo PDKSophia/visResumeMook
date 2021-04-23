@@ -12,13 +12,12 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "paths": {
-      "@src/*": ["./src/*"],
+      "@src/*": ["./app/renderer/*"],
       "@assets/*": ["./assets/*"],
       "@config/*": ["./config/*"],
       "@common/*": ["./common/*"],
-      "@store/*": ["./model/store/*"],
-      "@indexDB/*": ["./model/indexDB/*"],
-      "@jsonFile/*": ["./model/jsonFile/*"]
+      "@store/*": ["./app/renderer/model/store/*"],
+      "@components/*": ["./app/renderer/components/*"],
     },
     "moduleResolution": "node"
   },

@@ -12,8 +12,8 @@ import { RouterType } from '@common/types/router';
 import { ROUTER_ENTRY, ROUTER_KEY } from '@common/constants/router';
 import { compilePath, isHttpOrHttpsUrl } from '@common/utils/router';
 import Logo from '../../../assets/logo.png';
-import MyTheme from '@common/components/MyTheme';
-import Copyright from '@common/components/Copyright';
+import MyTheme from '@components/MyTheme';
+import Copyright from '@components/Copyright';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 
 function Root() {

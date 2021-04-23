@@ -9,7 +9,7 @@ const smp = new SpeedMeasurePlugin();
 const devConfig = {
   mode: 'development',
   entry: {
-    index: path.resolve(__dirname, '../src/app.tsx'),
+    index: path.resolve(__dirname, '../app/renderer/app.tsx'),
   },
   target: 'electron-renderer',
   devtool: 'inline-source-map',
@@ -22,7 +22,7 @@ const devConfig = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../src/index.html'),
+      template: path.resolve(__dirname, '../app/renderer/index.html'),
       filename: path.resolve(__dirname, '../dist/index.html'),
       chunks: ['index'],
     }),

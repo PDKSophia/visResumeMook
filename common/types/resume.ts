@@ -3,9 +3,14 @@
  */
 // 基本信息
 export interface BaseInfo {
+  avatar: string; // 头像
   username: string; // 姓名
   area?: string; // 地区
   school?: string; // 学校
+  onSchoolTime?: {
+    beginTime: number;
+    endTime: number;
+  };
   major?: string; // 专业
   degree?: string; // 学位
   hometown?: string; // 籍贯
@@ -46,13 +51,13 @@ interface Experience {
 
 export default interface ResumeType {
   baseInfo: BaseInfo; // 基本信息
+  skill: string[]; // 技能
+  hobby: string; // 爱好特长
+  evaluation: string[]; // 自我评价
   contactInfo: ContactInfo; // 联系方式
   seekWorkInfo: SeekWorkInfo; // 求职意向
-  hobby: string; // 爱好特长
-  skill: string[]; // 技能
-  evaluation: string[]; // 自我评价
-  schoolExperience?: SchoolExperience; // 在校经历
   workExperience?: WorkExperience; // 工作经历
+  schoolExperience?: SchoolExperience; // 在校经历
   projectExperience?: ProjectExperience; // 项目经历
 }
 

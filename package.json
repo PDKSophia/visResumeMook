@@ -2,11 +2,11 @@
   "name": "visResumeMook",
   "version": "0.0.1",
   "author": "彭道宽",
-  "description": "My Electron demo app",
-  "main": "./app/electron.ts",
+  "description": "从0到1实现一款轻巧适用的简历平台桌面应用。",
+  "main": "./app/main/electron.ts",
   "scripts": {
-    "install:setup-electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron",
-    "install:remove-electron": "set ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ && node ./node_modules/electron/install.js",
+    "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron",
+    "remove: electron": "set ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ && node ./node_modules/electron/install.js",
     "webpack:main": "NODE_ENV=development webpack --config ./webpack/webpack.main.dev.js && electron ./dist/electron.js",
     "webpack:render": "webpack-dev-server --config ./webpack/webpack.render.dev.js"
   },
@@ -50,7 +50,6 @@
     "@types/classnames": "^2.2.11",
     "@types/react-css-modules": "^4.6.2",
     "@types/redux-logger": "^3.0.8",
-    "antd": "^4.14.1",
     "babel-loader": "^8.1.0",
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-react-css-modules": "^5.2.6",
