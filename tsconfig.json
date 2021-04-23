@@ -15,8 +15,8 @@
       "@src/*": ["./app/renderer/*"],
       "@assets/*": ["./assets/*"],
     },
-    "moduleResolution": "node"
+    "moduleResolution": "node",
   },
   "exclude": ["dist", "node_modules"],
-  "include": ["app", "common", "src"]
+  "include": ["app", "common", "src"],
 }
