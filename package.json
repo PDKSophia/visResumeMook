@@ -5,8 +5,8 @@
   "description": "My Electron demo app",
   "main": "./app/electron.ts",
   "scripts": {
-    "install:setup-electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron",
-    "install:remove-electron": "set ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ && node ./node_modules/electron/install.js",
+    "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron",
+    "remove: electron": "set ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ && node ./node_modules/electron/install.js",
     "webpack:main": "NODE_ENV=development webpack --config ./webpack/webpack.main.dev.js && electron ./dist/electron.js",
     "webpack:render": "webpack-dev-server --config ./webpack/webpack.render.dev.js"
   },

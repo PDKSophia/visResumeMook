@@ -12,8 +12,8 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "paths": {
-      "@src/*": ["./src/*"],
-      "@common/*": ["./common/*"],
+      "@src/*": ["./app/renderer/*"],
+      "@assets/*": ["./assets/*"],
     },
     "moduleResolution": "node"
   },
