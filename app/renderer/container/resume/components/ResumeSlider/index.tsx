@@ -6,6 +6,7 @@ import './index.less';
 import MyScrollBox from '@components/MyScrollBox';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 import ResumeSliderActionList, { ResumeSliderActionMaps } from '@common/constants/resume';
+import Messager, { MESSAGE_EVENT_MAPS } from '@src/common/mesasger';
 
 function ResumeSlider() {
   const height = document.body.clientHeight;
@@ -47,13 +48,16 @@ function ResumeSlider() {
         return next;
       });
       // 事件驱动，发布订阅模式告知简历模板组件，当前选择的模块
-      onSendSliderActionEvent(moduleSlider, 'add');
+      Messager.send(MESSAGE_EVENT_MAPS.SLIDER, {
+        key: moduleSlider.key,
+        name: moduleSlider.name,
+        status: 'add',
+      });
     }
   };
 
   // 删除模块
   const onDeleteSliderAction = (moduleSlider: TSResume.SliderItem) => {
-    // console.log(moduleSlider);
     const addSliderKeys = addSliderModule.map((s: TSResume.SliderItem) => s.key);
     if (addSliderKeys.includes(moduleSlider.key)) {
       setAddSliderModule((prev: TSResume.SliderItem[]) => {
@@ -67,7 +71,11 @@ function ResumeSlider() {
         next.unshift(moduleSlider);
         return next;
       });
-      onSendSliderActionEvent(moduleSlider, 'delete');
+      Messager.send(MESSAGE_EVENT_MAPS.SLIDER, {
+        key: moduleSlider.key,
+        name: moduleSlider.name,
+        status: 'delete',
+      });
     }
   };
 
@@ -76,19 +84,6 @@ function ResumeSlider() {
 
   // 点击测试用例
   const onToggleTestResume = () => {};
-
-  // 发送事件
-  const onSendSliderActionEvent = (moduleSlider: TSResume.SliderItem, status: string) => {
-    document.dispatchEvent(
-      new CustomEvent('current-select-slider-action', {
-        detail: {
-          sliderActionKey: moduleSlider.key,
-          sliderActionName: moduleSlider.name,
-          sliderActionStatus: status,
-        },
-      })
-    );
-  };
   return (
     <div styleName="slider">
       <MyScrollBox maxHeight={height - 180}>

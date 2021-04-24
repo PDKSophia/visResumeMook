@@ -15,20 +15,20 @@ import Post from './components/Post';
 import Project from './components/Project';
 import Work from './components/Work';
 import MyA4Hoc from '@components/MyA4Hoc';
+import Messager, { MESSAGE_EVENT_MAPS } from '@src/common/mesasger';
 
 function TemplateOne() {
   useEffect(() => {
-    document.addEventListener('current-select-slider-action', onReceiveSliderActionEvent);
+    document.addEventListener(MESSAGE_EVENT_MAPS.SLIDER, onReceive);
     return () => {
-      document.removeEventListener('current-select-slider-action', onReceiveSliderActionEvent);
+      document.removeEventListener(MESSAGE_EVENT_MAPS.SLIDER, onReceive);
     };
   }, []);
 
-  // https://github.com/microsoft/TypeScript/issues/299
-  // 这里暂时使用any类型，采用 MouseEvent、EventTarget、HTMLElement都不行
-  const onReceiveSliderActionEvent = (e: any) => {
-    console.log('receive data...');
-    console.log(e.detail);
+  const onReceive = (e: any) => {
+    Messager.receive(e, (data: any) => {
+      console.log('data');
+    });
   };
 
   // 必须带有id，以方便导出时获取DOM元素内容
