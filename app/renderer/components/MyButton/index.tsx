@@ -23,7 +23,7 @@ export interface Button {
    */
   disabled?: boolean;
   className?: string;
-  onClick: Function;
+  onClick?: Function;
   /**
    * @description 是否显示边框
    */

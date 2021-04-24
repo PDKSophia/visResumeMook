@@ -4,9 +4,9 @@
 import React, { useEffect, useState } from 'react';
 import './index.less';
 import MyScrollBox from '@components/MyScrollBox';
+import Messager, { MESSAGE_EVENT_MAPS } from '@src/common/mesasger';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 import ResumeSliderActionList, { ResumeSliderActionMaps } from '@common/constants/resume';
-import Messager, { MESSAGE_EVENT_MAPS } from '@src/common/mesasger';
 
 function ResumeSlider() {
   const height = document.body.clientHeight;
