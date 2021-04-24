@@ -4,7 +4,6 @@
  */
 import React from 'react';
 import './index.less';
-import { ThemeType } from '@common/types/theme';
 import { useSelector } from 'react-redux';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 
@@ -15,7 +14,7 @@ function MyTheme() {
     <div styleName="box">
       {themeList &&
         themeList.length > 0 &&
-        [...themeList].map((t: ThemeType, index: number) => {
+        [...themeList].map((t: TSTheme.Item, index: number) => {
           return (
             <span
               key={index}

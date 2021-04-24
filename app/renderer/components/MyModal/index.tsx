@@ -9,19 +9,49 @@ import MyButton from '../MyButton';
 export type Position = 'top' | 'bottom' | 'center';
 
 export interface BtnConfig {
+  /**
+   * @description 按钮文本
+   */
   text?: string;
+  /**
+   * @description 是否显示
+   */
   isShow: boolean;
   callback?: () => void;
 }
 
 export interface IProps {
-  title: string; // 标题
-  description?: string; // 描述
-  position?: Position; // 弹窗位置
-  renderFooter?: React.ReactNode; // 底部按钮自定义
+  /**
+   * @description 标题
+   */
+  title: string;
+  /**
+   * @description 描述
+   */
+  description?: string;
+  /**
+   * @description 弹窗位置
+   */
+  position?: Position;
+  /**
+   * @description 底部按钮自定义
+   */
+  renderFooter?: React.ReactNode;
+  /**
+   * @description 配置
+   */
   config?: {
+    /**
+     * @description 取消按钮
+     */
     cancelBtn?: BtnConfig;
+    /**
+     * @description 确定按钮
+     */
     submitBtn?: BtnConfig;
+    /**
+     * @description 删除按钮
+     */
     deleteBtn?: BtnConfig;
   };
 }

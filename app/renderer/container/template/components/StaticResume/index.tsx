@@ -24,7 +24,7 @@ function StaticResume() {
             <MyButton
               size="middle"
               className="use-btn"
-              styles={{ backgroundColor: currentTheme?.backgroundColor, color: currentTheme?.fontColor }}
+              style={{ backgroundColor: currentTheme?.backgroundColor, color: currentTheme?.fontColor }}
               onClick={() => {
                 history.push(
                   compilePath(ROUTERS.resume, { templateId: selectResumeTemplate?.id, fromPath: ROUTER_KEY.template })

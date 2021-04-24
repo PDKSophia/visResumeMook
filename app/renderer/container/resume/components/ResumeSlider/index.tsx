@@ -4,21 +4,20 @@
 import React, { useEffect, useState } from 'react';
 import './index.less';
 import MyScrollBox from '@components/MyScrollBox';
-import { ResumeSliderType } from '@common/types/resume';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 import ResumeSliderActionList, { ResumeSliderActionMaps } from '@common/constants/resume';
 
 function ResumeSlider() {
   const height = document.body.clientHeight;
   const [currentTheme] = useGetCurrentThemeAction();
-  const [addSliderModule, setAddSliderModule] = useState<ResumeSliderType[]>([]);
-  const [unAddSliderModule, setUnAddSliderModule] = useState<ResumeSliderType[]>([]);
+  const [addSliderModule, setAddSliderModule] = useState<TSResume.SliderItem[]>([]);
+  const [unAddSliderModule, setUnAddSliderModule] = useState<TSResume.SliderItem[]>([]);
 
   useEffect(() => {
     if (ResumeSliderActionList.length) {
-      let _addSlider: ResumeSliderType[] = [];
-      let _unAddSlider: ResumeSliderType[] = [];
-      ResumeSliderActionList.forEach((s: ResumeSliderType) => {
+      let _addSlider: TSResume.SliderItem[] = [];
+      let _unAddSlider: TSResume.SliderItem[] = [];
+      ResumeSliderActionList.forEach((s: TSResume.SliderItem) => {
         if (s.require) _addSlider.push(s);
         if (!s.require) _unAddSlider.push(s);
       });
@@ -28,22 +27,22 @@ function ResumeSlider() {
   }, []);
 
   // 进行编辑
-  const onEditSliderAction = (moduleSlider: ResumeSliderType) => {
+  const onEditSliderAction = (moduleSlider: TSResume.SliderItem) => {
     console.log(moduleSlider);
   };
 
   // 添加模块
-  const onAddSliderAction = (moduleSlider: ResumeSliderType) => {
-    const addSliderKeys = addSliderModule.map((s: ResumeSliderType) => s.key);
+  const onAddSliderAction = (moduleSlider: TSResume.SliderItem) => {
+    const addSliderKeys = addSliderModule.map((s: TSResume.SliderItem) => s.key);
     if (!addSliderKeys.includes(moduleSlider.key)) {
-      setAddSliderModule((prev: ResumeSliderType[]) => {
+      setAddSliderModule((prev: TSResume.SliderItem[]) => {
         let next = [...prev];
         next.push(moduleSlider);
         return next;
       });
-      setUnAddSliderModule((prev: ResumeSliderType[]) => {
+      setUnAddSliderModule((prev: TSResume.SliderItem[]) => {
         let next = [...prev];
-        const findIndex = prev.findIndex((s: ResumeSliderType) => s.key === moduleSlider.key);
+        const findIndex = prev.findIndex((s: TSResume.SliderItem) => s.key === moduleSlider.key);
         next.splice(findIndex, 1);
         return next;
       });
@@ -53,17 +52,17 @@ function ResumeSlider() {
   };
 
   // 删除模块
-  const onDeleteSliderAction = (moduleSlider: ResumeSliderType) => {
+  const onDeleteSliderAction = (moduleSlider: TSResume.SliderItem) => {
     // console.log(moduleSlider);
-    const addSliderKeys = addSliderModule.map((s: ResumeSliderType) => s.key);
+    const addSliderKeys = addSliderModule.map((s: TSResume.SliderItem) => s.key);
     if (addSliderKeys.includes(moduleSlider.key)) {
-      setAddSliderModule((prev: ResumeSliderType[]) => {
+      setAddSliderModule((prev: TSResume.SliderItem[]) => {
         let next = [...prev];
-        const findIndex = prev.findIndex((s: ResumeSliderType) => s.key === moduleSlider.key);
+        const findIndex = prev.findIndex((s: TSResume.SliderItem) => s.key === moduleSlider.key);
         next.splice(findIndex, 1);
         return next;
       });
-      setUnAddSliderModule((prev: ResumeSliderType[]) => {
+      setUnAddSliderModule((prev: TSResume.SliderItem[]) => {
         let next = [...prev];
         next.unshift(moduleSlider);
         return next;
@@ -79,7 +78,7 @@ function ResumeSlider() {
   const onToggleTestResume = () => {};
 
   // 发送事件
-  const onSendSliderActionEvent = (moduleSlider: ResumeSliderType, status: string) => {
+  const onSendSliderActionEvent = (moduleSlider: TSResume.SliderItem, status: string) => {
     document.dispatchEvent(
       new CustomEvent('current-select-slider-action', {
         detail: {
@@ -100,7 +99,7 @@ function ResumeSlider() {
               已添加模块
             </div>
             <div styleName="content">
-              {addSliderModule.map((addSlider: ResumeSliderType) => {
+              {addSliderModule.map((addSlider: TSResume.SliderItem) => {
                 return (
                   <div
                     styleName="box"
@@ -152,7 +151,7 @@ function ResumeSlider() {
               待添加模块
             </div>
             <div styleName="content">
-              {unAddSliderModule.map((unAddSlider: ResumeSliderType) => {
+              {unAddSliderModule.map((unAddSlider: TSResume.SliderItem) => {
                 return (
                   <div styleName="box" key={unAddSlider.key} onClick={() => onAddSliderAction(unAddSlider)}>
                     <div styleName="info">

@@ -8,10 +8,9 @@ import './index.less';
 import { shell } from 'electron';
 import { useHistory } from 'react-router';
 import { useSelector } from 'react-redux';
-import { RouterType } from '@common/types/router';
 import { ROUTER_ENTRY, ROUTER_KEY } from '@common/constants/router';
 import { compilePath, isHttpOrHttpsUrl } from '@common/utils/router';
-import Logo from '../../../../assets/logo.png';
+import Logo from '@assets/logo.png';
 import MyTheme from '@components/MyTheme';
 import Copyright from '@components/Copyright';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
@@ -21,7 +20,7 @@ function Root() {
   const [currentTheme] = useGetCurrentThemeAction();
   const selectResumeTemplate = useSelector((state: any) => state.resumeModel.selectResumeTemplate);
 
-  const onRouterToLink = (router: RouterType) => {
+  const onRouterToLink = (router: TSRouter.Item) => {
     if (isHttpOrHttpsUrl(router.url)) {
       shell.openExternal(router.url);
     } else {
@@ -43,7 +42,7 @@ function Root() {
           <MyTheme />
         </div>
         <div styleName="action">
-          {ROUTER_ENTRY.map((router: RouterType) => {
+          {ROUTER_ENTRY.map((router: TSRouter.Item) => {
             return (
               <div
                 key={router.key}

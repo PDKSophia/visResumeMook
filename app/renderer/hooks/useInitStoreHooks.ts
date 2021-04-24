@@ -1,9 +1,8 @@
 import _ from 'lodash';
 import fs from 'fs';
-import { readFile } from '@common/utils/fsfile';
+import { readFile } from '@common/utils/file';
 import { useDispatch } from 'react-redux';
 import { getAppPath } from '@common/utils/rootPath';
-import { ThemeType } from '@common/types/theme';
 import { createUID } from '@common/utils';
 import { useReadSettingConfigContentAction } from './useSettingActionHooks';
 
@@ -50,10 +49,10 @@ export default function () {
       });
     });
     readSettingConfigContentAction().then((values: { [key: string]: any }) => {
-      const themeList: ThemeType[] = values.themeList || [];
+      const themeList: TSTheme.Item[] = values.themeList || [];
       const prevTheme: string = values.currentTheme || '';
       const initTheme = { id: 'dark', fontColor: '#ffffff', backgroundColor: '#27292c' };
-      let nextTheme: ThemeType;
+      let nextTheme: TSTheme.Item;
 
       if (themeList.length > 0) {
         if (prevTheme) {

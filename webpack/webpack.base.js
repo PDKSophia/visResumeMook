@@ -12,7 +12,7 @@ module.exports = {
       '@src': path.join(__dirname, '../', 'app/renderer/'),
       '@assets': path.join(__dirname, '../', 'assets/'),
       '@config': path.join(__dirname, '../', 'config/'),
-      '@common': path.join(__dirname, '../', 'common/'),
+      '@common': path.join(__dirname, '../', 'app/renderer/common/'),
       '@store': path.join(__dirname, '../', 'app/renderer/model/store/'),
       '@components': path.join(__dirname, '../', 'app/renderer/components/'),
     },

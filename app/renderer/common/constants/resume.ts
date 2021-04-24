@@ -1,4 +1,3 @@
-import { ResumeSliderType } from '@common/types/resume';
 export const ResumeSliderActionMaps = {
   Personal: 'personal', // 个人信息
   Education: 'education', // 教育信息
@@ -11,7 +10,8 @@ export const ResumeSliderActionMaps = {
   Skill: 'skill', // 专业技能
   Test: 'test', // 测试用例
 };
-const ResumeSliderActionList: ResumeSliderType[] = [
+
+const ResumeSliderActionList: TSResume.SliderItem[] = [
   {
     key: ResumeSliderActionMaps.Personal,
     name: '个人信息',

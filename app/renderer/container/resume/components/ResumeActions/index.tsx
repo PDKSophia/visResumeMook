@@ -9,7 +9,6 @@ import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 import MyModal from '@components/MyModal';
 import MyButton from '@components/MyButton';
 import ROUTER, { ROUTER_KEY } from '@common/constants/router';
-import { compilePath } from '@common/utils/router';
 
 function ResumeActions() {
   const routerParams = useParams<{ templateId: string; fromPath: string }>();
@@ -34,7 +33,7 @@ function ResumeActions() {
       </div>
       <MyButton
         size="middle"
-        styles={{ backgroundColor: currentTheme?.backgroundColor, color: currentTheme?.fontColor }}
+        style={{ backgroundColor: currentTheme?.backgroundColor, color: currentTheme?.fontColor }}
         className="export-btn"
         onClick={() => {
           setShowModal(true);

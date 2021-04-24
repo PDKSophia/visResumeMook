@@ -1,5 +1,3 @@
-import ResumeType, { ResumeTemplate } from '@common/types/resume';
-
 export interface RModel {
   namespace: string;
   openSeamlessImmutable: boolean;
@@ -7,9 +5,9 @@ export interface RModel {
 }
 
 export interface RStore {
-  userResume: ResumeType; // 用户信息
-  resumeTemplateList: ResumeTemplate[]; // 简历模版
-  selectResumeTemplate: ResumeTemplate; // 当前选中的简历模版
+  userResume: TSResume.IntactResume; // 用户信息
+  resumeTemplateList: TSResume.TemplateItem[]; // 简历模版
+  selectResumeTemplate: TSResume.TemplateItem; // 当前选中的简历模版
 }
 
 const resumeModel: RModel = {
@@ -17,7 +15,7 @@ const resumeModel: RModel = {
   openSeamlessImmutable: true,
   state: {
     userResume: {
-      baseInfo: {
+      base: {
         avatar: '',
         username: '',
         area: '',
@@ -30,13 +28,13 @@ const resumeModel: RModel = {
           endTime: 0,
         },
       },
-      contactInfo: {
+      contact: {
         phone: '',
         email: '',
         github: '',
         juejin: '',
       },
-      seekWorkInfo: {
+      work: {
         job: '',
         city: [],
       },

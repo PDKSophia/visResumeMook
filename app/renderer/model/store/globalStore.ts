@@ -1,4 +1,3 @@
-import { ThemeType } from '@common/types/theme';
 export interface GModel {
   namespace: string;
   openSeamlessImmutable: boolean;
@@ -7,8 +6,8 @@ export interface GModel {
 
 export interface GStore {
   rootPath: string; // 项目路径
-  currentTheme: ThemeType; // 当前主题
-  themeList: ThemeType[]; // 主题列表
+  currentTheme: TSTheme.Item; // 当前主题
+  themeList: TSTheme.Item[]; // 主题列表
 }
 
 const globalModel: GModel = {

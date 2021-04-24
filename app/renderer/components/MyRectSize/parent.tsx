@@ -6,12 +6,21 @@ import LeftComponent from './left';
 import RightComponent from './right';
 
 interface IProps {
+  /**
+   * @description 自定义样式
+   */
   style?: React.CSSProperties;
   children?: any;
 }
 
 interface IState {
+  /**
+   * @description 尺寸
+   */
   rectSize: string;
+  /**
+   * @description 左侧真实宽度
+   */
   rectLeftWidth: number;
 }
 
@@ -24,8 +33,8 @@ class ParentComponent extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = {
-      rectSize: 'small', // 当前属于哪种尺寸
-      rectLeftWidth: 272, // 左侧真实宽度
+      rectSize: 'small',
+      rectLeftWidth: 272,
     };
   }
 

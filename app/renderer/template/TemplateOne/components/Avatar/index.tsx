@@ -6,14 +6,13 @@ import React from 'react';
 import './index.less';
 import { useSelector } from 'react-redux';
 import AvatarDemo from '@assets/demo.jpg';
-import ResumeType from '@common/types/resume';
 
 function Avatar() {
-  const userResume: ResumeType = useSelector((state: any) => state.resumeModel.userResume);
+  const userResume: TSResume.IntactResume = useSelector((state: any) => state.resumeModel.userResume);
 
   return (
     <div styleName="box">
-      <img src={userResume?.baseInfo?.avatar || AvatarDemo} />
+      <img src={userResume?.base?.avatar || AvatarDemo} />
     </div>
   );
 }

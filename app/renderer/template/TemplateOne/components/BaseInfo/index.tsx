@@ -5,26 +5,25 @@
 import React from 'react';
 import '../../../styles/template-one.less';
 import { useSelector } from 'react-redux';
-import ResumeType from '@common/types/resume';
 
 function BaseInfo() {
-  const userResume: ResumeType = useSelector((state: any) => state.resumeModel.userResume);
+  const userResume: TSResume.IntactResume = useSelector((state: any) => state.resumeModel.userResume);
 
   return (
     <div styleName="container">
-      {userResume && userResume?.baseInfo && (
+      {userResume && userResume?.base && (
         <>
           <p styleName="title">基本信息 Basic</p>
           <ul styleName="content">
-            {userResume?.baseInfo?.school && <li>院校：{userResume?.baseInfo?.school}</li>}
-            {userResume?.baseInfo?.major && <li>专业：{userResume?.baseInfo?.major}</li>}
-            {userResume?.baseInfo?.degree && <li>学历：{userResume?.baseInfo?.degree}</li>}
-            {userResume?.baseInfo?.onSchoolTime && (
+            {userResume?.base?.school && <li>院校：{userResume?.base?.school}</li>}
+            {userResume?.base?.major && <li>专业：{userResume?.base?.major}</li>}
+            {userResume?.base?.degree && <li>学历：{userResume?.base?.degree}</li>}
+            {userResume?.base?.onSchoolTime && (
               <li>
-                学年：{userResume?.baseInfo?.onSchoolTime?.beginTime} - {userResume?.baseInfo?.onSchoolTime?.endTime}
+                学年：{userResume?.base?.onSchoolTime?.beginTime} - {userResume?.base?.onSchoolTime?.endTime}
               </li>
             )}
-            {userResume?.baseInfo?.hometown && <li>籍贯：{userResume?.baseInfo?.hometown}</li>}
+            {userResume?.base?.hometown && <li>籍贯：{userResume?.base?.hometown}</li>}
           </ul>
         </>
       )}

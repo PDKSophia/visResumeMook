@@ -1,14 +1,29 @@
 import React from 'react';
 import './index.less';
 
-interface IScrollBoxProps {
-  children: any;
+interface IProps {
+  /**
+   * @description 子组件
+   */
+  children: React.ReactNode | any;
+  /**
+   * @description 最大高度，默认200
+   */
   maxHeight?: number;
+  /**
+   * @description 根div样式
+   */
   style?: React.CSSProperties;
-  onScrollTop?: (scrollTop: number) => void; // 开启了滚动事件之后，回调得到滚动的top
-  innerStyle?: any; // 给最内部的div设置样式
+  /**
+   * @description 最内部的div样式
+   */
+  innerStyle?: React.CSSProperties;
+  /**
+   * @description 开启了滚动事件之后，回调得到滚动的top
+   */
+  onScrollTop?: (scrollTop: number) => void;
 }
-function MyScrollBox({ children, maxHeight = 200, style = {}, onScrollTop, innerStyle = {} }: IScrollBoxProps) {
+function MyScrollBox({ children, maxHeight = 200, style = {}, innerStyle = {}, onScrollTop }: IProps) {
   function onScroll(e: any) {
     const _event = e.target || e.currentTarget;
     onScrollTop && onScrollTop(_event.scrollTop);
@@ -18,9 +33,9 @@ function MyScrollBox({ children, maxHeight = 200, style = {}, onScrollTop, inner
     _style = { ..._style, maxHeight: `${maxHeight}px` };
   }
   return (
-    <div className="MyScrollBox_outer" style={_style} onScroll={onScroll}>
-      <div className="MyScrollBox_hidden_scroll" style={{ maxHeight: `${maxHeight}px` }}>
-        <div className="MyScrollBox_inner" style={innerStyle}>
+    <div className="scroll-box-outer" style={_style} onScroll={onScroll}>
+      <div className="scroll-box-hidden" style={{ maxHeight: `${maxHeight}px` }}>
+        <div className="scroll-box-inter" style={innerStyle}>
           {children}
         </div>
       </div>

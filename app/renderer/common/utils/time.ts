@@ -1,8 +1,9 @@
 /**
  * 时间戳变成类似 2021/03/09 这样的字符串
- * @param {Number} num 时间戳整数
+ * @param {number} num 时间戳整数
+ * @returns {string} date
  */
-export function intToDateString(num: number, unit = '/') {
+export function intToDateString(num: number, unit = '/'): string {
   let date;
   if (!num) {
     date = new Date();
@@ -17,9 +18,10 @@ export function intToDateString(num: number, unit = '/') {
 
 /**
  * 时间戳变成类似14:28:19这样的字符串
- * @param {Number}  num 时间戳整数
+ * @param {number}  num 时间戳整数
+ * @returns {string} date
  */
-export function intToTimeString(num?: number) {
+export function intToTimeString(num?: number): string {
   let date;
   if (!num) {
     date = new Date();
@@ -32,7 +34,7 @@ export function intToTimeString(num?: number) {
   return `${hour >= 10 ? hour : '0' + hour}:${minute >= 10 ? minute : '0' + minute}:${
     second >= 0 ? second : '0' + second
   }
-`;
+  `;
 }
 
 /**

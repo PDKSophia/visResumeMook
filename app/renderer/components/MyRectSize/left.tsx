@@ -6,13 +6,22 @@ import classnames from 'classnames';
 import { setPollPromise, reducePX, transformStringToNumber } from '@common/utils';
 
 interface IProps {
+  /**
+   * @description 自定义样式
+   */
   style?: React.CSSProperties;
   boxRef?: any;
   key?: string;
 }
 
 interface IState {
+  /**
+   * @description 是否显示Menu控件
+   */
   showMenu: boolean;
+  /**
+   * @description 左侧组件DOM宽度
+   */
   width: number;
 }
 
@@ -20,10 +29,11 @@ class LeftComponent extends React.Component<IProps, IState> {
   isTransition: boolean;
   clearState: boolean;
   defaultRef = React.createRef();
+
   constructor(props: IProps) {
     super(props);
     this.state = {
-      showMenu: true, // 默认菜单栏是显示状态
+      showMenu: true,
       width: 0,
     };
     this.isTransition = false; // 只有点击的时候才加上动画

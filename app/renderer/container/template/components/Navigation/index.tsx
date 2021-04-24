@@ -9,7 +9,6 @@ import MyButton from '@components/MyButton';
 import MyScrollBox from '@components/MyScrollBox';
 import UseIcon from '@assets/icon/use.png';
 import { useSelector } from 'react-redux';
-import { ResumeTemplate } from '@common/types/resume';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 
 function Navigation() {
@@ -23,7 +22,7 @@ function Navigation() {
       <MyScrollBox maxHeight={height - 60 - 32}>
         {resumeTemplateList &&
           !!resumeTemplateList.length &&
-          resumeTemplateList.map((t: ResumeTemplate) => {
+          resumeTemplateList.map((t: TSResume.TemplateItem) => {
             return (
               <div styleName="template" key={t.id}>
                 <img styleName="cover" src={t.cover} />
@@ -33,7 +32,7 @@ function Navigation() {
                     <MyButton
                       size="middle"
                       className="view-btn"
-                      styles={{ backgroundColor: currentTheme?.backgroundColor, color: currentTheme?.fontColor }}
+                      style={{ backgroundColor: currentTheme?.backgroundColor, color: currentTheme?.fontColor }}
                       onClick={() => {
                         console.log(1);
                       }}

@@ -4,7 +4,6 @@
  * @createTime 2021-03-09 16:12:31
  */
 
-import { ThemeType } from '@common/types/theme';
 import { useDispatch, useSelector } from 'react-redux';
 import { useUpdateSettingConfigAction } from './useSettingActionHooks';
 
@@ -18,13 +17,13 @@ function useGetCurrentThemeAction() {
 }
 /**
  * @description 更新当前选中的主题
- * @param {ThemeType} theme 目标主题
+ * @param {TSTheme.Item} theme 目标主题
  * @param {boolean} isAsyncUpdateJsonFile 是否同步更新jsonfile配置
  */
 function useDispatchUpdateCurrentThemeAction() {
   const dispatch = useDispatch();
   const updateSettingConfigAction = useUpdateSettingConfigAction();
-  return (theme: ThemeType, isAsyncUpdateJsonFile?: boolean) => {
+  return (theme: TSTheme.Item, isAsyncUpdateJsonFile?: boolean) => {
     dispatch({
       type: 'globalModel/setStore',
       payload: {
@@ -40,13 +39,13 @@ function useDispatchUpdateCurrentThemeAction() {
 
 /**
  * @description 更新主题列表
- * @param {ThemeType[]} themeList 主题列表
+ * @param {TSTheme.Item[]} themeList 主题列表
  * @param {boolean} isAsyncUpdateJsonFile 是否同步更新jsonfile配置
  */
 function useDispatchUpdateThemeListAction() {
   const dispatch = useDispatch();
   const updateSettingConfigAction = useUpdateSettingConfigAction();
-  return (list: ThemeType, isAsyncUpdateJsonFile?: boolean) => {
+  return (list: TSTheme.Item, isAsyncUpdateJsonFile?: boolean) => {
     dispatch({
       type: 'globalModel/setStore',
       payload: {
