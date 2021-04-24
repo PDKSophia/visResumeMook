@@ -1,16 +1,19 @@
-export interface GModel {
-  namespace: string;
-  openSeamlessImmutable: boolean;
-  state: GStore;
-}
-
 export interface GStore {
-  rootPath: string; // 项目路径
-  currentTheme: TSTheme.Item; // 当前主题
-  themeList: TSTheme.Item[]; // 主题列表
+  /**
+   * @description 项目路径
+   */
+  rootPath: string;
+  /**
+   * @description 当前主题
+   */
+  currentTheme: TSTheme.Item;
+  /**
+   * @description 主题列表
+   */
+  themeList: TSTheme.Item[];
 }
 
-const globalModel: GModel = {
+const globalModel: TSRcReduxModel.Props<GStore> = {
   namespace: 'globalModel',
   openSeamlessImmutable: true,
   state: {

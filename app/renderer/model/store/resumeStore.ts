@@ -1,16 +1,19 @@
-export interface RModel {
-  namespace: string;
-  openSeamlessImmutable: boolean;
-  state: RStore;
-}
-
 export interface RStore {
-  userResume: TSResume.IntactResume; // 用户信息
-  resumeTemplateList: TSResume.TemplateItem[]; // 简历模版
-  selectResumeTemplate: TSResume.TemplateItem; // 当前选中的简历模版
+  /**
+   * @description 用户信息
+   */
+  userResume: TSResume.IntactResume;
+  /**
+   * @description 简历模版
+   */
+  resumeTemplateList: TSResume.TemplateItem[];
+  /**
+   * @description 当前选中的简历模版
+   */
+  selectResumeTemplate: TSResume.TemplateItem;
 }
 
-const resumeModel: RModel = {
+const resumeModel: TSRcReduxModel.Props<RStore> = {
   namespace: 'resumeModel',
   openSeamlessImmutable: true,
   state: {
