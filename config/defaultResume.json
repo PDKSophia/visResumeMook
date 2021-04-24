@@ -1,5 +1,5 @@
 {
-  "baseInfo": {
+  "base": {
     "username": "彭道宽",
     "area": "海南·海口",
     "school": "湖南瞎说大学",
@@ -12,13 +12,13 @@
       "endTime": 1561910409000
     }
   },
-  "contactInfo": {
+  "contact": {
     "phone": "176****2612",
     "email": "1063137960@qq.com",
     "github": "https://github.com/PDKSophia",
     "juejin": "https://juejin.cn/user/1838039171075352"
   },
-  "seekWorkInfo": {
+  "work": {
     "job": "前端工程师",
     "city": ["广州", "成都", "海口"]
   },

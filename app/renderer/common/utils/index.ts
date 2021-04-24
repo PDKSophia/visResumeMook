@@ -11,8 +11,8 @@ export function createUID() {
 
 /**
  * 将字符串数字转成整型数字
- * @param {String} value
- * @returns {Number}
+ * @param {string} value
+ * @returns {number}
  */
 export function transformStringToNumber(value: string): number {
   return Number(value);
@@ -29,44 +29,43 @@ export function reducePX(value: string | number | undefined): string {
 
 /**
  * @desc 轮询执行func函数 当func返回值.status为true时，返回.data；支持取消
- * @param {Function[]/Function} funcs - 为函数时，目标函数；为数组时，数组第一项时目标函数，第二项是取消函数
  * @param {number} time - 定时器轮询时间
  * @param {number | string} max - 最大执行，设置此参数会一直执行
+ * @param {function[]/function} funcArray - 为函数时，目标函数；为数组时，数组第一项是目标函数，第二项是取消函数
  */
-export function setPollPromise(funcs: any, time = 300, max?: number | string) {
+export function setPollPromise(funcArray: any, time = 300, max?: number | string): Promise<any> {
   let maxCount: number | string; // 最大执行次数，避免一直执行
   let isMax = false;
   if (max) {
     if (max === 'max') isMax = true;
     else maxCount = max;
   } else {
-    const minTime = 10 * 1000; // 最小执行时间
     const minCount = 10; // 最小执行次数
+    const minTime = 10 * 1000; // 最小执行时间
     maxCount = Math.ceil(minTime / time);
     if (maxCount < minCount) maxCount = minCount;
   }
   let count = 0;
-  let execution_fn: Function;
-  let cancel_fn: Function;
-  if (Object.prototype.toString.call(funcs) === '[object Array]') {
-    execution_fn = funcs[0];
-    cancel_fn = funcs[1];
+  let execFn: Function;
+  let cancelFn: Function;
+  if (Object.prototype.toString.call(funcArray) === '[object Array]') {
+    execFn = funcArray[0];
+    cancelFn = funcArray[1];
   } else {
-    execution_fn = funcs;
+    execFn = funcArray;
   }
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve: (res: any) => void, reject: (reason?: any) => void) => {
     const timeHandle = setInterval(() => {
       count++;
-      if (cancel_fn && cancel_fn()) {
+      if (cancelFn && cancelFn()) {
         clearInterval(timeHandle);
       } else {
-        const res = execution_fn();
+        const res = execFn();
         if (res || res === 0 || res === '') {
           clearInterval(timeHandle);
           resolve(res);
         }
-        // eslint-disable-next-line prefer-promise-reject-errors
-        if (!isMax && count >= maxCount) reject();
+        if (!isMax && count >= maxCount) reject(new Error('执行失败'));
       }
     }, time);
   });
