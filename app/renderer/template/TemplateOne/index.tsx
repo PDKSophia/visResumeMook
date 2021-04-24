@@ -7,7 +7,7 @@ import './index.less';
 import Avatar from './components/Avatar';
 import BaseInfo from './components/BaseInfo';
 import Contact from './components/Contact';
-import IntentionJob from './components/IntentionJob';
+import Job from './components/Job';
 import Certificate from './components/Certificate';
 import Synopsis from './components/Synopsis';
 import Skill from './components/Skill';
@@ -43,7 +43,7 @@ function TemplateOne() {
         <div styleName="baseData">
           <BaseInfo />
           <Contact />
-          <IntentionJob />
+          <Job />
           <Certificate />
         </div>
       </div>

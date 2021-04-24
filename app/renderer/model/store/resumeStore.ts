@@ -27,8 +27,8 @@ const resumeModel: TSRcReduxModel.Props<RStore> = {
         degree: '',
         hometown: '',
         onSchoolTime: {
-          beginTime: 0,
-          endTime: 0,
+          beginTime: null,
+          endTime: null,
         },
       },
       contact: {
@@ -44,6 +44,7 @@ const resumeModel: TSRcReduxModel.Props<RStore> = {
       hobby: '',
       skill: [],
       evaluation: [],
+      certificate: [],
       schoolExperience: [],
       workExperience: [],
       projectExperience: [],

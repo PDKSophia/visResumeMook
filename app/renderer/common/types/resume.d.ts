@@ -26,11 +26,11 @@ declare namespace TSResume {
       /**
        * @description 入校时间
        */
-      beginTime: number;
+      beginTime: number | null;
       /**
        * @description 离校时间
        */
-      endTime: number;
+      endTime: number | null;
     };
     /**
      * @description 专业
@@ -98,10 +98,14 @@ declare namespace TSResume {
      * @description 职位
      */
     post?: string;
+    /**
+     * @description 主要工作
+     */
+    content?: string;
   }
 
   /**
-   * @description 在校经验
+   * @description 工作经验
    */
   export interface WorkExperience extends Experience {
     /**
@@ -112,10 +116,14 @@ declare namespace TSResume {
      * @description 职位
      */
     post?: string;
+    /**
+     * @description 主要工作
+     */
+    content?: string;
   }
 
   /**
-   * @description 在校经验
+   * @description 项目经验
    */
   export interface ProjectExperience extends Experience {
     /**
@@ -126,6 +134,10 @@ declare namespace TSResume {
      * @description 职位
      */
     post?: string;
+    /**
+     * @description 主要工作
+     */
+    content?: string[];
   }
 
   /**
@@ -141,10 +153,6 @@ declare namespace TSResume {
      */
     endTime?: number;
     /**
-     * @description 主要工作
-     */
-    content?: string[];
-    /**
      * @description 额外补充内容
      */
     supplement?: string;
@@ -158,6 +166,7 @@ declare namespace TSResume {
     skill: string[];
     hobby: string;
     evaluation: string[];
+    certificate: string[];
     contact: Contact;
     work: Work;
     workExperience?: WorkExperience[];
