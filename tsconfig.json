@@ -22,5 +22,5 @@
     "moduleResolution": "node"
   },
   "exclude": ["dist", "node_modules"],
-  "include": ["app", "common", "src"]
+  "include": ["app/**/*.ts", "app/**/*.tsx", "app/**/*.d.ts"]
 }
