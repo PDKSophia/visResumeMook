@@ -11,6 +11,10 @@ const devConfig = {
   entry: {
     index: path.resolve(__dirname, '../app/renderer/app.tsx'),
   },
+  output: {
+    filename: '[name].[hash].js',
+    path: path.resolve(__dirname, '../dist'),
+  },
   target: 'electron-renderer',
   devtool: 'inline-source-map',
   devServer: {
