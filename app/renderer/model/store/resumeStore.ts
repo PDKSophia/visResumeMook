@@ -3,14 +3,6 @@ export interface RStore {
    * @description 用户信息
    */
   userResume: TSResume.IntactResume;
-  /**
-   * @description 简历模版
-   */
-  resumeTemplateList: TSResume.TemplateItem[];
-  /**
-   * @description 当前选中的简历模版
-   */
-  selectResumeTemplate: TSResume.TemplateItem;
 }
 
 const resumeModel: TSRcReduxModel.Props<RStore> = {
@@ -48,12 +40,6 @@ const resumeModel: TSRcReduxModel.Props<RStore> = {
       schoolExperience: [],
       workExperience: [],
       projectExperience: [],
-    },
-    resumeTemplateList: [],
-    selectResumeTemplate: {
-      id: '',
-      name: '',
-      cover: '',
     },
   },
 };

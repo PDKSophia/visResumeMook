@@ -32,7 +32,7 @@ export default function () {
               };
             });
             dispatch({
-              type: 'resumeModel/setStoreList',
+              type: 'templateModel/setStoreList',
               payload: [
                 {
                   key: 'resumeTemplateList',
