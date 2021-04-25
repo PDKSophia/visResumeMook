@@ -15,22 +15,8 @@ import Post from './components/Post';
 import Project from './components/Project';
 import Work from './components/Work';
 import MyA4Hoc from '@components/MyA4Hoc';
-import Messager, { MESSAGE_EVENT_MAPS } from '@src/common/mesasger';
 
 function TemplateOne() {
-  useEffect(() => {
-    document.addEventListener(MESSAGE_EVENT_MAPS.SLIDER, onReceive);
-    return () => {
-      document.removeEventListener(MESSAGE_EVENT_MAPS.SLIDER, onReceive);
-    };
-  }, []);
-
-  const onReceive = (e: any) => {
-    Messager.receive(e, (data: any) => {
-      console.log('data');
-    });
-  };
-
   // 必须带有id，以方便导出时获取DOM元素内容
   return (
     <div styleName="flex container" id="visPdf">

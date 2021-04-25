@@ -13,8 +13,8 @@ import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 
 function Navigation() {
   const height = document.body.clientHeight;
-  const resumeTemplateList = useSelector((state: any) => state.resumeModel.resumeTemplateList);
-  const selectResumeTemplate = useSelector((state: any) => state.resumeModel.selectResumeTemplate);
+  const resumeTemplateList = useSelector((state: any) => state.templateModel.resumeTemplateList);
+  const selectResumeTemplate = useSelector((state: any) => state.templateModel.selectResumeTemplate);
   const [currentTheme] = useGetCurrentThemeAction();
 
   return (

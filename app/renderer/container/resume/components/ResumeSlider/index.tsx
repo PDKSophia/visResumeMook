@@ -1,82 +1,58 @@
 /**
  * @description 编辑简历-模块管理
  */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import './index.less';
 import MyScrollBox from '@components/MyScrollBox';
-import Messager, { MESSAGE_EVENT_MAPS } from '@src/common/mesasger';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
-import ResumeSliderActionList, { ResumeSliderActionMaps } from '@common/constants/resume';
+import { useChangeResumeSliderKeys, useAddSlider, useDeleteSlider } from './hooks';
+import RESUME_SLIDER_LIST, { RESUME_SLIDER_MAPS } from '@common/constants/resume';
 
 function ResumeSlider() {
   const height = document.body.clientHeight;
   const [currentTheme] = useGetCurrentThemeAction();
-  const [addSliderModule, setAddSliderModule] = useState<TSResume.SliderItem[]>([]);
-  const [unAddSliderModule, setUnAddSliderModule] = useState<TSResume.SliderItem[]>([]);
+  const [addSliderList, setAddSliderList] = useState<TSResume.SliderItem[]>([]);
+  const [unAddSliderList, setUnAddSliderList] = useState<TSResume.SliderItem[]>([]);
+
+  const addSlider = useAddSlider();
+  const deleteSlider = useDeleteSlider();
+  const changeResumeSliderKeys = useChangeResumeSliderKeys();
 
   useEffect(() => {
-    if (ResumeSliderActionList.length) {
-      let _addSlider: TSResume.SliderItem[] = [];
-      let _unAddSlider: TSResume.SliderItem[] = [];
-      ResumeSliderActionList.forEach((s: TSResume.SliderItem) => {
-        if (s.require) _addSlider.push(s);
-        if (!s.require) _unAddSlider.push(s);
+    if (RESUME_SLIDER_LIST.length > 0) {
+      let _addSliderList: TSResume.SliderItem[] = [];
+      let _unAddSliderList: TSResume.SliderItem[] = [];
+      RESUME_SLIDER_LIST.forEach((s: TSResume.SliderItem) => {
+        if (s.require) _addSliderList.push(s);
+        if (!s.require) _unAddSliderList.push(s);
       });
-      setAddSliderModule(_addSlider);
-      setUnAddSliderModule(_unAddSlider);
+      setAddSliderList(_addSliderList);
+      changeResumeSliderKeys(_addSliderList.map((s) => s.key));
+      setUnAddSliderList(_unAddSliderList);
     }
   }, []);
 
-  // 进行编辑
-  const onEditSliderAction = (moduleSlider: TSResume.SliderItem) => {
-    console.log(moduleSlider);
-  };
-
   // 添加模块
   const onAddSliderAction = (moduleSlider: TSResume.SliderItem) => {
-    const addSliderKeys = addSliderModule.map((s: TSResume.SliderItem) => s.key);
-    if (!addSliderKeys.includes(moduleSlider.key)) {
-      setAddSliderModule((prev: TSResume.SliderItem[]) => {
-        let next = [...prev];
-        next.push(moduleSlider);
-        return next;
-      });
-      setUnAddSliderModule((prev: TSResume.SliderItem[]) => {
-        let next = [...prev];
-        const findIndex = prev.findIndex((s: TSResume.SliderItem) => s.key === moduleSlider.key);
-        next.splice(findIndex, 1);
-        return next;
-      });
-      // 事件驱动，发布订阅模式告知简历模板组件，当前选择的模块
-      Messager.send(MESSAGE_EVENT_MAPS.SLIDER, {
-        key: moduleSlider.key,
-        name: moduleSlider.name,
-        status: 'add',
-      });
-    }
+    const nextAddSliderList = addSlider(addSliderList, moduleSlider);
+    setAddSliderList(nextAddSliderList);
+    changeResumeSliderKeys(nextAddSliderList.map((s: TSResume.SliderItem) => s.key));
+    const nextUnAddSliderList = deleteSlider(unAddSliderList, moduleSlider);
+    setUnAddSliderList(nextUnAddSliderList);
   };
 
   // 删除模块
   const onDeleteSliderAction = (moduleSlider: TSResume.SliderItem) => {
-    const addSliderKeys = addSliderModule.map((s: TSResume.SliderItem) => s.key);
-    if (addSliderKeys.includes(moduleSlider.key)) {
-      setAddSliderModule((prev: TSResume.SliderItem[]) => {
-        let next = [...prev];
-        const findIndex = prev.findIndex((s: TSResume.SliderItem) => s.key === moduleSlider.key);
-        next.splice(findIndex, 1);
-        return next;
-      });
-      setUnAddSliderModule((prev: TSResume.SliderItem[]) => {
-        let next = [...prev];
-        next.unshift(moduleSlider);
-        return next;
-      });
-      Messager.send(MESSAGE_EVENT_MAPS.SLIDER, {
-        key: moduleSlider.key,
-        name: moduleSlider.name,
-        status: 'delete',
-      });
-    }
+    const nextAddSliderList = deleteSlider(addSliderList, moduleSlider);
+    setAddSliderList(nextAddSliderList);
+    changeResumeSliderKeys(nextAddSliderList.map((s: TSResume.SliderItem) => s.key));
+    const nextUnAddSliderList = addSlider(unAddSliderList, moduleSlider);
+    setUnAddSliderList(nextUnAddSliderList);
+  };
+
+  // 编辑模块
+  const onEditSliderAction = (moduleSlider: TSResume.SliderItem) => {
+    console.log(moduleSlider);
   };
 
   // 个人信息处理
@@ -84,25 +60,26 @@ function ResumeSlider() {
 
   // 点击测试用例
   const onToggleTestResume = () => {};
+
   return (
     <div styleName="slider">
       <MyScrollBox maxHeight={height - 180}>
-        {!!addSliderModule.length && (
+        {!!addSliderList.length && (
           <div styleName="module">
             <div styleName="title">
               <span styleName="line" style={{ backgroundColor: currentTheme?.backgroundColor }} />
               已添加模块
             </div>
             <div styleName="content">
-              {addSliderModule.map((addSlider: TSResume.SliderItem) => {
+              {addSliderList.map((addSlider: TSResume.SliderItem) => {
                 return (
                   <div
                     styleName="box"
                     key={addSlider.key}
                     onClick={() => {
-                      if (addSlider.key === ResumeSliderActionMaps.Personal) {
+                      if (addSlider.key === RESUME_SLIDER_MAPS.personal) {
                         onEditPersonalResume();
-                      } else if (addSlider.key === ResumeSliderActionMaps.Test) {
+                      } else if (addSlider.key === RESUME_SLIDER_MAPS.test) {
                         onToggleTestResume();
                       }
                     }}
@@ -139,14 +116,14 @@ function ResumeSlider() {
             </div>
           </div>
         )}
-        {!!unAddSliderModule.length && (
+        {!!unAddSliderList.length && (
           <div styleName="module">
             <div styleName="title un-first">
               <span styleName="line" style={{ backgroundColor: currentTheme?.backgroundColor }} />
               待添加模块
             </div>
             <div styleName="content">
-              {unAddSliderModule.map((unAddSlider: TSResume.SliderItem) => {
+              {unAddSliderList.map((unAddSlider: TSResume.SliderItem) => {
                 return (
                   <div styleName="box" key={unAddSlider.key} onClick={() => onAddSliderAction(unAddSlider)}>
                     <div styleName="info">
