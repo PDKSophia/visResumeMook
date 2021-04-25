@@ -1,21 +1,10 @@
-# VisResumeMook
+## Electron + React Hooks + TS 实战开发：从 0 到 1 实现简历平台
 
-React + TS + Electron 打造可视化在线简历平台
+此分支为 `Electron` 初始化项目分支代码，只涉及到 Electron 相关，如看简历平台完整初始化代码，请访问: [初始化项目分支代码](https://github.com/PDKSophia/visResumeMook/tree/init)
 
-![](https://img.shields.io/badge/visResumeMook--resume-1.0.2-red.svg)
-![](https://img.shields.io/badge/react-16.12.0-blue.svg)
-![](https://img.shields.io/badge/electron-11.1.1-green.svg)
-![](https://img.shields.io/badge/react_redux-7.1.3-orange.svg)
-![](https://img.shields.io/badge/typescript-3.7.2-blue.svg)
-![](https://img.shields.io/badge/license-MIT-orange.svg)
-
-# 开发
+**开发**
 
 ```bash
-git clone https://github.com/PDKSophia/visResumeMook.git
-cd visResumeMook
-npm run webpack:main
-npm run webpack:render
+npm run install:electron
+npm run start:main
 ```
-
-推荐使用 `vscode-beehive-extension` 插件辅助项目脚本运行～
