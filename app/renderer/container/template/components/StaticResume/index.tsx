@@ -13,7 +13,7 @@ function StaticResume() {
   const history = useHistory();
   const height = document.body.clientHeight;
   const [currentTheme] = useGetCurrentThemeAction();
-  const selectResumeTemplate = useSelector((state: any) => state.resumeModel.selectResumeTemplate);
+  const selectResumeTemplate = useSelector((state: any) => state.templateModel.selectResumeTemplate);
 
   if (height > 0) {
     return (

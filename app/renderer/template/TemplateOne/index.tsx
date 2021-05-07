@@ -14,9 +14,13 @@ import Skill from './components/Skill';
 import Post from './components/Post';
 import Project from './components/Project';
 import Work from './components/Work';
-import MyA4Hoc from '@components/MyA4Hoc';
+import MyA4Hoc from '@common/hoc/MyA4Hoc';
+import { useSelector } from 'react-redux';
+import { RESUME_SLIDER_MAPS } from '@common/constants/resume';
 
 function TemplateOne() {
+  const userResume: TSResume.IntactResume = useSelector((state: any) => state.resumeModel.userResume);
+  const resumeSliderKeys: string[] = useSelector((state: any) => state.templateModel.resumeSliderKeys);
   // 必须带有id，以方便导出时获取DOM元素内容
   return (
     <div styleName="flex container" id="visPdf">
@@ -28,19 +32,19 @@ function TemplateOne() {
         <div styleName="fillColor" />
         <div styleName="baseData">
           <BaseInfo />
-          <Contact />
-          <Job />
-          <Certificate />
+          {userResume?.contact?.email || (userResume?.contact?.phone && <Contact />)}
+          {resumeSliderKeys.includes(RESUME_SLIDER_MAPS.workPrefer) && <Job />}
+          {resumeSliderKeys.includes(RESUME_SLIDER_MAPS.certificate) && <Certificate />}
         </div>
       </div>
       {/* 内容 */}
       <div styleName="center">
-        <Synopsis />
+        {resumeSliderKeys.includes(RESUME_SLIDER_MAPS.evaluation) && <Synopsis />}
         <div styleName="listData">
-          <Skill />
-          {/* <Post /> */}
-          <Project />
-          <Work />
+          {resumeSliderKeys.includes(RESUME_SLIDER_MAPS.skill) && <Skill />}
+          {resumeSliderKeys.includes(RESUME_SLIDER_MAPS.schoolExperience) && <Post />}
+          {resumeSliderKeys.includes(RESUME_SLIDER_MAPS.projectExperience) && <Project />}
+          {resumeSliderKeys.includes(RESUME_SLIDER_MAPS.workExperience) && <Work />}
         </div>
       </div>
     </div>

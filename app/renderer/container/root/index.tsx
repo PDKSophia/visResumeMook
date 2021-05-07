@@ -18,7 +18,7 @@ import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 function Root() {
   const history = useHistory();
   const [currentTheme] = useGetCurrentThemeAction();
-  const selectResumeTemplate = useSelector((state: any) => state.resumeModel.selectResumeTemplate);
+  const selectResumeTemplate = useSelector((state: any) => state.templateModel.selectResumeTemplate);
 
   const onRouterToLink = (router: TSRouter.Item) => {
     if (isHttpOrHttpsUrl(router.url)) {
