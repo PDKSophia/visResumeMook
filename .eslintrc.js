@@ -6,10 +6,6 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: ['jest'],
-  env: {
-    'jest/globals': true,
-  },
   globals: {
     // 这里填入你的项目需要的全局变量
     // 这里值为 false 表示这个全局变量不允许被重新赋值，比如：
@@ -41,6 +37,7 @@ module.exports = {
     '@typescript-eslint/prefer-optional-chain': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/no-duplicate-imports': 'off',
+    '@typescript-eslint/no-require-imports': 'off',
     'react/no-unsafe': 'off',
     '@typescript-eslint/no-invalid-this': 'off',
     'react/jsx-key': 0,

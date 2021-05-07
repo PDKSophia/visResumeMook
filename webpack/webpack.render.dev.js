@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 const path = require('path');
 const webpackMerge = require('webpack-merge');
 const baseConfig = require('./webpack.base.js');
@@ -31,6 +30,36 @@ const devConfig = {
       chunks: ['index'],
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.less$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]__[hash:base64:5]',
+              },
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              options: {},
+            },
+          },
+          'less-loader',
+        ],
+      },
+    ],
+  },
 };
 
 module.exports = smp.wrap(webpackMerge.merge(baseConfig, devConfig));
