@@ -1,28 +1,18 @@
-.vis-modal {
+.vis-confirm-box {
   width: 440px;
   padding: 40px 40px 24px;
   box-sizing: border-box;
   border-radius: 12px;
   background-color: #ffffff;
   z-index: 3;
-  .vis-cancel {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 20px;
-    height: 20px;
-    background-image: url('../../../../../assets/icon/cancel.png');
-    background-size: cover;
-    cursor: pointer;
-  }
-  .vis-modal-content {
-    p.vis-title {
+  .vis-confirm-content {
+    p.vis-confirm-content-title {
       font-weight: 700;
       font-size: 18px;
       color: rgba(0, 0, 0, 0.8);
       line-height: 28px;
     }
-    p.vis-desc {
+    p.vis-confirm-content-desc {
       font-size: 14px;
       color: rgba(0, 0, 0, 0.6);
       line-height: 22px;
@@ -30,11 +20,11 @@
       max-height: 44px;
     }
   }
-  .vis-modal-footer {
+  .vis-confirm-footer {
     margin-top: 24px;
     text-align: right;
     :global {
-      .vis-modal-btn {
+      .vis-confirm-footer-btn {
         border: 1px solid #ddd;
         border-radius: 24px;
         font-size: 14px;
@@ -47,13 +37,13 @@
           margin-right: 0;
         }
       }
-      .vis-modal-cancel-btn {
+      .vis-confirm-footer-cancel-btn {
         color: rgba(0, 0, 0, 0.6);
         &:hover {
           background-color: #f6f8fa;
         }
       }
-      .vis-modal-submit-btn {
+      .vis-confirm-footer-submit-btn {
         color: #ffffff;
         background-color: #198fff;
         border: none;
@@ -61,7 +51,7 @@
           background-color: #3b9efa;
         }
       }
-      .vis-modal-delete-btn {
+      .vis-confirm-footer-delete-btn {
         color: #ffffff;
         background-color: #e65c5c;
         border: none;

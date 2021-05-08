@@ -1,75 +1,25 @@
 /**
  * @description 弹窗组件
  */
-import React, { LegacyRef } from 'react';
+import React from 'react';
 import './index.less';
 import MyButton from '@components/MyButton';
+import { IModal } from '../types';
 
-export type Position = 'top' | 'bottom' | 'center';
-
-export interface BtnConfig {
-  /**
-   * @description 按钮文本
-   */
-  text?: string;
-  /**
-   * @description 是否显示
-   */
-  isShow: boolean;
-  callback?: () => void;
-}
-
-export interface IProps {
-  /**
-   * @description 标题
-   */
-  title: string;
-  /**
-   * @description 描述
-   */
-  description?: string;
-  /**
-   * @description 弹窗位置
-   */
-  position?: Position;
-  /**
-   * @description 底部按钮自定义
-   */
-  renderFooter?: React.ReactNode;
-  /**
-   * @description 配置
-   */
-  config?: {
-    /**
-     * @description 取消按钮
-     */
-    cancelBtn?: BtnConfig;
-    /**
-     * @description 确定按钮
-     */
-    submitBtn?: BtnConfig;
-    /**
-     * @description 删除按钮
-     */
-    deleteBtn?: BtnConfig;
-  };
-  eleRef?: LegacyRef<HTMLDivElement> | undefined;
-}
-
-function MyModal({ title, description, renderFooter, config = {}, eleRef }: IProps) {
+function MyConfirm({ title, description, renderFooter, config = {}, eleRef }: IModal) {
   const { deleteBtn = { isShow: false }, cancelBtn = { isShow: true }, submitBtn = { isShow: true } } = config;
   return (
-    <div styleName="vis-modal" ref={eleRef}>
-      <div styleName="vis-modal-content">
-        <p styleName="vis-title">{title || '友情提示'}</p>
-        {description && <p styleName="vis-desc">{description}</p>}
+    <div styleName="vis-confirm-box" ref={eleRef}>
+      <div styleName="vis-confirm-content">
+        <p styleName="vis-confirm-content-title">{title || '友情提示'}</p>
+        {description && <p styleName="vis-confirm-content-desc">{description}</p>}
       </div>
       {renderFooter || (
-        <div styleName="vis-modal-footer">
+        <div styleName="vis-confirm-footer">
           {cancelBtn?.isShow && (
             <MyButton
               size="middle"
-              className="vis-modal-btn vis-modal-cancel-btn"
+              className="vis-confirm-footer-btn vis-confirm-footer-cancel-btn"
               onClick={() => {
                 cancelBtn?.callback && cancelBtn.callback();
               }}
@@ -80,7 +30,7 @@ function MyModal({ title, description, renderFooter, config = {}, eleRef }: IPro
           {submitBtn?.isShow && (
             <MyButton
               size="middle"
-              className="vis-modal-btn vis-modal-submit-btn"
+              className="vis-confirm-footer-btn vis-confirm-footer-submit-btn"
               onClick={() => {
                 submitBtn?.callback && submitBtn.callback();
               }}
@@ -88,11 +38,10 @@ function MyModal({ title, description, renderFooter, config = {}, eleRef }: IPro
               {submitBtn?.text || '确定'}
             </MyButton>
           )}
-
           {deleteBtn?.isShow && (
             <MyButton
               size="middle"
-              className="vis-modal-btn vis-modal-delete-btn"
+              className="vis-confirm-footer-btn vis-confirm-footer-delete-btn"
               onClick={() => {
                 deleteBtn?.callback && deleteBtn.callback();
               }}
@@ -106,4 +55,4 @@ function MyModal({ title, description, renderFooter, config = {}, eleRef }: IPro
   );
 }
 
-export default MyModal;
+export default MyConfirm;
