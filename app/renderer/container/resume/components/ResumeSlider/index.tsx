@@ -1,12 +1,14 @@
 /**
  * @description 编辑简历-模块管理
  */
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.less';
 import MyScrollBox from '@components/MyScrollBox';
 import { useGetCurrentThemeAction } from '@src/hooks/useThemeActionHooks';
 import { useChangeResumeSliderKeys, useAddSlider, useDeleteSlider } from './hooks';
-import RESUME_SLIDER_LIST, { RESUME_SLIDER_MAPS } from '@common/constants/resume';
+import RESUME_SLIDER_LIST from '@common/constants/resume';
+import Messager, { MESSAGE_EVENT_MAPS } from '@common/mesasger';
+import useFormHook from '../ResumeFormDialog/useFormHook';
 
 function ResumeSlider() {
   const height = document.body.clientHeight;
@@ -16,6 +18,7 @@ function ResumeSlider() {
 
   const addSlider = useAddSlider();
   const deleteSlider = useDeleteSlider();
+  const [FormDialog] = useFormHook();
   const changeResumeSliderKeys = useChangeResumeSliderKeys();
 
   useEffect(() => {
@@ -50,17 +53,6 @@ function ResumeSlider() {
     setUnAddSliderList(nextUnAddSliderList);
   };
 
-  // 编辑模块
-  const onEditSliderAction = (moduleSlider: TSResume.SliderItem) => {
-    console.log(moduleSlider);
-  };
-
-  // 个人信息处理
-  const onEditPersonalResume = () => {};
-
-  // 点击测试用例
-  const onToggleTestResume = () => {};
-
   return (
     <div styleName="slider">
       <MyScrollBox maxHeight={height - 180}>
@@ -77,11 +69,9 @@ function ResumeSlider() {
                     styleName="box"
                     key={addSlider.key}
                     onClick={() => {
-                      if (addSlider.key === RESUME_SLIDER_MAPS.personal) {
-                        onEditPersonalResume();
-                      } else if (addSlider.key === RESUME_SLIDER_MAPS.test) {
-                        onToggleTestResume();
-                      }
+                      Messager.send(MESSAGE_EVENT_MAPS.OPEN_FORM_MODAL, {
+                        form_dialog_name: addSlider.key,
+                      });
                     }}
                   >
                     <div styleName="info">
@@ -97,7 +87,9 @@ function ResumeSlider() {
                             styleName="edit"
                             onClick={(e: React.MouseEvent) => {
                               e.stopPropagation && e.stopPropagation();
-                              onEditSliderAction(addSlider);
+                              Messager.send(MESSAGE_EVENT_MAPS.OPEN_FORM_MODAL, {
+                                form_dialog_name: addSlider.key,
+                              });
                             }}
                           />
                           <i
@@ -139,6 +131,7 @@ function ResumeSlider() {
             </div>
           </div>
         )}
+        {FormDialog}
       </MyScrollBox>
     </div>
   );

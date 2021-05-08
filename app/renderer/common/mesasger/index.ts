@@ -1,20 +1,20 @@
 export const MESSAGE_EVENT_MAPS = {
-  SLIDER: 'slider', // 简历模块选择
+  OPEN_FORM_MODAL: 'open_form_modal', // 简历模块选择
 };
 
 /**
  * @description 发送事件
  * @summary 简历选择工具-选中模块
  * // 注册事件并发送数据
- * Messager.send(MESSAGE_EVENT_MAPS.SLIDER, {
+ * Messager.send(MESSAGE_EVENT_MAPS.OPEN_FORM_MODAL, {
     data: 'xxx'
    });
 
    // 在具体组件监听此事件并接收数据
    useEffect(() => {
-    document.addEventListener(MESSAGE_EVENT_MAPS.SLIDER, onReceive);
+    document.addEventListener(MESSAGE_EVENT_MAPS.OPEN_FORM_MODAL, onReceive);
     return () => {
-      document.removeEventListener(MESSAGE_EVENT_MAPS.SLIDER, onReceive);
+      document.removeEventListener(MESSAGE_EVENT_MAPS.OPEN_FORM_MODAL, onReceive);
     };
   }, []);
 
