@@ -7,7 +7,7 @@ import './index.less';
 import { useDispatch, useSelector } from 'react-redux';
 import uploadIcon from '@assets/icon/upload.png';
 import MyButton from '@src/components/MyButton';
-import ImageUpload from '@components/MyInput/ImageUpload';
+import ImageUpload from '@src/components/MyUpload/ImageUpload';
 
 function Avatar() {
   const dispatch = useDispatch();

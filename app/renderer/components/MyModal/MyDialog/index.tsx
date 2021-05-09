@@ -1,12 +1,12 @@
 /**
  * @description 弹窗组件
  */
-import React, { Children } from 'react';
+import React from 'react';
 import './index.less';
 import MyButton from '@components/MyButton';
 import { IModal } from '../types';
 
-function MyDialog({ title, description, renderFooter, config = {}, eleRef, children }: IModal) {
+function MyDialog({ title, renderFooter, config = {}, eleRef, children }: IModal) {
   const { cancelBtn = { isShow: true }, submitBtn = { isShow: true } } = config;
   return (
     <div styleName="vis-dialog-box" ref={eleRef}>

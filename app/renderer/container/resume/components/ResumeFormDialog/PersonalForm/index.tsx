@@ -5,8 +5,9 @@
  * 因为用户无心的误操作将弹窗关闭，就会使得交互上体验不佳，
  */
 import React from 'react';
-import { Dialog } from '@src/components/MyModal';
+import { Dialog } from '@components/MyModal';
 import MyMaskHoc from '@common/hoc/MyMaskHoc';
+import MyInput from '@components/MyInput';
 
 interface IProps {
   onCancel?: () => {};
@@ -20,19 +21,39 @@ function PersonalForm(props: IProps | any) {
         cancelBtn: {
           isShow: true,
           callback: () => {
-            console.log(11111);
             props?.onCancel && props.onCancel();
           },
         },
         submitBtn: {
           isShow: true,
           callback: () => {
-            console.log(456);
+            props?.onSubmit && props.onSubmit();
           },
         },
       }}
     >
-      <div>呵呵呵</div>
+      <div>
+        <MyInput
+          onChange={(e) => {
+            console.log(e.target.value);
+          }}
+          style={{ width: 456 }}
+          placeholder="演示"
+          autoFocus
+          allowClear={true}
+        />
+        <MyInput
+          onChange={(e) => {
+            console.log(e.target.value);
+          }}
+          type="textarea"
+          allowCount={300}
+          style={{ width: 456 }}
+          placeholder="演示"
+          autoFocus
+          allowClear={true}
+        />
+      </div>
     </Dialog>
   );
 }
