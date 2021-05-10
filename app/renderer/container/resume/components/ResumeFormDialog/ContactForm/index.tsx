@@ -1,5 +1,5 @@
 /**
- * @description 教育信息Form
+ * @description 联系方式Form
  * 基于 MyDialog 二次封装，结合 MyMaskHoc 加一蒙层
  * 由于弹窗更多注重信息的的输入，所以就不需要通过 useClickAway 实现点击蒙层之外的地方关闭
  * 因为用户无心的误操作将弹窗关闭，就会使得交互上体验不佳
@@ -16,12 +16,12 @@ interface IProps {
   onCancel?: () => {};
   onSubmit?: () => {};
 }
-function EducationForm(props: IProps | any) {
+function ContactForm(props: IProps | any) {
   const updateResumeHook = useUpdateResumeHook();
   const userResume: TSResume.IntactResume = useSelector((state: any) => state.resumeModel.userResume);
   return (
     <Dialog
-      title="教育信息"
+      title="联系方式"
       showFooter={false}
       config={{
         cancelBtn: {
@@ -34,79 +34,66 @@ function EducationForm(props: IProps | any) {
       <div styleName="form">
         <div styleName="flex">
           <div styleName="left">
-            <span styleName="require">*</span>学 校 ：
+            <span styleName="require">*</span>电 话 ：
           </div>
           <div styleName="right">
             <MyInput
               onChange={(e) => {
-                updateResumeHook<string>('base/school', e.target.value);
+                updateResumeHook<string>('contact/phone', e.target.value);
               }}
-              value={userResume?.base?.school || ''}
-              placeholder="请输入贵校"
+              value={userResume?.contact?.phone || ''}
+              placeholder="请输入电话号码"
               allowClear={true}
             />
           </div>
         </div>
         <div styleName="flex">
           <div styleName="left">
-            <span styleName="require">*</span>专 业 ：
+            <span styleName="require">*</span>邮 箱 ：
           </div>
           <div styleName="right">
             <MyInput
               onChange={(e) => {
-                updateResumeHook<string>('base/major', e.target.value);
+                updateResumeHook<string>('contact/email', e.target.value);
               }}
-              value={userResume?.base?.major || ''}
-              placeholder="请输入专业"
+              value={userResume?.contact?.email || ''}
+              placeholder="请输入邮箱"
               allowClear={true}
             />
           </div>
         </div>
         <div styleName="flex">
           <div styleName="left">
-            <span styleName="require">*</span>学 位 ：
+            <span styleName="require" style={{ opacity: 0 }}>
+              *
+            </span>
+            Github ：
           </div>
           <div styleName="right">
             <MyInput
               onChange={(e) => {
-                updateResumeHook<string>('base/degree', e.target.value);
+                updateResumeHook<string>('contact/github', e.target.value);
               }}
-              value={userResume?.base?.degree || ''}
-              placeholder="学士？硕士？博士？"
+              value={userResume?.contact?.github || ''}
+              placeholder="Github 地址"
               allowClear={true}
             />
           </div>
         </div>
         <div styleName="flex">
           <div styleName="left">
-            <span styleName="require">*</span>学 年 ：
+            <span styleName="require" style={{ opacity: 0 }}>
+              *
+            </span>
+            Juejin ：
           </div>
           <div styleName="right">
             <MyInput
               onChange={(e) => {
-                const nextTime = {
-                  ...userResume?.base?.onSchoolTime,
-                  beginTime: e.target.value,
-                };
-                updateResumeHook<object>('base/onSchoolTime', nextTime);
+                updateResumeHook<string>('contact/juejin', e.target.value);
               }}
-              value={userResume?.base?.onSchoolTime?.beginTime || ''}
-              placeholder="2015.09.01"
-              allowClear={true}
-              style={{ width: 300 }}
-            />
-            <span styleName="line">-</span>
-            <MyInput
-              onChange={(e) => {
-                const nextTime = {
-                  ...userResume?.base?.onSchoolTime,
-                  endTime: e.target.value,
-                };
-                updateResumeHook<object>('base/onSchoolTime', nextTime);
-              }}
-              value={userResume?.base?.onSchoolTime?.endTime || ''}
-              placeholder="2015.06.30"
-              style={{ width: 300 }}
+              value={userResume?.contact?.juejin || ''}
+              placeholder="掘金地址"
               allowClear={true}
             />
           </div>
@@ -115,4 +102,4 @@ function EducationForm(props: IProps | any) {
     </Dialog>
   );
 }
-export default MyMaskHoc(EducationForm)({ position: 'center' });
+export default MyMaskHoc(ContactForm)({ position: 'center' });
