@@ -8,7 +8,8 @@
     "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron",
     "remove: electron": "set ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ && node ./node_modules/electron/install.js",
     "webpack:main": "NODE_ENV=development webpack --config ./webpack/webpack.main.dev.js && electron ./dist/electron.js",
-    "webpack:render": "webpack-dev-server --config ./webpack/webpack.render.dev.js"
+    "webpack:render": "webpack-dev-server --config ./webpack/webpack.render.dev.js",
+    "start": "npm run webpack:render & npm run webpack:main"
   },
   "keywords": [],
   "license": "ISC",
@@ -19,7 +20,6 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@types/lodash": "^4.14.168",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/react-redux": "^7.1.16",

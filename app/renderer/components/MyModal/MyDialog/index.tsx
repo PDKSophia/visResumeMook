@@ -6,7 +6,7 @@ import './index.less';
 import MyButton from '@components/MyButton';
 import { IModal } from '../types';
 
-function MyDialog({ title, renderFooter, config = {}, eleRef, children }: IModal) {
+function MyDialog({ title, showFooter, renderFooter, config = {}, eleRef, children }: IModal) {
   const { cancelBtn = { isShow: true }, submitBtn = { isShow: true } } = config;
   return (
     <div styleName="vis-dialog-box" ref={eleRef}>
@@ -18,32 +18,33 @@ function MyDialog({ title, renderFooter, config = {}, eleRef, children }: IModal
         }}
       />
       <div styleName="vis-dialog-content">{children}</div>
-      {renderFooter || (
-        <div styleName="vis-dialog-footer">
-          {cancelBtn?.isShow && (
-            <MyButton
-              size="middle"
-              className="vis-dialog-footer-btn vis-dialog-footer-cancel-btn"
-              onClick={() => {
-                cancelBtn?.callback && cancelBtn.callback();
-              }}
-            >
-              {cancelBtn?.text || '取消'}
-            </MyButton>
-          )}
-          {submitBtn?.isShow && (
-            <MyButton
-              size="middle"
-              className="vis-dialog-footer-btn vis-dialog-footer-submit-btn"
-              onClick={() => {
-                submitBtn?.callback && submitBtn.callback();
-              }}
-            >
-              {submitBtn?.text || '确定'}
-            </MyButton>
-          )}
-        </div>
-      )}
+      {showFooter &&
+        (renderFooter || (
+          <div styleName="vis-dialog-footer">
+            {cancelBtn?.isShow && (
+              <MyButton
+                size="middle"
+                className="vis-dialog-footer-btn vis-dialog-footer-cancel-btn"
+                onClick={() => {
+                  cancelBtn?.callback && cancelBtn.callback();
+                }}
+              >
+                {cancelBtn?.text || '取消'}
+              </MyButton>
+            )}
+            {submitBtn?.isShow && (
+              <MyButton
+                size="middle"
+                className="vis-dialog-footer-btn vis-dialog-footer-submit-btn"
+                onClick={() => {
+                  submitBtn?.callback && submitBtn.callback();
+                }}
+              >
+                {submitBtn?.text || '确定'}
+              </MyButton>
+            )}
+          </div>
+        ))}
     </div>
   );
 }

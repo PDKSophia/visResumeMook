@@ -8,7 +8,7 @@ interface BtnConfig {
   /**
    * @description 是否显示
    */
-  isShow: boolean;
+  isShow?: boolean;
   callback?: () => void;
 }
 export interface IModal {
@@ -24,6 +24,10 @@ export interface IModal {
    * @description 弹窗位置
    */
   position?: Position;
+  /**
+   * @description 是否需要显示底部
+   */
+  showFooter?: boolean;
   /**
    * @description 底部按钮自定义
    */

@@ -26,11 +26,11 @@ declare namespace TSResume {
       /**
        * @description 入校时间
        */
-      beginTime: number | null;
+      beginTime: string | number | null;
       /**
        * @description 离校时间
        */
-      endTime: number | null;
+      endTime: string | number | null;
     };
     /**
      * @description 专业
@@ -83,7 +83,8 @@ declare namespace TSResume {
     /**
      * @description 意愿城市
      */
-    city?: string[];
+    city?: string;
+    cityList?: string[];
   }
 
   /**
@@ -147,11 +148,11 @@ declare namespace TSResume {
     /**
      * @description 开始时间
      */
-    beginTime?: number;
+    beginTime?: number | string | undefined;
     /**
      * @description 结束时间
      */
-    endTime?: number;
+    endTime?: number | string | undefined;
     /**
      * @description 额外补充内容
      */
@@ -165,8 +166,10 @@ declare namespace TSResume {
     base: Base;
     skill: string[];
     hobby: string;
-    evaluation: string[];
-    certificate: string[];
+    evaluation: string;
+    evaluationList: string[];
+    certificate: string;
+    certificateList: string[];
     contact: Contact;
     work: Work;
     workExperience?: WorkExperience[];

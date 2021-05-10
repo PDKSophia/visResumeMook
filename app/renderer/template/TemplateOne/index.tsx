@@ -32,14 +32,14 @@ function TemplateOne() {
         <div styleName="fillColor" />
         <div styleName="baseData">
           <BaseInfo />
-          {userResume?.contact?.email || (userResume?.contact?.phone && <Contact />)}
+          {resumeSliderKeys.includes(RESUME_SLIDER_MAPS.contact) && <Contact />}
           {resumeSliderKeys.includes(RESUME_SLIDER_MAPS.workPrefer) && <Job />}
           {resumeSliderKeys.includes(RESUME_SLIDER_MAPS.certificate) && <Certificate />}
         </div>
       </div>
       {/* 内容 */}
       <div styleName="center">
-        {resumeSliderKeys.includes(RESUME_SLIDER_MAPS.evaluation) && <Synopsis />}
+        {(resumeSliderKeys.includes(RESUME_SLIDER_MAPS.evaluation) || userResume?.base?.username) && <Synopsis />}
         <div styleName="listData">
           {resumeSliderKeys.includes(RESUME_SLIDER_MAPS.skill) && <Skill />}
           {resumeSliderKeys.includes(RESUME_SLIDER_MAPS.schoolExperience) && <Post />}

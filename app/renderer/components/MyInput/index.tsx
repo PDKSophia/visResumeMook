@@ -54,7 +54,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   /**
    * @description 输入框内容
    */
-  value?: string;
+  value?: string | number | undefined;
   /**
    * @description 输入框占位符
    */

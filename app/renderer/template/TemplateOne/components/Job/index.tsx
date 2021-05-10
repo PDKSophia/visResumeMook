@@ -8,16 +8,15 @@ import { useSelector } from 'react-redux';
 
 function Job() {
   const userResume: TSResume.IntactResume = useSelector((state: any) => state.resumeModel.userResume);
-
   return (
     <div styleName="container">
       <p styleName="title">求职意向 Work</p>
       <ul styleName="content">
         {userResume?.work?.job && <li>职位：{userResume?.work?.job}</li>}
-        {userResume?.work?.city && !!userResume?.work?.city.length && (
+        {userResume?.work?.city && userResume?.work?.cityList && userResume?.work?.cityList?.length > 0 && (
           <li>
             城市：
-            {userResume?.work?.city?.map((city: string, index: number) => {
+            {userResume?.work?.cityList?.map((city: string, index: number) => {
               return <span key={index}>{city}</span>;
             })}
           </li>

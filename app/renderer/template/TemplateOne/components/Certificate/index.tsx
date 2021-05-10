@@ -12,8 +12,9 @@ function Certificate() {
     <div styleName="container">
       <p styleName="title">荣誉奖励 Certificate</p>
       <ul styleName="content">
-        {!!userResume?.certificate?.length &&
-          userResume?.certificate?.map((value: string, index: number) => {
+        {userResume?.certificate &&
+          userResume?.certificateList.length > 0 &&
+          userResume?.certificateList?.map((value: string, index: number) => {
             return <li key={index}>{value}</li>;
           })}
       </ul>

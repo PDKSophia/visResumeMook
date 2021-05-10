@@ -1,5 +1,6 @@
 export const RESUME_SLIDER_MAPS = {
   personal: 'personal', // 个人信息
+  contact: 'contact', // 联系方式
   education: 'education', // 教育信息
   workPrefer: 'workPrefer', // 工作期望
   schoolExperience: 'schoolExperience', // 在校经历
@@ -23,6 +24,12 @@ const RESUME_SLIDER_LIST: TSResume.SliderItem[] = [
     name: '教育信息',
     require: false,
     summary: '介绍你的学校和专业信息',
+  },
+  {
+    key: RESUME_SLIDER_MAPS.contact,
+    name: '联系方式',
+    require: false,
+    summary: '少侠，请留下你的联系方式',
   },
   {
     key: RESUME_SLIDER_MAPS.workPrefer,

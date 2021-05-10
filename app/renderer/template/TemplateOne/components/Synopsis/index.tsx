@@ -13,7 +13,7 @@ function Synopsis() {
     <div styleName="content">
       {userResume?.base?.username && <p styleName="name">{userResume?.base?.username}</p>}
       {userResume?.work?.job && <p styleName="job">{userResume?.work?.job}</p>}
-      {userResume?.evaluation && <p styleName="summary">{userResume?.evaluation}</p>}
+      {userResume?.evaluation && <p styleName="summary">{userResume?.evaluationList?.join('，')}</p>}
     </div>
   );
 }
