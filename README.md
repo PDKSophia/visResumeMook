@@ -68,4 +68,42 @@ npm run build-app-win
 - [x] [Webpack 篇-Plugins 让打包更加便捷](https://juejin.cn/book/6950646725295996940/section/6951616617662906381)
 - [x] [实战篇-动手搭建我们的简历平台（一）](https://juejin.cn/book/6950646725295996940/section/6950957331270074376)
 - [x] [实战篇-动手搭建我们的简历平台（二）](https://juejin.cn/book/6950646725295996940/section/6955000793904709639)
-- [ ] ...
+- [x] [实战篇-动手搭建我们的简历平台（三）](https://juejin.cn/book/6950646725295996940/section/6951570518633873448)
+- [x] [实战篇-数据流及存储方案设计](https://juejin.cn/editor/book/6950646725295996940/section/6951619744227131399)
+- [x] [实战篇-主题换肤功能实现及 Hook 优化逻辑](https://juejin.cn/editor/book/6950646725295996940/section/6952492449763852301)
+- [x] [实战篇-公共弹窗拆解—流程梳理及职责划分](https://juejin.cn/editor/book/6950646725295996940/section/6953437212834791431)
+- [x] [实战篇-公共弹窗拆解—封装通用 MyMaskHoc](https://juejin.cn/editor/book/6950646725295996940/section/6959913928722022414)
+- [x] [实战篇-公共弹窗拆解—封装通用 useClickAwayHook](https://juejin.cn/editor/book/6950646725295996940/section/6959371363756802082)
+- [x] [实战篇-公共弹窗拆解—封装通用 useModalHook](https://juejin.cn/editor/book/6950646725295996940/section/6958057770499178531)
+- [x] [实战篇-数据录入及封装简历信息弹窗 useFormHook](https://juejin.cn/editor/book/6950646725295996940/section/6959911478002450463)
+- [x] [实战篇-简历导出功能实现](https://juejin.cn/editor/book/6950646725295996940/section/6953057009075748868)
+- [x] [打包篇-Webpack 打包优化（一）](https://juejin.cn/editor/book/6950646725295996940/section/6953628385746616356)
+- [x] [打包篇-Webpack 打包优化（二）](https://juejin.cn/editor/book/6950646725295996940/section/6953615519589072936)
+- [x] [打包篇-Electron 打包体积优化并发布](https://juejin.cn/editor/book/6950646725295996940/section/6959934795627364356)
+- [x] [结尾篇-回顾和总结](https://juejin.cn/editor/book/6950646725295996940/section/6953057305483034632)
+- [x] [彩蛋篇-RcReduxModel 中间件开发设计](https://juejin.cn/editor/book/6950646725295996940/section/6953057493043904549)
+- [x] [彩蛋篇-洗牌算法助力随机模版推荐](https://juejin.cn/editor/book/6950646725295996940/section/6953056962430894111)
+- [x] [期望篇-插件化实现远端拉取简历模版库](https://juejin.cn/editor/book/6950646725295996940/section/6953057609167405064)
+- [x] [期望篇-可视化自定义独特的简历模版](https://juejin.cn/editor/book/6950646725295996940/section/6953057711445671943)
+
+### 效果
+
+1. 首页
+
+![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/922146a39661431aa8a5f9f053e8d747~tplv-k3u1fbpfcp-watermark.image)
+
+2. 模版列表页
+
+![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3b313159241145d2ad15dade1063ead1~tplv-k3u1fbpfcp-watermark.image)
+
+3. 制作简历页
+
+![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c92abf2246e64a13a9c0b9b7beb262f7~tplv-k3u1fbpfcp-watermark.image)
+
+4. 导出简历信息
+
+![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c2245ec154324e6c95e59bfb25306659~tplv-k3u1fbpfcp-watermark.image)
+
+5. 导出 `名字+学校+职位` PDF
+
+<img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7d7fdab52954dbfa6995b95b95deef3~tplv-k3u1fbpfcp-watermark.image" width=300 />
