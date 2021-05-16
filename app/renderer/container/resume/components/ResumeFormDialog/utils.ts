@@ -34,13 +34,4 @@ export default {
   isTest: (resumeSliderName: string) => {
     return resumeSliderName === RESUME_SLIDER_MAPS.test;
   },
-  /**
-   * @description 将英文的|全局改成中文的｜
-   */
-  replaceLineString: <T>(value: T) => {
-    console.log('value: ', value);
-    if (!value) return '';
-    const reg = /|/g;
-    return (value as any).replace(reg, '$$$');
-  },
 };

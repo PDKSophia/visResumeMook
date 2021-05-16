@@ -8,7 +8,7 @@ export const RESUME_SLIDER_MAPS = {
   workExperience: 'workExperience', // 工作经历
   certificate: 'certificate', // 获奖证书
   evaluation: 'evaluation', // 个人评价
-  skill: 'skill', // 专业技能
+  skill: 'skill', // 技能清单
   test: 'test', // 测试用例
 };
 
@@ -69,7 +69,7 @@ const RESUME_SLIDER_LIST: TSResume.SliderItem[] = [
   },
   {
     key: RESUME_SLIDER_MAPS.skill,
-    name: '专业技能',
+    name: '技能清单',
     require: false,
     summary: '展示具备的技能，突出你的能力',
   },

@@ -164,7 +164,8 @@ declare namespace TSResume {
    */
   export interface IntactResume {
     base: Base;
-    skill: string[];
+    skill: string;
+    skillList: string[];
     hobby: string;
     evaluation: string;
     evaluationList: string[];
