@@ -79,7 +79,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
 
 interface InputState {
   focus: boolean;
-  text: string;
+  text: string | number;
 }
 
 export default class MyInput extends React.PureComponent<InputProps, InputState> {
@@ -88,8 +88,24 @@ export default class MyInput extends React.PureComponent<InputProps, InputState>
     super(props);
     this.state = {
       focus: false,
-      text: this.props?.value || '',
+      text: props?.value || '',
     };
+  }
+
+  componentDidMount() {
+    if (this.props.value) {
+      this.setState({
+        text: this.props.value,
+      });
+    }
+  }
+
+  UNSAFE_componentWillReceiveProps(nextProps: InputProps) {
+    if (nextProps.value) {
+      this.setState({
+        text: nextProps.value,
+      });
+    }
   }
 
   saveInput = (input: HTMLInputElement | HTMLTextAreaElement) => {
@@ -197,10 +213,10 @@ export default class MyInput extends React.PureComponent<InputProps, InputState>
           <div styleName="my-input-textarea-footer">
             <span
               styleName={classnames({
-                'max-length-text': !!maxLength && text && text.length >= maxLength,
+                'max-length-text': !!maxLength && text && String(text).length >= maxLength,
               })}
             >
-              {text.length}
+              {String(text).length}
             </span>
             {!!maxLength && (
               <>

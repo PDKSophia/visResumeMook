@@ -7,6 +7,7 @@ import PersonalForm from './PersonalForm';
 import ContactForm from './ContactForm';
 import EducationForm from './EducationForm';
 import WorkForm from './WorkForm';
+import SkillForm from './SkillForm';
 import EvaluationForm from './EvaluationForm';
 import CertificateForm from './CertificateForm';
 import Messager, { MESSAGE_EVENT_MAPS } from '@common/mesasger';
@@ -51,6 +52,7 @@ function useFormHook() {
       if (_.isContact(formName)) Form = <ContactForm {...formProps} />;
       if (_.isEducation(formName)) Form = <EducationForm {...formProps} />;
       if (_.isWork(formName)) Form = <WorkForm {...formProps} />;
+      if (_.isSkill(formName)) Form = <SkillForm {...formProps} />;
       if (_.isEvaluation(formName)) Form = <EvaluationForm {...formProps} />;
       if (_.isCertificate(formName)) Form = <CertificateForm {...formProps} />;
       return [Form];

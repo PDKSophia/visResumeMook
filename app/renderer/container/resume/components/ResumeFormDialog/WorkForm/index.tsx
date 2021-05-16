@@ -60,7 +60,7 @@ function WorkForm(props: IProps | any) {
               placeholder="请输入意愿城市"
               allowClear={true}
             />
-            <div styleName="tips"> * 多个地点以 | 分割</div>
+            <div styleName="tips"> * 多个地点以｜分割</div>
           </div>
         </div>
       </div>

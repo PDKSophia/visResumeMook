@@ -13,6 +13,7 @@ function useUpdateResumeHook() {
   const updateEvaluationHook = useUpdateEvaluationHook();
   const updateHobbyHook = useUpdateHobbyHook();
   const updateCertificateHook = useUpdateCertificateHook();
+  const updateSkillHook = useUpdateSkillHook();
 
   return <T>(stateKey: string, stateValue: T) => {
     const keys = stateKey.split('/') || [];
@@ -22,6 +23,7 @@ function useUpdateResumeHook() {
     if (keys[0] === 'evaluation') updateEvaluationHook(keys[0], stateValue);
     if (keys[0] === 'hobby') updateHobbyHook(keys[0], stateValue);
     if (keys[0] === 'certificate') updateCertificateHook(keys[0], stateValue);
+    if (keys[0] === 'skill') updateSkillHook(keys[0], stateValue);
   };
 }
 
@@ -87,7 +89,7 @@ function useUpdateWorkHook() {
   return <T>(stateKey: string, stateValue: T) => {
     let cityList = [];
     if (stateKey === 'city') {
-      cityList = (stateValue as any).split('|');
+      cityList = (stateValue as any).split('｜');
     }
     const nextStore = {
       ...userResume,
@@ -116,7 +118,7 @@ function useUpdateEvaluationHook() {
 
   return <T>(stateKey: string, stateValue: T) => {
     let evaluationList = [];
-    evaluationList = (stateValue as any).split('|');
+    evaluationList = (stateValue as any).split('｜');
     const nextStore = {
       ...userResume,
       evaluationList,
@@ -163,10 +165,35 @@ function useUpdateCertificateHook() {
 
   return <T>(stateKey: string, stateValue: T) => {
     let certificateList = [];
-    certificateList = (stateValue as any).split('|');
+    certificateList = (stateValue as any).split('｜');
     const nextStore = {
       ...userResume,
       certificateList,
+      [stateKey]: stateValue,
+    };
+    dispatch({
+      type: 'resumeModel/setStore',
+      payload: {
+        key: 'userResume',
+        values: nextStore,
+      },
+    });
+  };
+}
+
+/**
+ * @description 修改技能清淡
+ */
+function useUpdateSkillHook() {
+  const dispatch = useDispatch();
+  const userResume: TSResume.IntactResume = useSelector((state: any) => state.resumeModel.userResume);
+
+  return <T>(stateKey: string, stateValue: T) => {
+    let skillList = [];
+    skillList = (stateValue as any).split('｜');
+    const nextStore = {
+      ...userResume,
+      skillList,
       [stateKey]: stateValue,
     };
     dispatch({

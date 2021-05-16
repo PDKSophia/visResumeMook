@@ -13,8 +13,9 @@ function Skill() {
     <div styleName="content">
       <p styleName="label">技能证书 Skill</p>
       <ul styleName="skill">
-        {!!userResume?.skill?.length &&
-          userResume?.skill?.map((skill: string, index: number) => {
+        {userResume?.skill &&
+          userResume?.skillList?.length > 0 &&
+          userResume?.skillList?.map((skill: string, index: number) => {
             return (
               <li styleName="item" key={index}>
                 {skill}
