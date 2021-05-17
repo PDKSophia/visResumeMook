@@ -1,13 +1,13 @@
 ## Electron + React Hooks + TS 实战开发：从 0 到 1 实现简历平台
 
-本小册从一个开发者角度，讲述技术选型到编码实现，点亮 Electron、TS 等技术点，逐步深入 React 开发，从 0 到 1 实现一款轻巧适用的简历平台桌面应用。
-
 ![](https://img.shields.io/badge/visResumeMook--resume-1.0.2-red.svg)
 ![](https://img.shields.io/badge/react-16.12.0-blue.svg)
 ![](https://img.shields.io/badge/electron-11.1.1-green.svg)
 ![](https://img.shields.io/badge/react_redux-7.1.3-orange.svg)
 ![](https://img.shields.io/badge/typescript-3.7.2-blue.svg)
 ![](https://img.shields.io/badge/license-MIT-orange.svg)
+
+> 本小册从一个开发者角度，讲述技术选型到编码实现，点亮 Electron、TS 等技术点，逐步深入 React 开发，从 0 到 1 实现一款轻巧适用的简历平台桌面应用。
 
 ### 开发
 
@@ -64,32 +64,32 @@ npm run build-app-win
 <img src="./cover.jpeg" width=200 />
 
 - [x] [开篇-小册介绍](https://juejin.cn/book/6950646725295996940)
-- [x] [开篇-项目结构和技术选型](https://juejin.cn/book/6950646725295996940/section/6950652022978773024)
-- [x] [Electron 篇-初次见面](https://juejin.cn/book/6950646725295996940/section/6950813812182220830)
-- [x] [Electron 篇-进程与线程](https://juejin.cn/book/6950646725295996940/section/6950944609312702501)
-- [x] [Electron 篇-进程间通信](https://juejin.cn/book/6950646725295996940/section/6950813812110917668)
-- [x] [Webpack 篇-Loader 模块打包方案](https://juejin.cn/book/6950646725295996940/section/6951622130773524480)
-- [x] [Webpack 篇-Plugins 让打包更加便捷](https://juejin.cn/book/6950646725295996940/section/6951616617662906381)
-- [x] [实战篇-动手搭建我们的简历平台（一）](https://juejin.cn/book/6950646725295996940/section/6950957331270074376)
-- [x] [实战篇-动手搭建我们的简历平台（二）](https://juejin.cn/book/6950646725295996940/section/6955000793904709639)
-- [x] [实战篇-动手搭建我们的简历平台（三）](https://juejin.cn/book/6950646725295996940/section/6951570518633873448)
-- [x] [实战篇-数据流及存储方案设计](https://juejin.cn/editor/book/6950646725295996940/section/6951619744227131399)
-- [x] [实战篇-主题换肤功能实现及 Hook 优化逻辑](https://juejin.cn/editor/book/6950646725295996940/section/6952492449763852301)
-- [x] [实战篇-公共弹窗拆解—流程梳理及职责划分](https://juejin.cn/editor/book/6950646725295996940/section/6953437212834791431)
-- [x] [实战篇-公共弹窗拆解—封装通用 MyMaskHoc](https://juejin.cn/editor/book/6950646725295996940/section/6959913928722022414)
-- [x] [实战篇-公共弹窗拆解—封装通用 useClickAwayHook](https://juejin.cn/editor/book/6950646725295996940/section/6959371363756802082)
-- [x] [实战篇-公共弹窗拆解—封装通用 useModalHook](https://juejin.cn/editor/book/6950646725295996940/section/6958057770499178531)
-- [x] [实战篇-数据录入及封装简历信息弹窗 useFormHook](https://juejin.cn/editor/book/6950646725295996940/section/6959911478002450463)
-- [x] [实战篇-简历导出 PDF 功能实现](https://juejin.cn/editor/book/6950646725295996940/section/6953057009075748868)
-- [x] [实战篇-简历数据存档且自定义存储路径](https://juejin.cn/book/6950646725295996940/section/6962431380814823424)
-- [x] [实战篇-定制化 Electron 原生应用菜单（一）](https://juejin.cn/book/6950646725295996940/section/6961619537833754628)
-- [x] [实战篇-定制化 Electron 原生应用菜单（二）](https://juejin.cn/book/6950646725295996940/section/6960872035878699048)
-- [x] [打包篇-Webpack 打包优化（一）](https://juejin.cn/editor/book/6950646725295996940/section/6953628385746616356)
-- [x] [打包篇-Webpack 打包优化（二）](https://juejin.cn/editor/book/6950646725295996940/section/6953615519589072936)
-- [x] [打包篇-Electron 打包体积优化并发布](https://juejin.cn/editor/book/6950646725295996940/section/6959934795627364356)
-- [x] [结尾篇-回顾和总结](https://juejin.cn/editor/book/6950646725295996940/section/6953057305483034632)
-- [x] [彩蛋篇-RcReduxModel 中间件开发设计](https://juejin.cn/editor/book/6950646725295996940/section/6953057493043904549)
-- [x] [彩蛋篇-洗牌算法助力随机模版推荐](https://juejin.cn/editor/book/6950646725295996940/section/6953056962430894111)
+- [x] [开篇-技术选型和项目结构](https://juejin.cn/book/6950646725295996940/section/6962895331667230727)
+- [x] [基础篇-Electron 初步认识并掌握基础知识](https://juejin.cn/book/6950646725295996940/section/6961585436967829516)
+- [x] [设计篇-需求功能设计与数据存储方案设计](https://juejin.cn/book/6950646725295996940/section/6962435230061821952)
+- [x] [环境篇-动手搭建我们的简历平台](https://juejin.cn/book/6950646725295996940/section/6961586491285831720)
+- [x] [🏆 500 米里程碑｜环境搭建篇完成](https://juejin.cn/book/6950646725295996940/section/6962898545577820198)
+- [x] [业务篇-首页开发，好的印象能加分](https://juejin.cn/book/6950646725295996940/section/6962938228357726241)
+- [x] [业务篇-如何写我们的 Redux 与 jsonFile](https://juejin.cn/book/6950646725295996940/section/6962906314565484551)
+- [x] [业务篇-简历制作之数据设计与数据保存](https://juejin.cn/book/6950646725295996940/section/6962895451875966989)
+- [x] [业务篇-简历制作之常用组件的设计与抽离](https://juejin.cn/book/6950646725295996940/section/6962940003034857480)
+- [x] [业务篇-简历制作之数据的录入与展示](https://juejin.cn/book/6950646725295996940/section/6962940365221396511)
+- [x] [业务篇-简历制作之导出 PDF](https://juejin.cn/book/6950646725295996940/section/6962940108383191048)
+- [x] [🏆 1000 米里程碑 ｜简历主流程完成](https://juejin.cn/book/6950646725295996940/section/6962940484008280077)
+- [x] [业务篇-简历模版列表实现与侧边栏交互效果](https://juejin.cn/book/6950646725295996940/section/6962940426999300109)
+- [x] [业务篇-首页主题换肤功能实现](https://juejin.cn/book/6950646725295996940/section/6962761759404851239)
+- [x] [业务篇-简历数据存档且自定义存储路径](https://juejin.cn/book/6950646725295996940/section/6962940676258398222)
+- [x] [🏆 1500 米里程碑 ｜丰富功能](https://juejin.cn/book/6950646725295996940/section/6962939774650810380)
+- [x] [优化篇-如何采用 Hooks 优化主题换肤逻辑](https://juejin.cn/book/6950646725295996940/section/6962940589528580132)
+- [x] [优化篇-公共弹窗拆解优化，让职能更加单一](https://juejin.cn/book/6950646725295996940/section/6962941125426413599)
+- [x] [优化篇-采用 Hooks 优化简历 Form 组件](https://juejin.cn/book/6950646725295996940/section/6962941213401939998)
+- [x] [定制篇-自定义 Electron 原生应用菜单](https://juejin.cn/book/6950646725295996940/section/6962938070312157184)
+- [x] [打包篇-Webpack 打包优化](https://juejin.cn/book/6950646725295996940/section/6962941321325576226)
+- [x] [打包篇-Electron 打包体积优化](https://juejin.cn/book/6950646725295996940/section/6962941003858706436)
+- [x] [🏆 到达目的地-应用程序发布](https://juejin.cn/book/6950646725295996940/section/6962941268389265415)
+- [x] [结尾篇-行而不辍，未来可期](https://juejin.cn/book/6950646725295996940/section/6962941492159578143)
+- [x] [彩蛋篇-Webpack 基础介绍与两大利器](https://juejin.cn/book/6950646725295996940/section/6962895331730620423)
+- [x] [彩蛋篇-RcReduxModel 中间件开发设计](https://juejin.cn/book/6950646725295996940/section/6953057493043904549)
 - [x] [期望篇-插件化实现远端拉取简历模版库](https://juejin.cn/editor/book/6950646725295996940/section/6953057609167405064)
 - [x] [期望篇-可视化自定义独特的简历模版](https://juejin.cn/editor/book/6950646725295996940/section/6953057711445671943)
 
@@ -111,15 +111,21 @@ npm run build-app-win
 
 ![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b3d5b58d9954914962fdd44b37be1b0~tplv-k3u1fbpfcp-watermark.image)
 
+![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c70eab719d2c4d6981717e23d6780be3~tplv-k3u1fbpfcp-watermark.image)
+
+![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9748987bac0b4f97913dd2b274cf87f1~tplv-k3u1fbpfcp-watermark.image)
+
 ![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c92abf2246e64a13a9c0b9b7beb262f7~tplv-k3u1fbpfcp-watermark.image)
 
 4. 导出简历信息
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c2245ec154324e6c95e59bfb25306659~tplv-k3u1fbpfcp-watermark.image)
+![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02490b74bb564a27902d6cee051c7fdb~tplv-k3u1fbpfcp-watermark.image)
 
 5. 导出 `名字+学校+职位` PDF
 
 <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7d7fdab52954dbfa6995b95b95deef3~tplv-k3u1fbpfcp-watermark.image" width=300 />
+
+> 上述是部分截图，其中的布局、样式、交互均纯手工制作，未采用任何 UI 库，导出的简历并不模糊，可放心使用
 
 ### 疑问
 
