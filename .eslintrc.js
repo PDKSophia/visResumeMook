@@ -5,12 +5,14 @@ module.exports = {
     'alloy/typescript',
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
   globals: {
     // 这里填入你的项目需要的全局变量
     // 这里值为 false 表示这个全局变量不允许被重新赋值，比如：
     __dirname: false,
   },
+  plugins: ['@typescript-eslint'],
   rules: {
     'no-undefined': 'warn',
     'no-debugger': 'off',
@@ -38,5 +40,7 @@ module.exports = {
     'react/no-unsafe': 'off',
     '@typescript-eslint/no-invalid-this': 'off',
     'react/jsx-key': 0,
+    'react/no-unstable-nested-components': 'warn',
+    'no-var-requires': 'off',
   },
 };
