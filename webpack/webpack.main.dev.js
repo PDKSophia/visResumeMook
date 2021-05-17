@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 // 暂不处理：https://github.com/typescript-eslint/typescript-eslint/blob/v4.22.0/packages/eslint-plugin/docs/rules/no-var-requires.md
 const path = require('path');
-const webpack = require('webpack');
+const Webpack = require('webpack');
 const baseConfig = require('./webpack.base.js');
 const webpackMerge = require('webpack-merge');
 
@@ -16,10 +16,10 @@ const mainConfig = {
   mode: 'development',
   plugins: [
     // 根据启动命令的node_env，指定构建变量
-    new webpack.DefinePlugin({
+    new Webpack.DefinePlugin({
       'process.env.NODE_ENV': '"development"',
     }),
   ],
 };
 
-module.exports = webpackMerge.merge(baseConfig, mainConfig);
+export default webpackMerge.merge(baseConfig, mainConfig);

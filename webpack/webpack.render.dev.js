@@ -62,8 +62,4 @@ const devConfig = {
   },
 };
 
-console.log('#####');
-const a = webpackMerge.merge(baseConfig, devConfig);
-console.log(a.module);
-
-module.exports = webpackMerge.merge(baseConfig, devConfig);
+export default webpackMerge.merge(baseConfig, devConfig);
