@@ -41,7 +41,8 @@ export function intToTimeString(num?: number): string {
  * 时间戳变成类似2018/01/12 12:32:21这样的字符串
  * @param {Number} num 时间戳整数
  */
-export function formatToString(num: number, unit = '/') {
+export function formatToString(num: number | undefined, unit = '/') {
+  if (!num) return '';
   const date1 = intToDateString(num, unit);
   const date2 = intToTimeString(num);
   return `${date1} ${date2}`;

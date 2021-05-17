@@ -14,6 +14,7 @@ function useUpdateResumeHook() {
   const updateHobbyHook = useUpdateHobbyHook();
   const updateCertificateHook = useUpdateCertificateHook();
   const updateSkillHook = useUpdateSkillHook();
+  const updateProjectExperienceHook = useUpdateProjectExperienceHook();
 
   return <T>(stateKey: string, stateValue: T) => {
     const keys = stateKey.split('/') || [];
@@ -23,7 +24,7 @@ function useUpdateResumeHook() {
     if (keys[0] === 'evaluation') updateEvaluationHook(keys[0], stateValue);
     if (keys[0] === 'hobby') updateHobbyHook(keys[0], stateValue);
     if (keys[0] === 'certificate') updateCertificateHook(keys[0], stateValue);
-    if (keys[0] === 'skill') updateSkillHook(keys[0], stateValue);
+    if (keys[0] === 'projectExperience') updateProjectExperienceHook(keys[0], stateValue);
   };
 }
 
@@ -182,7 +183,7 @@ function useUpdateCertificateHook() {
 }
 
 /**
- * @description 修改技能清淡
+ * @description 修改技能清单
  */
 function useUpdateSkillHook() {
   const dispatch = useDispatch();
@@ -194,6 +195,28 @@ function useUpdateSkillHook() {
     const nextStore = {
       ...userResume,
       skillList,
+      [stateKey]: stateValue,
+    };
+    dispatch({
+      type: 'resumeModel/setStore',
+      payload: {
+        key: 'userResume',
+        values: nextStore,
+      },
+    });
+  };
+}
+
+/**
+ * @description 修改项目经验
+ */
+function useUpdateProjectExperienceHook() {
+  const dispatch = useDispatch();
+  const userResume: TSResume.IntactResume = useSelector((state: any) => state.resumeModel.userResume);
+
+  return <T>(stateKey: string, stateValue: T) => {
+    const nextStore = {
+      ...userResume,
       [stateKey]: stateValue,
     };
     dispatch({

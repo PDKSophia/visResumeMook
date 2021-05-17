@@ -11,7 +11,7 @@ import MyMaskHoc from '@common/hoc/MyMaskHoc';
 import MyInput from '@components/MyInput';
 import { useSelector } from 'react-redux';
 import RecommendSkill, { IRecommendSkill } from '@common/constants/skill';
-import useUpdateResumeHook from '../useUpdateResumeHook';
+import useUpdateResumeHook from '@src/container/resume/components/ResumeFormDialog/useUpdateResumeHook';
 
 interface IProps {
   onCancel?: () => {};

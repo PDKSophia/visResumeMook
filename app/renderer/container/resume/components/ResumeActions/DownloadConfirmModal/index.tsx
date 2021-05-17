@@ -8,7 +8,7 @@ const DownloadConfirmModal = (props: any) => {
     <MyModal.Confirm
       eleRef={props?.eleRef}
       title="确定要打印简历吗？"
-      description="目前仅支持单页打印哦～"
+      description="请确保信息的正确，目前仅支持单页打印哦～"
       config={{
         cancelBtn: {
           isShow: true,

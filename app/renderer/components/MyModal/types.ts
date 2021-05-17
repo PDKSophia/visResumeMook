@@ -11,11 +11,19 @@ interface BtnConfig {
   isShow?: boolean;
   callback?: () => void;
 }
-export interface IModal {
+interface IModal {
   /**
    * @description 标题
    */
   title: string;
+  /**
+   * @description 宽度
+   */
+  width?: number;
+  /**
+   * @description 类名
+   */
+  className?: string;
   /**
    * @description 描述
    */
@@ -54,4 +62,13 @@ export interface IModal {
    * @description 子组件
    */
   children?: React.ReactNode;
+}
+
+export type IConfirmModal = IModal;
+
+export interface IDialogModal extends IModal {
+  /**
+   * @description 内容区域的样式
+   */
+  childStyle?: React.CSSProperties;
 }

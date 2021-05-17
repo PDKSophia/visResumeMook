@@ -4,12 +4,22 @@
 import React from 'react';
 import './index.less';
 import MyButton from '@components/MyButton';
-import { IModal } from '../types';
+import { IDialogModal } from '../types';
 
-function MyDialog({ title, showFooter, renderFooter, config = {}, eleRef, children }: IModal) {
+function MyDialog({
+  title,
+  width,
+  className,
+  showFooter,
+  renderFooter,
+  config = {},
+  eleRef,
+  children,
+  childStyle,
+}: IDialogModal) {
   const { cancelBtn = { isShow: true }, submitBtn = { isShow: true } } = config;
   return (
-    <div styleName="vis-dialog-box" ref={eleRef}>
+    <div styleName="vis-dialog-box" className={className} style={{ width: width || 760 }} ref={eleRef}>
       <div styleName="vis-dialog-header">{title || 'VisResumeMook 提示您'}</div>
       <div
         styleName="vis-dialog-close"
@@ -17,7 +27,9 @@ function MyDialog({ title, showFooter, renderFooter, config = {}, eleRef, childr
           cancelBtn?.callback && cancelBtn.callback();
         }}
       />
-      <div styleName="vis-dialog-content">{children}</div>
+      <div styleName="vis-dialog-content" style={childStyle}>
+        {children}
+      </div>
       {showFooter &&
         (renderFooter || (
           <div styleName="vis-dialog-footer">

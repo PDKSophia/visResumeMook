@@ -11,6 +11,10 @@ export interface Button {
    */
   size: 'middle' | 'big' | 'small';
   /**
+   * @description 宽度
+   */
+  width?: number;
+  /**
    * @description 自定义样式
    */
   style?: React.CSSProperties;
@@ -29,10 +33,13 @@ export interface Button {
    */
   border?: boolean;
 }
-function MyButton({ size = 'small', style, children, disabled, className, onClick, border = true }: Button) {
+function MyButton({ size = 'small', style, width, children, disabled, className, onClick, border = true }: Button) {
   return (
     <div
-      style={style}
+      style={{
+        ...style,
+        width: width,
+      }}
       className={className}
       styleName={classnames('es-button', {
         [`es-button-${size}`]: true,

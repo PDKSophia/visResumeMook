@@ -10,6 +10,7 @@ import WorkForm from './WorkForm';
 import SkillForm from './SkillForm';
 import EvaluationForm from './EvaluationForm';
 import CertificateForm from './CertificateForm';
+import ProjectExperienceForm from './ExperienceForm/container/Project';
 import Messager, { MESSAGE_EVENT_MAPS } from '@common/mesasger';
 
 function useFormHook() {
@@ -55,6 +56,7 @@ function useFormHook() {
       if (_.isSkill(formName)) Form = <SkillForm {...formProps} />;
       if (_.isEvaluation(formName)) Form = <EvaluationForm {...formProps} />;
       if (_.isCertificate(formName)) Form = <CertificateForm {...formProps} />;
+      if (_.isProjectExperience(formName)) Form = <ProjectExperienceForm {...formProps} />;
       return [Form];
     }
     return [null];

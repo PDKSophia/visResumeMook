@@ -103,6 +103,7 @@ declare namespace TSResume {
      * @description 主要工作
      */
     content?: string;
+    parseContent?: string[];
   }
 
   /**
@@ -121,6 +122,7 @@ declare namespace TSResume {
      * @description 主要工作
      */
     content?: string;
+    parseContent?: string[];
   }
 
   /**
@@ -138,7 +140,8 @@ declare namespace TSResume {
     /**
      * @description 主要工作
      */
-    content?: string[];
+    content?: string;
+    parseContent?: string[];
   }
 
   /**
@@ -157,6 +160,10 @@ declare namespace TSResume {
      * @description 额外补充内容
      */
     supplement?: string;
+    /**
+     * @description 最后修改时间
+     */
+    date?: number;
   }
 
   /**

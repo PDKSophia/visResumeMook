@@ -4,12 +4,12 @@
 import React from 'react';
 import './index.less';
 import MyButton from '@components/MyButton';
-import { IModal } from '../types';
+import { IConfirmModal } from '../types';
 
-function MyConfirm({ title, description, renderFooter, config = {}, eleRef }: IModal) {
+function MyConfirm({ title, width, className, description, renderFooter, config = {}, eleRef }: IConfirmModal) {
   const { deleteBtn = { isShow: false }, cancelBtn = { isShow: true }, submitBtn = { isShow: true } } = config;
   return (
-    <div styleName="vis-confirm-box" ref={eleRef}>
+    <div styleName="vis-confirm-box" className={className} style={{ width: width || 440 }} ref={eleRef}>
       <div styleName="vis-confirm-content">
         <p styleName="vis-confirm-content-title">{title || '友情提示'}</p>
         {description && <p styleName="vis-confirm-content-desc">{description}</p>}
