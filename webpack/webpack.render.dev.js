@@ -60,8 +60,4 @@ const devConfig = {
   },
 };
 
-console.log('#####');
-const a = merge(baseConfig, devConfig);
-console.log(a.module);
-
 export default merge(baseConfig, devConfig);
