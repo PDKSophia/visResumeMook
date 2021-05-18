@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "author": "彭道宽",
   "description": "从0到1实现一款轻巧适用的简历平台桌面应用。",
-  "main": "./app/main/electron.ts",
+  "main": "./app/main/electron.js",
   "scripts": {
-    "start:main": "electron ./app/main/electron.ts",
+    "start:main": "electron ./app/main/electron.js",
     "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron"
   },
   "dependencies": {
