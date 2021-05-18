@@ -1,17 +1,19 @@
 ## Electron + React Hooks + TS 实战开发：从 0 到 1 实现简历平台
 
-此分支章节 [环境篇-动手搭建我们的简历平台](https://juejin.cn/book/6950646725295996940/section/6961586491285831720) 动手实践中，Electron 部分的搭建，只涉及 Electron 的相关代码。
+此分支属于 [环境篇-动手搭建我们的简历平台](https://juejin.cn/book/6950646725295996940/section/6961586491285831720) 章节中，Electron 部分的搭建，只涉及 Electron 的相关代码。
 
-**开发**
+### 开发
+
+> 由于网络问题，往往安装 Electron 会很慢，此时可以考虑换个淘宝源
 
 ```js
-// 1.下载（由于网络问题，往往安装 Electron 会很慢，此时可以考虑换个淘宝源）
+// 1.下载
 npm run install
 // 2. 运行
 npm run start:main
 ```
 
-**更多分支**
+### 更多分支
 
 - 学习分支
 
@@ -56,40 +58,6 @@ npm run start:main
 - [x] [期望篇-插件化实现远端拉取简历模版库](https://juejin.cn/editor/book/6950646725295996940/section/6953057609167405064)
 - [x] [期望篇-可视化自定义独特的简历模版](https://juejin.cn/editor/book/6950646725295996940/section/6953057711445671943)
 
-### 效果
+## 运行之后的效果图
 
-1. 首页
-
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/922146a39661431aa8a5f9f053e8d747~tplv-k3u1fbpfcp-watermark.image)
-
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b27b764c0b274def99ce8d6f728955e0~tplv-k3u1fbpfcp-watermark.image)
-
-2. 模版列表页
-
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3b313159241145d2ad15dade1063ead1~tplv-k3u1fbpfcp-watermark.image)
-
-3. 制作简历页
-
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3576e5eaf45b42c38429af364c51644d~tplv-k3u1fbpfcp-watermark.image)
-
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b3d5b58d9954914962fdd44b37be1b0~tplv-k3u1fbpfcp-watermark.image)
-
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c70eab719d2c4d6981717e23d6780be3~tplv-k3u1fbpfcp-watermark.image)
-
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9748987bac0b4f97913dd2b274cf87f1~tplv-k3u1fbpfcp-watermark.image)
-
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c92abf2246e64a13a9c0b9b7beb262f7~tplv-k3u1fbpfcp-watermark.image)
-
-4. 导出简历信息
-
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02490b74bb564a27902d6cee051c7fdb~tplv-k3u1fbpfcp-watermark.image)
-
-5. 导出 `名字+学校+职位` PDF
-
-<img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7d7fdab52954dbfa6995b95b95deef3~tplv-k3u1fbpfcp-watermark.image" width=300 />
-
-> 上述是部分截图，其中的布局、样式、交互均纯手工制作，未采用任何 UI 库，导出的简历并不模糊，可放心使用
-
-### 疑问
-
-有任何疑问可以提 issues 或者添加我微信 PPPengDK 哈，同时欢迎大家提 Merge Request
+<img src="./phone.png"  />
