@@ -22,6 +22,31 @@ const devConfig = {
     port: 7001, // 启动端口为 7001 的服务
     hot: true,
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.less$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]__[hash:base64:5]',
+              },
+            },
+          },
+          'postcss-loader',
+          'less-loader',
+        ],
+      },
+    ],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       // 👇 以此文件为模版，自动生成 HTML
