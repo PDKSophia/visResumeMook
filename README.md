@@ -1,6 +1,6 @@
 ## Electron + React Hooks + TS 实战开发：从 0 到 1 实现简历平台
 
-此分支属于 [环境篇-动手搭建我们的简历平台](https://juejin.cn/book/6950646725295996940/section/6961586491285831720) 章节中，Electron 部分的搭建，只涉及 Electron 的相关代码。
+此分支属于 [环境篇-动手搭建我们的简历平台](https://juejin.cn/book/6950646725295996940/section/6961586491285831720) 章节中，Electron + React 的搭建
 
 ### 开发
 
@@ -10,6 +10,7 @@
 // 1.下载
 npm run install
 // 2. 运行
+npm run start:render
 npm run start:main
 ```
 
@@ -60,4 +61,5 @@ npm run start:main
 
 ## 运行之后的效果图
 
-<img src="./phone.png"  />
+<img src="./phone1.png"  />
+<img src="./phone2.png"  />
