@@ -10,7 +10,7 @@ function Root() {
         <div styleName="title">VisResumeMook</div>
         <div styleName="tips">一个模板简历制作平台, 让你的简历更加出众 ~</div>
         <div styleName="action">
-          {['介绍', '简历', '源码', '小册'].map((text, index) => {
+          {['介绍', '简历', '源码'].map((text, index) => {
             return (
               <div key={index} styleName="item">
                 {text}
