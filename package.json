@@ -37,8 +37,10 @@
     "prettier": "^2.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "redux": "^4.1.0",
     "style-loader": "^2.0.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
@@ -51,10 +53,13 @@
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
+    "@types/redux-logger": "^3.0.8",
     "@typescript-eslint/eslint-plugin": "^4.24.0",
     "@typescript-eslint/parser": "^4.24.0",
     "autoprefixer": "^9.0.0",
     "file-loader": "^6.2.0",
+    "rc-redux-model": "^1.0.9",
+    "redux-logger": "^3.0.6",
     "typescript": "^4.2.4"
   }
 }
