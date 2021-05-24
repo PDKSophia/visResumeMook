@@ -38,7 +38,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   /**
    * @description 可以计数
    */
-  allowCount?: number;
+  allowCount?: boolean;
   /**
    * @description 可以点击清除图标删除内容
    */
@@ -194,7 +194,7 @@ export default class MyInput extends React.PureComponent<InputProps, InputState>
   }
 
   renderTextarea() {
-    const { placeholder, maxLength = 1000, id, disabled, allowCount, autoFocus, rows } = this.props;
+    const { placeholder, maxLength = 1000, id, disabled, allowCount = true, autoFocus, rows } = this.props;
     const _rows = rows || 3;
     const text = this.state.text;
     return (
@@ -209,7 +209,7 @@ export default class MyInput extends React.PureComponent<InputProps, InputState>
           ref={this.saveInput as any}
         />
         {this.renderClear()}
-        {!!allowCount && (
+        {allowCount && (
           <div styleName="my-input-textarea-footer">
             <span
               styleName={classnames({
