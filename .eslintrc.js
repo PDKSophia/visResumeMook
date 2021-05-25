@@ -6,6 +6,8 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
   ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'], // 定义了该eslint文件所依赖的插件
   globals: {
     // 这里填入你的项目需要的全局变量
     // 这里值为 false 表示这个全局变量不允许被重新赋值，比如：
@@ -37,5 +39,6 @@ module.exports = {
     'react/no-unsafe': 'off',
     '@typescript-eslint/no-invalid-this': 'off',
     'react/jsx-key': 0,
+    'no-undef': 0,
   },
 };
