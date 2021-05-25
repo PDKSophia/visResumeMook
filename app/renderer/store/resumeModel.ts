@@ -9,7 +9,7 @@ const resumeModel: TSRcReduxModel.Props<TSResume.IntactResume> = {
       school: '湖南瞎说大学',
       major: '软件工程',
       degree: '本科',
-      hometown: '汉族',
+      hometown: '海南',
       onSchoolTime: {
         beginTime: '2015.09',
         endTime: '2019.06',
@@ -66,8 +66,8 @@ const resumeModel: TSRcReduxModel.Props<TSResume.IntactResume> = {
     ],
     workExperience: [
       {
-        beginTime: 1504195200000,
-        endTime: 1559318400000,
+        beginTime: '2017.09',
+        endTime: '2019.04',
         post: '前端工程师',
         department: '湖南瞎说大学网络中心',
         content:
