@@ -1,0 +1,80 @@
+.vis-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.78);
+  height: 100%;
+  z-index: 1000;
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .vis-confirm-box {
+    width: 440px;
+    padding: 40px 40px 24px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background-color: #ffffff;
+    z-index: 3;
+    .vis-confirm-content {
+      p.vis-confirm-content-title {
+        font-weight: 700;
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.8);
+        line-height: 28px;
+      }
+      p.vis-confirm-content-desc {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.6);
+        line-height: 22px;
+        margin-top: 8px;
+        max-height: 44px;
+      }
+    }
+    .vis-confirm-footer {
+      margin-top: 24px;
+      text-align: right;
+      :global {
+        .vis-confirm-footer-btn {
+          border: 1px solid #ddd;
+          border-radius: 24px;
+          font-size: 14px;
+          height: 40px;
+          line-height: 40px;
+          margin-right: 16px;
+          text-align: center;
+          user-select: none;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+        .vis-confirm-footer-cancel-btn {
+          color: rgba(0, 0, 0, 0.6);
+          &:hover {
+            background-color: #f6f8fa;
+          }
+        }
+        .vis-confirm-footer-submit-btn {
+          color: #ffffff;
+          background-color: #198fff;
+          border: none;
+          &:hover {
+            background-color: #3b9efa;
+          }
+        }
+        .vis-confirm-footer-delete-btn {
+          color: #ffffff;
+          background-color: #e65c5c;
+          border: none;
+          &:hover {
+            background-color: #f06b6b;
+          }
+        }
+      }
+    }
+  }
+}

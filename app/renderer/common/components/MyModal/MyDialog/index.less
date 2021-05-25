@@ -1,0 +1,91 @@
+.vis-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.78);
+  height: 100%;
+  z-index: 1000;
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .vis-dialog-box {
+    width: 760px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background-color: #ffffff;
+    z-index: 3;
+    .vis-dialog-header {
+      height: 56px;
+      line-height: 56px;
+      font-size: 18px;
+      color: rgba(0, 0, 0, 0.8);
+      padding: 0 24px;
+      font-weight: bold;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      box-sizing: border-box;
+    }
+    .vis-dialog-close {
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      width: 20px;
+      height: 20px;
+      background-image: url('../../../../../../assets/icon/cancel.png');
+      background-size: cover;
+      cursor: pointer;
+    }
+    .vis-dialog-content {
+      padding: 24px;
+    }
+    .vis-dialog-footer {
+      height: 60px;
+      line-height: 60px;
+      padding: 0 24px;
+      text-align: right;
+      border-top: 1px solid rgba(0, 0, 0, 0.07);
+      box-sizing: border-box;
+      :global {
+        .vis-dialog-footer-btn {
+          border: 1px solid #ddd;
+          border-radius: 12px;
+          font-size: 14px;
+          height: 36px;
+          line-height: 36px;
+          margin-right: 16px;
+          text-align: center;
+          user-select: none;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+        .vis-dialog-footer-cancel-btn {
+          color: rgba(0, 0, 0, 0.6);
+          &:hover {
+            background-color: #f6f8fa;
+          }
+        }
+        .vis-dialog-footer-submit-btn {
+          color: #ffffff;
+          background-color: #198fff;
+          border: none;
+          &:hover {
+            background-color: #3b9efa;
+          }
+        }
+        .vis-modal-delete-btn {
+          color: #ffffff;
+          background-color: #e65c5c;
+          border: none;
+          &:hover {
+            background-color: #f06b6b;
+          }
+        }
+      }
+    }
+  }
+}
