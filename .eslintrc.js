@@ -37,5 +37,6 @@ module.exports = {
     'react/no-unsafe': 'off',
     '@typescript-eslint/no-invalid-this': 'off',
     'react/jsx-key': 0,
+    'no-undef': 0,
   },
 };
