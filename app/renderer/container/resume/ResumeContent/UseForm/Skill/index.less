@@ -1,0 +1,44 @@
+.form {
+  font-size: 14px;
+  .flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    .left {
+      width: 80px;
+      color: rgba(0, 0, 0, 0.6);
+      span.require {
+        color: rgb(240, 70, 70);
+        margin-right: 6px;
+      }
+    }
+    .right {
+      flex: 1;
+      .tips {
+        color: rgb(240, 70, 70);
+        margin-top: 8px;
+        font-size: 14px;
+      }
+      .action {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.6);
+        .label {
+          padding: 4px 8px;
+          border-radius: 4px;
+          margin-right: 8px;
+          margin-bottom: 12px;
+          border: 1px solid;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 /**
- * @description 个人信息的弹窗表单组件
+ * @description 个人信息Form
  */
 import React from 'react';
 import './index.less';
@@ -29,7 +29,7 @@ function Personal() {
             <MyInput onChange={(e) => {}} value={base?.username || ''} placeholder="请输入姓名" allowClear={true} />
           </div>
         </div>
-        {/* <div styleName="flex">
+        <div styleName="flex">
           <div styleName="left">
             <span styleName="require">*</span>籍 贯 ：
           </div>
@@ -54,7 +54,7 @@ function Personal() {
               allowClear={true}
             />
           </div>
-        </div> */}
+        </div>
       </div>
     </MyModal.Dialog>
   );

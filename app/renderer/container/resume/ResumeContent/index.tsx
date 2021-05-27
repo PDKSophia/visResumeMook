@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import './index.less';
 import * as UseTemplateList from './UseTemplate';
 import MyScrollBox from '@common/components/MyScrollBox';
 import Messager, { MESSAGE_EVENT_NAME_MAPS } from '@common/messager';
 import { RESUME_TOOLBAR_MAPS } from '@common/constants/resume';
+import CertificateForm from './UseForm/Certificate';
+import ContactForm from './UseForm/Contact';
+import EducationForm from './UseForm/Education';
 import PersonalForm from './UseForm/Personal';
+import SkillForm from './UseForm/Skill';
+import WorkForm from './UseForm/Work';
 
 function ResumeContent() {
   const HEADER_ACTION_HEIGHT = 92;
@@ -32,8 +36,12 @@ function ResumeContent() {
       <UseTemplateList.TemplateOne />
       {showFormModal && (
         <>
+          {formName === RESUME_TOOLBAR_MAPS.certificate && <CertificateForm />}
+          {formName === RESUME_TOOLBAR_MAPS.contact && <ContactForm />}
+          {formName === RESUME_TOOLBAR_MAPS.education && <EducationForm />}
           {formName === RESUME_TOOLBAR_MAPS.personal && <PersonalForm />}
-          {/* {formName === RESUME_TOOLBAR_MAPS.education && <EducationForm />} */}
+          {formName === RESUME_TOOLBAR_MAPS.skill && <SkillForm />}
+          {formName === RESUME_TOOLBAR_MAPS.workPrefer && <WorkForm />}
         </>
       )}
     </MyScrollBox>
