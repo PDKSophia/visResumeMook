@@ -7,12 +7,15 @@ import MyModal from '@common/components/MyModal';
 import MyInput from '@common/components/MyInput';
 import { useSelector } from 'react-redux';
 import RecommendSkill, { IRecommendSkill } from '@common/constants/skill';
+import useUpdateResumeHook from '@src/container/resume/ResumeContent/useUpdateResumeHook';
 
 interface IProps {
   onClose: () => void;
 }
 function Skill({ onClose }: IProps) {
+  const updateResumeHook = useUpdateResumeHook();
   const skill: string = useSelector((state: any) => state.resumeModel.skill);
+
   return (
     <MyModal.Dialog
       title="个人信息"
@@ -33,28 +36,31 @@ function Skill({ onClose }: IProps) {
           </div>
           <div styleName="right">
             <div styleName="action">
-              {RecommendSkill.map((skill: IRecommendSkill) => {
+              {RecommendSkill.map((recommend: IRecommendSkill) => {
                 return (
                   <div
                     styleName="label"
-                    key={skill.uid}
+                    key={recommend.uid}
                     style={{
-                      color: skill?.styles?.font,
-                      borderColor: skill?.styles?.font,
-                      backgroundColor: skill?.styles?.bg,
+                      color: recommend?.styles?.font,
+                      borderColor: recommend?.styles?.font,
+                      backgroundColor: recommend?.styles?.bg,
                     }}
                     onClick={() => {
-                      const value = `${skill}${skill ? '｜' : ''}${skill.label}`;
+                      const value = `${skill}${skill ? '｜' : ''}${recommend.label}`;
+                      updateResumeHook<string>('skill', value);
                     }}
                   >
-                    {skill.label}
+                    {recommend.label}
                   </div>
                 );
               })}
             </div>
             <MyInput
               type="textarea"
-              onChange={(e) => {}}
+              onChange={(e) => {
+                updateResumeHook<string>('skill', e.target.value);
+              }}
               rows={5}
               value={skill}
               placeholder="例如 Vue、React"

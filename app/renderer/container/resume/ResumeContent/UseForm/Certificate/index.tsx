@@ -6,13 +6,16 @@ import './index.less';
 import MyModal from '@common/components/MyModal';
 import MyInput from '@common/components/MyInput';
 import { useSelector } from 'react-redux';
+import useUpdateResumeHook from '@src/container/resume/ResumeContent/useUpdateResumeHook';
 
 interface IProps {
   onClose: () => void;
 }
 
 function Certificate({ onClose }: IProps) {
+  const updateResumeHook = useUpdateResumeHook();
   const certificate: string = useSelector((state: any) => state.resumeModel.certificate);
+
   return (
     <MyModal.Dialog
       title="荣誉证书"
@@ -31,7 +34,9 @@ function Certificate({ onClose }: IProps) {
           <div styleName="right">
             <MyInput
               type="textarea"
-              onChange={(e) => {}}
+              onChange={(e) => {
+                updateResumeHook<string>('certificate', e.target.value);
+              }}
               rows={5}
               value={certificate || ''}
               placeholder="互联网+大赛一等奖｜掘金大学骰王｜互联网喝酒大赛进步奖"

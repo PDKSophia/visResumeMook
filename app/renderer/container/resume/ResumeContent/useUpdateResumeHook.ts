@@ -101,7 +101,7 @@ function useUpdateEvaluationHook() {
   return <T>(stateKey: string, stateValue: T) => {
     let evaluationList = stateValue ? (stateValue as any).split('｜') : [];
     dispatch({
-      type: 'resumeModel/setStore',
+      type: 'resumeModel/setStoreList',
       payload: [
         {
           key: stateKey,
@@ -140,7 +140,7 @@ function useUpdateCertificateHook() {
   return <T>(stateKey: string, stateValue: T) => {
     let certificateList = stateValue ? (stateValue as any).split('｜') : [];
     dispatch({
-      type: 'resumeModel/setStore',
+      type: 'resumeModel/setStoreList',
       payload: [
         {
           key: stateKey,
@@ -163,7 +163,7 @@ function useUpdateSkillHook() {
   return <T>(stateKey: string, stateValue: T) => {
     let skillList = stateValue ? (stateValue as any).split('｜') : [];
     dispatch({
-      type: 'resumeModel/setStore',
+      type: 'resumeModel/setStoreList',
       payload: [
         {
           key: stateKey,
