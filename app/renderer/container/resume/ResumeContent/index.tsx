@@ -31,17 +31,22 @@ function ResumeContent() {
       setFormName(data?.form_name);
     });
   };
+
+  const onClose = () => {
+    setShowFormModal(false);
+    setFormName('');
+  };
   return (
     <MyScrollBox maxHeight={height - HEADER_ACTION_HEIGHT}>
       <UseTemplateList.TemplateOne />
       {showFormModal && (
         <>
-          {formName === RESUME_TOOLBAR_MAPS.certificate && <CertificateForm />}
-          {formName === RESUME_TOOLBAR_MAPS.contact && <ContactForm />}
-          {formName === RESUME_TOOLBAR_MAPS.education && <EducationForm />}
-          {formName === RESUME_TOOLBAR_MAPS.personal && <PersonalForm />}
-          {formName === RESUME_TOOLBAR_MAPS.skill && <SkillForm />}
-          {formName === RESUME_TOOLBAR_MAPS.workPrefer && <WorkForm />}
+          {formName === RESUME_TOOLBAR_MAPS.certificate && <CertificateForm onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.contact && <ContactForm onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.education && <EducationForm onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.personal && <PersonalForm onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.skill && <SkillForm onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.workPrefer && <WorkForm onClose={onClose} />}
         </>
       )}
     </MyScrollBox>

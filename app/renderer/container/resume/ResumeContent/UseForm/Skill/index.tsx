@@ -8,7 +8,10 @@ import MyInput from '@common/components/MyInput';
 import { useSelector } from 'react-redux';
 import RecommendSkill, { IRecommendSkill } from '@common/constants/skill';
 
-function Skill() {
+interface IProps {
+  onClose: () => void;
+}
+function Skill({ onClose }: IProps) {
   const skill: string = useSelector((state: any) => state.resumeModel.skill);
   return (
     <MyModal.Dialog
@@ -16,7 +19,7 @@ function Skill() {
       showFooter={false}
       config={{
         cancelBtn: {
-          callback: () => {},
+          callback: onClose,
         },
       }}
     >

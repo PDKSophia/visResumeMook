@@ -7,7 +7,10 @@ import MyModal from '@common/components/MyModal';
 import MyInput from '@common/components/MyInput';
 import { useSelector } from 'react-redux';
 
-function Personal() {
+interface IProps {
+  onClose: () => void;
+}
+function Personal({ onClose }: IProps) {
   const hobby: string = useSelector((state: any) => state.resumeModel.hobby);
   const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
   return (
@@ -16,7 +19,7 @@ function Personal() {
       showFooter={false}
       config={{
         cancelBtn: {
-          callback: () => {},
+          callback: onClose,
         },
       }}
     >

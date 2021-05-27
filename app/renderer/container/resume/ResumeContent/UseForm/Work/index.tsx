@@ -7,7 +7,10 @@ import MyModal from '@common/components/MyModal';
 import MyInput from '@common/components/MyInput';
 import { useSelector } from 'react-redux';
 
-function Work() {
+interface IProps {
+  onClose: () => void;
+}
+function Work({ onClose }: IProps) {
   const work: TSResume.Work = useSelector((state: any) => state.resumeModel.work);
   return (
     <MyModal.Dialog
@@ -15,7 +18,7 @@ function Work() {
       showFooter={false}
       config={{
         cancelBtn: {
-          callback: () => {},
+          callback: onClose,
         },
       }}
     >

@@ -7,7 +7,11 @@ import MyModal from '@common/components/MyModal';
 import MyInput from '@common/components/MyInput';
 import { useSelector } from 'react-redux';
 
-function Certificate() {
+interface IProps {
+  onClose: () => void;
+}
+
+function Certificate({ onClose }: IProps) {
   const certificate: string = useSelector((state: any) => state.resumeModel.certificate);
   return (
     <MyModal.Dialog
@@ -15,7 +19,7 @@ function Certificate() {
       showFooter={false}
       config={{
         cancelBtn: {
-          callback: () => {},
+          callback: onClose,
         },
       }}
     >

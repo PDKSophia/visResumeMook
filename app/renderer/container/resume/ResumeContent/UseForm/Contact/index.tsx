@@ -7,7 +7,10 @@ import MyModal from '@common/components/MyModal';
 import MyInput from '@common/components/MyInput';
 import { useSelector } from 'react-redux';
 
-function Contact() {
+interface IProps {
+  onClose: () => void;
+}
+function Contact({ onClose }: IProps) {
   const contact: TSResume.Contact = useSelector((state: any) => state.resumeModel.contact);
   return (
     <MyModal.Dialog
@@ -15,7 +18,7 @@ function Contact() {
       showFooter={false}
       config={{
         cancelBtn: {
-          callback: () => {},
+          callback: onClose,
         },
       }}
     >
