@@ -62,6 +62,7 @@ const resumeModel: TSRcReduxModel.Props<TSResume.IntactResume> = {
           '计划、组织、协调各年级学生组织的文艺和文化娱乐活动',
           '承办好学生会部的学生文艺晚会。有效地与社团部开展合作项目',
         ],
+        date: 1621145137865,
       },
     ],
     workExperience: [
@@ -76,6 +77,7 @@ const resumeModel: TSRcReduxModel.Props<TSResume.IntactResume> = {
           '担任TickNet工作室前端工程师，与湖南瞎说大学网络中心合作，围绕微信企业号开发或主导多个应用',
           '任职期间基于微信企业号开发校内闲余市场，采用Vue.js主导开发，并与湖南xxx科技有限公司合作，主导开发该公司官网及后台管理',
         ],
+        date: 1621145137865,
       },
     ],
     projectExperience: [

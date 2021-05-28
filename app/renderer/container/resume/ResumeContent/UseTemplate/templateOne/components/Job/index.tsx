@@ -18,7 +18,7 @@ function Job() {
         {work?.city && cityList?.length > 0 && (
           <li>
             城市：
-            {work?.cityList?.map((city: string, index: number) => {
+            {cityList?.map((city: string, index: number) => {
               return (
                 <span key={index}>
                   {city}

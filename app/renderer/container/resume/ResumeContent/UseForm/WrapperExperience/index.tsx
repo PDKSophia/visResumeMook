@@ -222,9 +222,7 @@ function WrapperExperience({ children, dataList, updateDataList }: IProps) {
               callback: () => {
                 onToggleEditModal({
                   showByCancel: false,
-                  tempSaveItem: {},
                 });
-                setCurrentItem(experienceList[currentIndex]);
               },
             },
             submitBtn: {

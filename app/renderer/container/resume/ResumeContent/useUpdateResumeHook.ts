@@ -85,7 +85,10 @@ function useUpdateWorkHook() {
   const work: TSResume.Work = useSelector((state: any) => state.resumeModel.work);
 
   return <T>(stateKey: string, stateValue: T) => {
-    let cityList = stateValue ? (stateValue as any).split('｜') : [];
+    let cityList = work?.cityList ? [...work.cityList] : [];
+    if (stateKey === 'city') {
+      cityList = (stateValue as any).split('｜');
+    }
     dispatch({
       type: 'resumeModel/setStore',
       payload: {
