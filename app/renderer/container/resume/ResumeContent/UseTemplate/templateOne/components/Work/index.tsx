@@ -16,7 +16,7 @@ function Work() {
         {!!workExperience?.length &&
           workExperience?.map((experience: TSResume.WorkExperience, index: number) => {
             return (
-              <li styleName="flex">
+              <li styleName="flex" key={index}>
                 <div styleName="left">
                   <p>
                     {experience?.beginTime}-{experience?.endTime}

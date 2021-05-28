@@ -18,13 +18,13 @@ function Form({ isDisable, currentItem, onChangeCurrentItem }: IProps) {
     <div styleName="wrapper">
       <div styleName="flex">
         <div styleName="left">
-          <span styleName="require">*</span>项目名 ：
+          <span styleName="require">*</span>公司 ：
         </div>
         <div styleName="right">
           <MyInput
             onChange={(e) => onChangeValue('title', e.target.value)}
             value={currentItem?.title}
-            placeholder="请输入项目名"
+            placeholder="请输入之前就职的公司"
             allowClear={!isDisable}
             disabled={isDisable}
           />
@@ -38,7 +38,7 @@ function Form({ isDisable, currentItem, onChangeCurrentItem }: IProps) {
           <MyInput
             onChange={(e) => onChangeValue('post', e.target.value)}
             value={currentItem?.post}
-            placeholder="在项目中担任什么职位"
+            placeholder="期间担任什么职位"
             allowClear={!isDisable}
             disabled={isDisable}
           />
@@ -78,7 +78,7 @@ function Form({ isDisable, currentItem, onChangeCurrentItem }: IProps) {
             onChange={(e) => onChangeValue('content', e.target.value)}
             rows={5}
             value={currentItem?.content}
-            placeholder="你在项目中的主要工作是什么呢？"
+            placeholder="任职期间主要工作是什么呢？"
             allowClear={!isDisable}
             disabled={isDisable}
           />

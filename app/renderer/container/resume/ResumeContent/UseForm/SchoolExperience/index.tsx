@@ -1,5 +1,5 @@
 /**
- * @description 个人信息Form
+ * @description 在校经历Form
  */
 import React from 'react';
 import MyModal from '@common/components/MyModal';
@@ -22,7 +22,7 @@ function SchoolExperience({ onClose }: IProps) {
 
   return (
     <MyModal.Dialog
-      title="在校经验"
+      title="在校经历"
       showFooter={false}
       config={{
         cancelBtn: {

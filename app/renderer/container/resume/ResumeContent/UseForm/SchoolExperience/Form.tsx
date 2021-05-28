@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import './index.less';
 import MyInput from '@common/components/MyInput';
 import { AdapterExperienceType } from '../WrapperExperience/adapter';

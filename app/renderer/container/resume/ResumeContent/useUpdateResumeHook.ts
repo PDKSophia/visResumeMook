@@ -16,6 +16,8 @@ function useUpdateResumeHook() {
   const updateSkillHook = useUpdateSkillHook();
   const updateProjectExperience = useUpdateProjectExperience();
   const updateSchoolExperience = useUpdateSchoolExperience();
+  const updateWorkExperience = useUpdateWorkExperience();
+
   return <T>(stateKey: string, stateValue: T) => {
     const keys = stateKey.split('/') || [];
     if (keys[0]) {
@@ -28,6 +30,7 @@ function useUpdateResumeHook() {
       if (keys[0] === 'skill') updateSkillHook(keys[0], stateValue);
       if (keys[0] === 'projectExperience') updateProjectExperience(keys[0], stateValue);
       if (keys[0] === 'schoolExperience') updateSchoolExperience(keys[0], stateValue);
+      if (keys[0] === 'workExperience') updateWorkExperience(keys[0], stateValue);
     }
   };
 }
@@ -210,6 +213,30 @@ function useUpdateProjectExperience() {
  * @description 修改在校经历（School）
  */
 function useUpdateSchoolExperience() {
+  const dispatch = useDispatch();
+  return <T>(stateKey: string, stateValue: T) => {
+    let newList = (stateValue as any)?.map((s: AdapterExperienceType) => {
+      let parseContent = s.content ? s.content.split('｜') : [];
+      return {
+        ...s,
+        department: s?.title,
+        parseContent,
+      };
+    });
+    dispatch({
+      type: 'resumeModel/setStore',
+      payload: {
+        key: stateKey,
+        values: newList,
+      },
+    });
+  };
+}
+
+/**
+ * @description 修改在校经历（School）
+ */
+function useUpdateWorkExperience() {
   const dispatch = useDispatch();
   return <T>(stateKey: string, stateValue: T) => {
     let newList = (stateValue as any)?.map((s: AdapterExperienceType) => {
