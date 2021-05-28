@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { AdapterExperienceType } from './UseForm/WrapperExperience/adapter';
 
 /**
  * @description 更新简历信息
@@ -13,6 +14,7 @@ function useUpdateResumeHook() {
   const updateHobbyHook = useUpdateHobbyHook();
   const updateCertificateHook = useUpdateCertificateHook();
   const updateSkillHook = useUpdateSkillHook();
+  const updateProjectExperience = useUpdateProjectExperience();
 
   return <T>(stateKey: string, stateValue: T) => {
     const keys = stateKey.split('/') || [];
@@ -24,6 +26,7 @@ function useUpdateResumeHook() {
       if (keys[0] === 'hobby') updateHobbyHook(keys[0], stateValue);
       if (keys[0] === 'certificate') updateCertificateHook(keys[0], stateValue);
       if (keys[0] === 'skill') updateSkillHook(keys[0], stateValue);
+      if (keys[0] === 'projectExperience') updateProjectExperience(keys[0], stateValue);
     }
   };
 }
@@ -174,6 +177,30 @@ function useUpdateSkillHook() {
           values: skillList,
         },
       ],
+    });
+  };
+}
+
+/**
+ * @description 修改项目经验（Project）
+ */
+function useUpdateProjectExperience() {
+  const dispatch = useDispatch();
+  return <T>(stateKey: string, stateValue: T) => {
+    let newList = (stateValue as any)?.map((s: AdapterExperienceType) => {
+      let parseContent = s.content ? s.content.split('｜') : [];
+      return {
+        ...s,
+        projectName: s?.title,
+        parseContent,
+      };
+    });
+    dispatch({
+      type: 'resumeModel/setStore',
+      payload: {
+        key: stateKey,
+        values: newList,
+      },
     });
   };
 }

@@ -4,7 +4,7 @@ import Left from './Left';
 import Right from './Right';
 import Menu from './Right/Menu';
 import { onAddExperience, onDeleteExperience } from './utils';
-import AdapterExperience, { AdapterExperienceType } from './adapter';
+import { AdapterExperienceType } from './adapter';
 import MyModal from '@common/components/MyModal';
 
 interface IProps {
@@ -42,7 +42,7 @@ function WrapperExperience({ children, dataList, updateDataList }: IProps) {
   // 2. 当条目数据列表修改更新，则更新数据
   useEffect(() => {
     if (dataList && dataList?.length > 0) {
-      setExperienceList(AdapterExperience.project(dataList || []));
+      setExperienceList(dataList || []);
     } else {
       setExperienceList([]);
     }
