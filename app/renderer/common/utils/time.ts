@@ -32,7 +32,7 @@ export function intToTimeString(num?: number): string {
   const minute = date.getMinutes();
   const second = date.getSeconds();
   return `${hour >= 10 ? hour : '0' + hour}:${minute >= 10 ? minute : '0' + minute}:${
-    second >= 0 ? second : '0' + second
+    second >= 10 ? second : '0' + second
   }
     `;
 }

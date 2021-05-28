@@ -101,11 +101,9 @@ export default class MyInput extends React.PureComponent<InputProps, InputState>
   }
 
   UNSAFE_componentWillReceiveProps(nextProps: InputProps) {
-    if (nextProps.value) {
-      this.setState({
-        text: nextProps.value,
-      });
-    }
+    this.setState({
+      text: nextProps.value || '',
+    });
   }
 
   saveInput = (input: HTMLInputElement | HTMLTextAreaElement) => {
