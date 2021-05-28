@@ -3,21 +3,20 @@
  * @author pengdaokuan
  */
 import React from 'react';
+import { useSelector } from 'react-redux';
 import './index.less';
 
 function Synopsis() {
+  const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
+  const work: TSResume.Work = useSelector((state: any) => state.resumeModel.work);
+  const evaluation: string = useSelector((state: any) => state.resumeModel.evaluation);
+  const evaluationList: string[] = useSelector((state: any) => state.resumeModel.evaluationList);
+
   return (
     <div styleName="content">
-      <p styleName="name">彭道宽</p>
-      <p styleName="job">前端工程师</p>
-      <p styleName="summary">
-        {[
-          '投身开源，rc-redux-model 库作者，SugarTurboS Club 开源组织负责人',
-          '掘金 lv3 博主，掘金文章 10w+ 阅读量，github blog 300+ star',
-          '具备良好语言表达能力和沟通能力，能快速融入团队，适应新环境。',
-          '具有代码洁癖，前后端分离，自我学习能力强，对新技术具有钻研精神',
-        ].join('，')}
-      </p>
+      {base?.username && <p styleName="name">{base?.username}</p>}
+      {work?.job && <p styleName="job">{work?.job}</p>}
+      {evaluation && <p styleName="summary">{evaluationList?.join('，')}</p>}
     </div>
   );
 }
