@@ -60,7 +60,3 @@ npm run start:main
 - [x] [彩蛋篇-Webpack 基础介绍与两大利器](https://juejin.cn/book/6950646725295996940/section/6962895331730620423)
 - [x] [彩蛋篇-RcReduxModel 中间件开发设计](https://juejin.cn/book/6950646725295996940/section/6953057493043904549)
 - [x] [期望篇-可视化自定义独特的简历模版](https://juejin.cn/editor/book/6950646725295996940/section/6953057711445671943)
-
-## 运行之后的效果图
-
-<img src="./phone1.png"  />
