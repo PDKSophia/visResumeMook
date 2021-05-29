@@ -74,7 +74,7 @@ npm run build-app-win
 
 ### 小册章节
 
-<img src="./cover.jpg" width=200 />
+<img src="./cover.jpeg" width=200 />
 
 - [x] [开篇-小册介绍](https://juejin.cn/book/6950646725295996940)
 - [x] [开篇-技术选型和项目结构](https://juejin.cn/book/6950646725295996940/section/6962895331667230727)
