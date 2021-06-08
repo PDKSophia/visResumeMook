@@ -11,7 +11,7 @@ export const ROUTER_KEY = {
 };
 
 // 入口模块
-export const ROUTER_ENTRY = [
+export const ROUTER_ENTRY: TSRouter.Item[] = [
   {
     url: 'https://github.com/PDKSophia/visResumeMook',
     key: 'intro',
