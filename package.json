@@ -11,12 +11,49 @@
     "build:render": "webpack --config ./webpack/webpack.render.dev.js",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
+    "build": "npm run build:main && npm run build:render",
     "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron"
   },
   "build": {
     "appId": "visResumeMook.ElectronReact",
     "productName": "VisResumeMook",
-    "copyright": "Copyright © 2019 ${author}"
+    "copyright": "Copyright © 2019 ${author}",
+    "extends": null,
+    "files": [
+      "dist/**/*",
+      "package.json",
+      "node_modules/"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "distAssets"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "msi"
+      ]
+    }
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
