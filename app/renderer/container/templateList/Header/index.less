@@ -1,0 +1,33 @@
+.header {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 24px;
+  box-sizing: border-box;
+  display: flex;
+  color: #ffffff;
+  background-color: #27292c;
+  .back {
+    font-size: 16px;
+    cursor: pointer;
+    padding-left: 20px;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 23px;
+      width: 14px;
+      height: 14px;
+      background-size: cover;
+      background-image: url('../../../../../assets/icon/back.png');
+      background-repeat: no-repeat;
+    }
+  }
+  .title {
+    flex: 1;
+    font-size: 16px;
+    text-align: center;
+    margin-left: -52px;
+  }
+}
