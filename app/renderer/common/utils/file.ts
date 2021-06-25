@@ -1,3 +1,10 @@
+/*
+ * @Description: 封装fs模块
+ * @Author: pengdaokuan
+ * @LastEditors: pengdaokuan
+ * @Date: 2021-06-25 08:56:12
+ * @LastEditTime: 2021-06-25 09:44:16
+ */
 import fs, { promises as fsPromiseAPIs } from 'fs';
 
 const fileAction = {
@@ -6,16 +13,24 @@ const fileAction = {
    * @param path 路径
    * @returns {Promise}
    */
-  read: (path: string): Promise<string> => {
-    return fsPromiseAPIs.readFile(path, { encoding: 'utf8' });
+  read: (path: string, encoding: BufferEncoding): Promise<string> => {
+    return fsPromiseAPIs.readFile(path, { encoding: encoding || 'utf8' });
+  },
+  /**
+   * @description 读取目录内容
+   * @param path 路径
+   * @returns  {Promise}
+   */
+  readDir: (path: string): Promise<string[]> => {
+    return fsPromiseAPIs.readdir(path);
   },
   /**
    * @description 写入文件内容
    * @param path 路径
    * @returns {Promise}
    */
-  write: (path: string, content: string): Promise<void> => {
-    return fsPromiseAPIs.writeFile(path, content, { encoding: 'utf8' });
+  write: (path: string, content: string, encoding: BufferEncoding): Promise<void> => {
+    return fsPromiseAPIs.writeFile(path, content, { encoding: encoding || 'utf8' });
   },
   /**
    * @description 重命名文件
