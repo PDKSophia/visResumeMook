@@ -1,0 +1,55 @@
+// 正常情况下样式
+:global {
+  .parent-box {
+    margin: 0 auto;
+    position: relative;
+    &:after {
+      content: '';
+      clear: both;
+      display: block;
+    }
+    .rect-menu {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 50%;
+      width: 32px;
+      height: 64px;
+      line-height: 64px;
+      text-align: center;
+      margin-top: -32px;
+      background: #ffffff;
+      box-shadow: 8px 0 8px 0 rgba(0, 0, 0, 0.1);
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      .rect-icon {
+        background-image: url('../../../../../assets/icon/back_blank.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        transition: all 0.5s;
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        top: 25px;
+        left: 9px;
+        &.rect-icon-hidden {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+// <1272px尺寸适配，但是因为滚动条原因，导致会出现小屏时不出现 rect-menu 不显示情况
+@media screen and (max-width: 1200px) {
+  :global {
+    .parent-box {
+      .left-box {
+        transition: left 0.5s;
+      }
+      .rect-menu {
+        display: block;
+      }
+    }
+  }
+}
