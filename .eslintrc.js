@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: pengdaokuan
+ * @LastEditors: pengdaokuan
+ * @Date: 2021-06-10 17:07:28
+ * @LastEditTime: 2021-06-25 17:48:45
+ */
 module.exports = {
   extends: [
     'alloy',
@@ -40,5 +47,6 @@ module.exports = {
     '@typescript-eslint/no-invalid-this': 'off',
     'react/jsx-key': 0,
     'no-undef': 0,
+    'max-nested-callbacks': ['warn', 5],
   },
 };

@@ -3,7 +3,7 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-25 08:56:12
- * @LastEditTime: 2021-06-25 09:44:16
+ * @LastEditTime: 2021-06-25 17:47:33
  */
 import fs, { promises as fsPromiseAPIs } from 'fs';
 
@@ -29,8 +29,9 @@ const fileAction = {
    * @param path 路径
    * @returns {Promise}
    */
-  write: (path: string, content: string, encoding: BufferEncoding): Promise<void> => {
-    return fsPromiseAPIs.writeFile(path, content, { encoding: encoding || 'utf8' });
+  write: (path: string, content: any, encoding: BufferEncoding): Promise<void> => {
+    let updateContent = typeof content === 'string' ? content : JSON.stringify(content);
+    return fsPromiseAPIs.writeFile(path, updateContent, { encoding: encoding || 'utf8' });
   },
   /**
    * @description 重命名文件
