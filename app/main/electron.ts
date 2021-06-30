@@ -10,7 +10,7 @@ function isDev() {
 }
 
 function createWindow() {
-  // 创建浏览器窗口
+  // 创建主应用窗口
   const mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
@@ -20,11 +20,22 @@ function createWindow() {
     },
   });
 
+  // 创建应用设置窗口
+  const settingWindow = new BrowserWindow({
+    width: 600,
+    height: 420,
+    webPreferences: {
+      devTools: true,
+      nodeIntegration: true,
+    },
+  });
+
   if (isDev()) {
-    // 👇 看到了吗，在开发环境下，我们加载的是运行在 7001 端口的 React
-    mainWindow.loadURL(`http://127.0.0.1:7001`);
+    mainWindow.loadURL(`http://127.0.0.1:7001/index.html`);
+    settingWindow.loadURL(`http://127.0.0.1:7001/setting.html`);
   } else {
     mainWindow.loadURL(`file://${path.join(__dirname, '../dist/index.html')}`);
+    settingWindow.loadURL(`file://${path.join(__dirname, '../dist/setting.html')}`);
   }
 }
 
