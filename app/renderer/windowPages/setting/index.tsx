@@ -3,9 +3,9 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-30 10:25:30
- * @LastEditTime: 2021-06-30 16:23:20
+ * @LastEditTime: 2021-06-30 17:49:52
  */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.less';
 import { ipcRenderer } from 'electron';
 import MyButton from '@common/components/MyButton';
@@ -13,7 +13,18 @@ import MyButton from '@common/components/MyButton';
 function Setting() {
   const [resumeSavePath, setResumeSavePath] = useState('');
 
+  useEffect(() => {
+    ipcRenderer.on('ELECTRON:default-path_from_settingWindow_to_mainWindow', (event, arg: string) => {
+      if (arg) {
+        setResumeSavePath(arg);
+      } else {
+        console.log('自定义存储路径失败');
+      }
+    });
+  }, []);
+
   const onSave = () => {};
+
   const onChangePath = () => {
     // 1. 向主进程发送消息，因为 dialog 模块只能在主进程中调用
     ipcRenderer.send('open-save-resume-path', '');

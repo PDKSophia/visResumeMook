@@ -9,6 +9,8 @@ function isDev() {
   return process.env.NODE_ENV === 'development';
 }
 
+let currentSettingWindow: BrowserWindow;
+
 function createWindow() {
   // 创建主应用窗口
   const mainWindow = new BrowserWindow({
@@ -31,6 +33,8 @@ function createWindow() {
     },
   });
 
+  currentSettingWindow = settingWindow;
+
   if (isDev()) {
     mainWindow.loadURL(`http://127.0.0.1:7001/index.html`);
     settingWindow.loadURL(`http://127.0.0.1:7001/setting.html`);
@@ -51,6 +55,14 @@ const ROOT_PATH = path.join(app.getAppPath(), '../');
 
 ipcMain.on('get-root-path', (event, arg) => {
   event.reply('reply-root-path', ROOT_PATH);
+});
+
+// 在主应用窗口获取默认路径之后，同步到应用设置窗口
+ipcMain.on('ELECTRON:default-path_from_mainWindow_to_settingWindow', (event, arg) => {
+  console.log('从A过来的数据', arg);
+  currentSettingWindow.webContents.on('did-finish-load', () => {
+    currentSettingWindow.webContents.send('ELECTRON:default-path_from_settingWindow_to_mainWindow', arg);
+  });
 });
 
 // 应用设置，保存自定义存储路径
