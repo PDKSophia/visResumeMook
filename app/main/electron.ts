@@ -2,7 +2,7 @@
  * @desc electron 主入口
  */
 import path from 'path';
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain, dialog } from 'electron';
 
 function isDev() {
   // 👉 还记得我们配置中通过 webpack.DefinePlugin 定义的构建变量吗
@@ -51,4 +51,18 @@ const ROOT_PATH = path.join(app.getAppPath(), '../');
 
 ipcMain.on('get-root-path', (event, arg) => {
   event.reply('reply-root-path', ROOT_PATH);
+});
+
+// 应用设置，保存自定义存储路径
+ipcMain.on('open-save-resume-path', (event, arg) => {
+  dialog
+    .showOpenDialog({
+      properties: ['openDirectory'],
+    })
+    .then((result) => {
+      event.reply('reply-save-resume-path', result.filePaths);
+    })
+    .catch((err) => {
+      event.reply('reply-save-resume-path', err);
+    });
 });
