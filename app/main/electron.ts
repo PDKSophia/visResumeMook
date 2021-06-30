@@ -22,8 +22,9 @@ function createWindow() {
 
   // 创建应用设置窗口
   const settingWindow = new BrowserWindow({
-    width: 600,
-    height: 420,
+    width: 720,
+    height: 240,
+    resizable: false,
     webPreferences: {
       devTools: true,
       nodeIntegration: true,
