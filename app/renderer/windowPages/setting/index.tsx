@@ -29,8 +29,6 @@ function Setting() {
     });
   }, []);
 
-  const onSave = () => {};
-
   const onChangePath = () => {
     // 1. 向主进程发送消息，因为 dialog 模块只能在主进程中调用
     ipcRenderer.send('open-save-resume-path', '');
@@ -39,7 +37,6 @@ function Setting() {
       if (arg) {
         if (arg.length > 0) {
           setResumeSavePath(arg[0]);
-          updateGlobalConfigFile('resumeSavePath', arg[0]);
         }
       } else {
         console.log('自定义存储路径失败');
@@ -54,11 +51,6 @@ function Setting() {
         <div styleName="update-btn" onClick={onChangePath}>
           更改路径
         </div>
-      </div>
-      <div styleName="bottom">
-        <MyButton size="middle" className="save-btn" onClick={onSave}>
-          保存
-        </MyButton>
       </div>
     </div>
   );
