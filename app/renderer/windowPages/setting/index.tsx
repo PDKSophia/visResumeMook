@@ -3,7 +3,7 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-30 10:25:30
- * @LastEditTime: 2021-07-01 11:14:22
+ * @LastEditTime: 2021-07-01 12:24:36
  */
 import React, { useState, useEffect } from 'react';
 import './index.less';
@@ -22,8 +22,8 @@ function Setting() {
         setResumeSavePath(value?.resumeSavePath);
       } else {
         getAppPath().then((appPath: string) => {
-          setResumeSavePath(`${appPath}appCache`);
-          updateGlobalConfigFile('resumeSavePath', `${appPath}appCache`);
+          setResumeSavePath(`${appPath}resumeCache`);
+          updateGlobalConfigFile('resumeSavePath', `${appPath}resumeCache`);
         });
       }
     });
