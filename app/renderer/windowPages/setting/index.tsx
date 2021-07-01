@@ -3,22 +3,28 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-30 10:25:30
- * @LastEditTime: 2021-06-30 17:49:52
+ * @LastEditTime: 2021-07-01 11:14:22
  */
 import React, { useState, useEffect } from 'react';
 import './index.less';
 import { ipcRenderer } from 'electron';
 import MyButton from '@common/components/MyButton';
+import { getAppPath } from '@common/utils/appPath';
+import { useReadGlobalConfigFile, useUpdateGlobalConfigFile } from '@src/hooks/useGlobalConfigActionHooks';
 
 function Setting() {
   const [resumeSavePath, setResumeSavePath] = useState('');
-
+  const readAppConfigThemeFile = useReadGlobalConfigFile();
+  const updateGlobalConfigFile = useUpdateGlobalConfigFile();
   useEffect(() => {
-    ipcRenderer.on('ELECTRON:default-path_from_settingWindow_to_mainWindow', (event, arg: string) => {
-      if (arg) {
-        setResumeSavePath(arg);
+    readAppConfigThemeFile().then((value: { [key: string]: any }) => {
+      if (value?.resumeSavePath) {
+        setResumeSavePath(value?.resumeSavePath);
       } else {
-        console.log('自定义存储路径失败');
+        getAppPath().then((appPath: string) => {
+          setResumeSavePath(`${appPath}appCache`);
+          updateGlobalConfigFile('resumeSavePath', `${appPath}appCache`);
+        });
       }
     });
   }, []);
@@ -31,7 +37,10 @@ function Setting() {
     // 2. 监听从主进程发送回来的消息
     ipcRenderer.on('reply-save-resume-path', (event, arg: string[]) => {
       if (arg) {
-        if (arg.length > 0) setResumeSavePath(arg[0]);
+        if (arg.length > 0) {
+          setResumeSavePath(arg[0]);
+          updateGlobalConfigFile('resumeSavePath', arg[0]);
+        }
       } else {
         console.log('自定义存储路径失败');
       }
