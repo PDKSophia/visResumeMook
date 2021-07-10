@@ -3,7 +3,7 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-25 08:56:12
- * @LastEditTime: 2021-07-10 18:38:47
+ * @LastEditTime: 2021-07-10 19:30:31
  */
 import React, { useEffect, useState } from 'react';
 import * as UseTemplateList from './UseTemplate';
@@ -24,10 +24,14 @@ import WorkExperience from './UseForm/WorkExperience';
 
 function ResumeContent() {
   const HEADER_ACTION_HEIGHT = 92;
-  const height = document.body.clientHeight;
+  const [height, setHeight] = useState(0);
   const routerParams = useParams<{ fromPath: string; templateId: string; templateIndex: string }>();
   const [formName, setFormName] = useState('');
   const [showFormModal, setShowFormModal] = useState(false);
+
+  useEffect(() => {
+    if (document.body && document.body.clientHeight > 0) setHeight(document.body.clientHeight);
+  }, [document.body]);
 
   useEffect(() => {
     document.addEventListener(MESSAGE_EVENT_NAME_MAPS.OPEN_FORM_MODAL, onReceive);
@@ -50,7 +54,6 @@ function ResumeContent() {
     setFormName('');
   };
 
-  console.log('render');
   return (
     <MyScrollBox maxHeight={height - HEADER_ACTION_HEIGHT}>
       {routerParams?.templateId && Number(routerParams?.templateIndex) === 0 && <UseTemplateList.TemplateOne />}
