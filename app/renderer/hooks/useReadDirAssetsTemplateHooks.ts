@@ -3,7 +3,7 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-25 09:10:49
- * @LastEditTime: 2021-07-08 17:59:01
+ * @LastEditTime: 2021-07-10 17:46:40
  */
 import fileAction from '@common/utils/file';
 import { useDispatch } from 'react-redux';
@@ -15,7 +15,6 @@ export default function () {
   return () => {
     // 1. 先获取应用地址
     getAppPath().then((appPath: string) => {
-      console.log(appPath);
       // 2. 从assets读取模版图片信息，构造模版列表
       fileAction
         .readDir(`${appPath}assets/template`)

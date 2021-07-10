@@ -3,7 +3,7 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-25 16:26:41
- * @LastEditTime: 2021-06-25 18:02:32
+ * @LastEditTime: 2021-07-10 17:46:49
  */
 import React from 'react';
 import './index.less';
@@ -14,7 +14,6 @@ function MyTheme() {
   const themeList = useSelector((state: any) => state.themeModel.themeList);
   const [currentTheme, setCurrentTheme] = useThemeActionHooks.useGetCurrentTheme();
 
-  console.log(currentTheme);
   return (
     <div styleName="box">
       {themeList &&

@@ -3,7 +3,7 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-25 08:56:12
- * @LastEditTime: 2021-07-10 18:16:34
+ * @LastEditTime: 2021-07-10 18:38:47
  */
 import React, { useEffect, useState } from 'react';
 import * as UseTemplateList from './UseTemplate';
@@ -49,6 +49,8 @@ function ResumeContent() {
     setShowFormModal(false);
     setFormName('');
   };
+
+  console.log('render');
   return (
     <MyScrollBox maxHeight={height - HEADER_ACTION_HEIGHT}>
       {routerParams?.templateId && Number(routerParams?.templateIndex) === 0 && <UseTemplateList.TemplateOne />}
