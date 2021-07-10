@@ -1,7 +1,14 @@
+/*
+ * @Description:
+ * @Author: pengdaokuan
+ * @LastEditors: pengdaokuan
+ * @Date: 2021-06-25 08:56:12
+ * @LastEditTime: 2021-07-10 17:59:28
+ */
 // 模块路径
 const ROUTER = {
   root: '/',
-  resume: '/resume',
+  resume: '/resume/:fromPath/:templateId/:templateIndex',
   templateList: '/templateList',
 };
 export default ROUTER;

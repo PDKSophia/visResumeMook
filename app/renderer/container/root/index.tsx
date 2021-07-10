@@ -3,30 +3,38 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-25 08:56:12
- * @LastEditTime: 2021-06-25 18:08:19
+ * @LastEditTime: 2021-07-10 18:05:23
  */
 import React from 'react';
 import './index.less';
 import { shell } from 'electron';
 import { useHistory } from 'react-router';
-import Logo from '@assets/logo.png';
+import { useSelector } from 'react-redux';
 import { ROUTER_ENTRY, ROUTER_KEY } from '@common/constants/router';
-import { isHttpOrHttpsUrl } from '@common/utils/router';
+import { compilePath, isHttpOrHttpsUrl } from '@common/utils/router';
+import Logo from '@assets/logo.png';
 import MyTheme from '@common/components/MyTheme';
 import useThemeActionHooks from '@src/hooks/useThemeActionHooks';
 
 function Root() {
   const history = useHistory();
   const [currentTheme] = useThemeActionHooks.useGetCurrentTheme();
+  const selectTemplate = useSelector((state: any) => state.templateModel.selectTemplate);
 
   const onRouterToLink = (router: TSRouter.Item) => {
     if (isHttpOrHttpsUrl(router.url)) {
       shell.openExternal(router.url);
     } else {
       if (router.key !== ROUTER_KEY.resume) {
-        history.push(router.url);
+        history.push(compilePath(router.url));
       } else {
-        history.push(router.url);
+        history.push(
+          compilePath(router.url, {
+            fromPath: ROUTER_KEY.root,
+            templateId: selectTemplate?.templateId,
+            templateIndex: selectTemplate?.templateIndex,
+          })
+        );
       }
     }
   };

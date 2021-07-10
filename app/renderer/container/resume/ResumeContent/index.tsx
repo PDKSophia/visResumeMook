@@ -1,5 +1,13 @@
+/*
+ * @Description:
+ * @Author: pengdaokuan
+ * @LastEditors: pengdaokuan
+ * @Date: 2021-06-25 08:56:12
+ * @LastEditTime: 2021-07-10 18:16:34
+ */
 import React, { useEffect, useState } from 'react';
 import * as UseTemplateList from './UseTemplate';
+import { useParams } from 'react-router';
 import MyScrollBox from '@common/components/MyScrollBox';
 import Messager, { MESSAGE_EVENT_NAME_MAPS } from '@common/messager';
 import { RESUME_TOOLBAR_MAPS } from '@common/constants/resume';
@@ -17,6 +25,7 @@ import WorkExperience from './UseForm/WorkExperience';
 function ResumeContent() {
   const HEADER_ACTION_HEIGHT = 92;
   const height = document.body.clientHeight;
+  const routerParams = useParams<{ fromPath: string; templateId: string; templateIndex: string }>();
   const [formName, setFormName] = useState('');
   const [showFormModal, setShowFormModal] = useState(false);
 
@@ -42,7 +51,7 @@ function ResumeContent() {
   };
   return (
     <MyScrollBox maxHeight={height - HEADER_ACTION_HEIGHT}>
-      <UseTemplateList.TemplateOne />
+      {routerParams?.templateId && Number(routerParams?.templateIndex) === 0 && <UseTemplateList.TemplateOne />}
       {showFormModal && (
         <>
           {formName === RESUME_TOOLBAR_MAPS.certificate && <CertificateForm onClose={onClose} />}

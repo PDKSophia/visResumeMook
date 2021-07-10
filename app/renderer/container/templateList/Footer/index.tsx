@@ -1,10 +1,31 @@
+/*
+ * @Description:
+ * @Author: pengdaokuan
+ * @LastEditors: pengdaokuan
+ * @Date: 2021-06-25 08:56:12
+ * @LastEditTime: 2021-07-10 18:08:48
+ */
 import React from 'react';
 import './index.less';
+import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
+import { ROUTER_KEY } from '@common/constants/router';
+import { compilePath } from '@common/utils/router';
 import MyButton from '@common/components/MyButton';
+import ROUTER from '@common/constants/router';
 
 function Footer() {
+  const history = useHistory();
+  const selectTemplate = useSelector((state: any) => state.templateModel.selectTemplate);
+
   const onMadeResume = () => {
-    console.log('跳转前往制作页面');
+    history.push(
+      compilePath(ROUTER.resume, {
+        fromPath: ROUTER_KEY.templateList,
+        templateId: selectTemplate?.templateId,
+        templateIndex: selectTemplate?.templateIndex,
+      })
+    );
   };
   return (
     <div styleName="footer">
