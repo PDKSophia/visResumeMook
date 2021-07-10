@@ -3,7 +3,7 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-30 10:25:30
- * @LastEditTime: 2021-07-01 12:24:36
+ * @LastEditTime: 2021-07-10 20:13:01
  */
 import React, { useState, useEffect } from 'react';
 import './index.less';
@@ -37,6 +37,7 @@ function Setting() {
       if (arg) {
         if (arg.length > 0) {
           setResumeSavePath(arg[0]);
+          updateGlobalConfigFile('resumeSavePath', arg[0]);
         }
       } else {
         console.log('自定义存储路径失败');
