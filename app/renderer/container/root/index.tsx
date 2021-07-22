@@ -3,7 +3,7 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-25 08:56:12
- * @LastEditTime: 2021-07-10 18:05:23
+ * @LastEditTime: 2021-07-22 14:23:48
  */
 import React from 'react';
 import './index.less';
@@ -15,7 +15,6 @@ import { compilePath, isHttpOrHttpsUrl } from '@common/utils/router';
 import Logo from '@assets/logo.png';
 import MyTheme from '@common/components/MyTheme';
 import useThemeActionHooks from '@src/hooks/useThemeActionHooks';
-
 function Root() {
   const history = useHistory();
   const [currentTheme] = useThemeActionHooks.useGetCurrentTheme();
