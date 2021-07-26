@@ -3,12 +3,11 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-30 10:25:30
- * @LastEditTime: 2021-07-10 20:13:01
+ * @LastEditTime: 2021-07-26 09:19:39
  */
 import React, { useState, useEffect } from 'react';
 import './index.less';
 import { ipcRenderer } from 'electron';
-import MyButton from '@common/components/MyButton';
 import { getAppPath } from '@common/utils/appPath';
 import { useReadGlobalConfigFile, useUpdateGlobalConfigFile } from '@src/hooks/useGlobalConfigActionHooks';
 

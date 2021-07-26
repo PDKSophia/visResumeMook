@@ -3,7 +3,7 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-25 08:56:12
- * @LastEditTime: 2021-07-01 11:10:11
+ * @LastEditTime: 2021-07-26 09:20:44
  */
 import React, { useEffect } from 'react';
 import { ipcRenderer } from 'electron';
@@ -21,15 +21,6 @@ function Router() {
   useEffect(() => {
     initThemeConfig();
     readDirAssetsTemplateHooks();
-
-    // 监听事件
-    ipcRenderer.on('sync-reply-resume-setting-path', (event, arg: string) => {
-      if (arg) {
-        console.log('哈哈哈哈', arg);
-      } else {
-        console.log('自定义存储路径失败');
-      }
-    });
   }, []);
 
   return (
