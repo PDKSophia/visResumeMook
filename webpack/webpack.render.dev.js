@@ -1,20 +1,10 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const path = require('path');
 const webpackMerge = require('webpack-merge');
-const baseConfig = require('./webpack.base.js');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const renderBaseConfig = require('./webpack.render.base.js');
 
 const devConfig = {
   mode: 'development',
-  entry: {
-    index: path.resolve(__dirname, '../app/renderer/app.tsx'),
-    setting: path.resolve(__dirname, '../app/renderer/windowPages/setting/app.tsx'),
-  },
-  output: {
-    filename: '[name].[hash].js',
-    path: path.resolve(__dirname, '../dist'),
-  },
-  target: 'electron-renderer',
-  devtool: 'inline-source-map',
   devServer: {
     contentBase: path.join(__dirname, '../dist'),
     compress: true,
@@ -22,43 +12,6 @@ const devConfig = {
     port: 7001, // 启动端口为 7001 的服务
     hot: true,
   },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.less$/,
-        exclude: /node_modules/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[name]__[local]__[hash:base64:5]',
-              },
-            },
-          },
-          'postcss-loader',
-          'less-loader',
-        ],
-      },
-    ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../app/renderer/index.html'),
-      filename: path.resolve(__dirname, '../dist/index.html'),
-      chunks: ['index'],
-    }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../app/renderer/windowPages/setting/index.html'),
-      filename: path.resolve(__dirname, '../dist/setting.html'),
-      chunks: ['setting'],
-    }),
-  ],
 };
 
-module.exports = webpackMerge.merge(baseConfig, devConfig);
+module.exports = webpackMerge.merge(renderBaseConfig, devConfig);

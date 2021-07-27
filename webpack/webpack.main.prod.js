@@ -2,8 +2,8 @@
 const webpackMerge = require('webpack-merge');
 const mainBaseConfig = require('./webpack.main.base.js');
 
-const devConfig = {
-  mode: 'development',
+const prodConfig = {
+  mode: 'production',
 };
 
-module.exports = webpackMerge.merge(mainBaseConfig, devConfig);
+module.exports = webpackMerge.merge(mainBaseConfig, prodConfig);
