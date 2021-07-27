@@ -9,6 +9,8 @@
     "start:render": "webpack-dev-server --config ./webpack/webpack.render.dev.js",
     "build:main": "webpack --config ./webpack/webpack.main.prod.js",
     "build:render": "webpack --config ./webpack/webpack.render.prod.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
     "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron"
   },
   "dependencies": {
