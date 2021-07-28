@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { MyBrowserWindow } from './electron';
-import { MenuItemConstructorOptions, shell, MenuItem, BrowserWindow } from 'electron';
+import { MenuItemConstructorOptions, shell, app, MenuItem, BrowserWindow } from 'electron';
 
 const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
   {
@@ -70,6 +70,13 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
       },
       {
         type: 'separator',
+      },
+      {
+        label: 'Quit',
+        accelerator: 'Command+Q',
+        click: function () {
+          app.quit();
+        },
       },
     ],
   },
