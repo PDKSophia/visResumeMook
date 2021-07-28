@@ -1,5 +1,13 @@
+/*
+ * @Description:
+ * @Author: pengdaokuan
+ * @LastEditors: pengdaokuan
+ * @Date: 2021-07-27 14:24:19
+ * @LastEditTime: 2021-07-28 10:16:41
+ */
 /* eslint-disable @typescript-eslint/no-require-imports */
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -75,6 +83,18 @@ module.exports = {
       template: path.resolve(__dirname, '../app/renderer/windowPages/setting/index.html'),
       filename: path.resolve(__dirname, '../dist/setting.html'),
       chunks: ['setting'],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, '../assets'),
+          to: path.resolve(__dirname, '../dist'),
+        },
+        {
+          from: path.resolve(__dirname, '../appConfig'),
+          to: path.resolve(__dirname, '../dist/appConfig'),
+        },
+      ],
     }),
   ],
 };
