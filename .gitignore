@@ -5,3 +5,4 @@ dist
 # mac自动生成的文件
 .DS_Store
 assets/*/.DS_Store
+package
