@@ -8,7 +8,6 @@ import { app, BrowserWindow, ipcMain, dialog, Menu } from 'electron';
 export interface MyBrowserWindow extends BrowserWindow {
   uid?: string;
 }
-
 function isDev() {
   // 👉 还记得我们配置中通过 webpack.DefinePlugin 定义的构建变量吗
   return process.env.NODE_ENV === 'development';
@@ -30,8 +29,9 @@ function createWindow() {
   const settingWindow: MyBrowserWindow = new BrowserWindow({
     width: 720,
     height: 240,
-    show: false,
     resizable: false,
+    show: false,
+    frame: false,
     webPreferences: {
       devTools: true,
       nodeIntegration: true,
@@ -47,11 +47,15 @@ function createWindow() {
     settingWindow.loadURL(`file://${path.join(__dirname, '../dist/setting.html')}`);
   }
 
-  // 自定义settingWindow的关闭事件
-  settingWindow.on('close', async (e) => {
-    settingWindow.hide();
-    e.preventDefault();
-    e.returnValue = false;
+  ipcMain.on('Electron:SettingWindow-hide-event', () => {
+    if (settingWindow.isVisible()) {
+      settingWindow.hide();
+    }
+  });
+  ipcMain.on('Electron:SettingWindow-min-event', () => {
+    if (settingWindow.isVisible()) {
+      settingWindow.minimize();
+    }
   });
 }
 

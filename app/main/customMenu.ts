@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: pengdaokuan
+ * @LastEditors: pengdaokuan
+ * @Date: 2021-07-28 15:39:13
+ * @LastEditTime: 2021-07-29 15:24:25
+ */
 import _ from 'lodash';
 import { MyBrowserWindow } from './electron';
 import { MenuItemConstructorOptions, shell, app, MenuItem, BrowserWindow } from 'electron';
@@ -52,31 +59,10 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
         accelerator: 'CmdOrCtrl+V',
         role: 'paste',
       },
-    ],
-  },
-  {
-    label: '窗口',
-    role: 'window',
-    submenu: [
       {
-        label: '最小化',
-        accelerator: 'CmdOrCtrl+M',
-        role: 'minimize',
-      },
-      {
-        label: '关闭',
-        accelerator: 'CmdOrCtrl+W',
-        role: 'close',
-      },
-      {
-        type: 'separator',
-      },
-      {
-        label: 'Quit',
-        accelerator: 'Command+Q',
-        click: function () {
-          app.quit();
-        },
+        label: '全选',
+        accelerator: 'CmdOrCtrl+A',
+        role: 'selectAll',
       },
     ],
   },
@@ -126,6 +112,25 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
     ],
   },
   {
+    label: '窗口',
+    role: 'window',
+    submenu: [
+      {
+        label: '最小化',
+        accelerator: 'CmdOrCtrl+M',
+        role: 'minimize',
+      },
+      {
+        label: '关闭',
+        accelerator: 'CmdOrCtrl+W',
+        role: 'close',
+      },
+      {
+        type: 'separator',
+      },
+    ],
+  },
+  {
     label: '设置',
     submenu: [
       {
@@ -134,12 +139,65 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
           const wins: MyBrowserWindow[] = BrowserWindow.getAllWindows();
           const currentWindow = _.find(wins, (w) => w.uid === 'settingWindow');
           if (currentWindow) {
-            currentWindow.show();
+            if (!currentWindow.isVisible()) {
+              currentWindow.show();
+            }
+            if (currentWindow.isMinimized()) {
+              currentWindow.restore();
+            }
           }
         },
       },
     ],
   },
 ];
+
+if (process.platform === 'darwin') {
+  const { name } = app;
+  customMenu.unshift({
+    label: name,
+    submenu: [
+      {
+        label: '关于 ' + name,
+        role: 'about',
+      },
+      {
+        type: 'separator',
+      },
+      {
+        label: '服务',
+        role: 'services',
+        submenu: [],
+      },
+      {
+        type: 'separator',
+      },
+      {
+        label: 'Hide ' + name,
+        accelerator: 'Command+H',
+        role: 'hide',
+      },
+      {
+        label: 'Hide Others',
+        accelerator: 'Command+Shift+H',
+        role: 'hideOthers',
+      },
+      {
+        label: 'Show All',
+        role: 'unhide',
+      },
+      {
+        type: 'separator',
+      },
+      {
+        label: '退出',
+        accelerator: 'Command+Q',
+        click: function () {
+          app.quit();
+        },
+      },
+    ],
+  });
+}
 
 export default customMenu;
