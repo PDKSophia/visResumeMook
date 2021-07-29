@@ -8,7 +8,7 @@ import { app, BrowserWindow, ipcMain, dialog, Menu } from 'electron';
 export interface MyBrowserWindow extends BrowserWindow {
   uid?: string;
 }
-function isDev() {
+export function isDev() {
   // 👉 还记得我们配置中通过 webpack.DefinePlugin 定义的构建变量吗
   return process.env.NODE_ENV === 'development';
 }
@@ -18,8 +18,9 @@ function createWindow() {
   const mainWindow: MyBrowserWindow = new BrowserWindow({
     width: 1200,
     height: 800,
+    resizable: isDev(),
     webPreferences: {
-      devTools: true,
+      devTools: isDev(),
       nodeIntegration: true,
     },
   });
@@ -29,11 +30,11 @@ function createWindow() {
   const settingWindow: MyBrowserWindow = new BrowserWindow({
     width: 720,
     height: 240,
-    resizable: false,
+    resizable: isDev(),
     show: false,
     frame: false,
     webPreferences: {
-      devTools: true,
+      devTools: isDev(),
       nodeIntegration: true,
     },
   });
