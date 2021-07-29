@@ -48,11 +48,15 @@ function createWindow() {
     settingWindow.loadURL(`file://${path.join(__dirname, '../dist/setting.html')}`);
   }
 
-  // 自定义settingWindow的关闭事件
-  settingWindow.on('close', async (e) => {
-    settingWindow.hide();
-    e.preventDefault();
-    e.returnValue = false;
+  ipcMain.on('Electron:SettingWindow-hide-event', () => {
+    if (settingWindow.isVisible()) {
+      settingWindow.hide();
+    }
+  });
+  ipcMain.on('Electron:SettingWindow-min-event', () => {
+    if (settingWindow.isVisible()) {
+      settingWindow.minimize();
+    }
   });
 }
 

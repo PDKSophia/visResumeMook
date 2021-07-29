@@ -3,7 +3,7 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-07-28 15:39:13
- * @LastEditTime: 2021-07-28 15:50:47
+ * @LastEditTime: 2021-07-29 15:08:04
  */
 import _ from 'lodash';
 import { MyBrowserWindow } from './electron';
@@ -139,7 +139,12 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
           const wins: MyBrowserWindow[] = BrowserWindow.getAllWindows();
           const currentWindow = _.find(wins, (w) => w.uid === 'settingWindow');
           if (currentWindow) {
-            currentWindow.show();
+            if (!currentWindow.isVisible()) {
+              currentWindow.show();
+            }
+            if (currentWindow.isMinimized()) {
+              currentWindow.restore();
+            }
           }
         },
       },

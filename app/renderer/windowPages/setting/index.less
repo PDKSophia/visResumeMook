@@ -1,42 +1,75 @@
 .container {
-  padding: 12px 16px;
-  .label {
-    font-weight: 700;
-    font-size: 16px;
-    color: rgba(0, 0, 0, 0.8);
-    margin: 16px 0;
-  }
-  .input {
-    height: 42px;
-    line-height: 42px;
+  .menu {
+    height: 28px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px 4px 0 0;
+    padding: 0 16px;
     position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.07);
-    border-radius: 4px;
-    .value {
-      color: rgba(0, 0, 0, 0.6);
-      font-size: 14px;
-      padding-left: 12px;
-      width: 530px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      user-select: none;
-    }
-    .update-btn {
+    .hide {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 6px;
+      text-align: center;
+      left: 16px;
+      width: 16px;
+      height: 16px;
+      font-size: 12px;
+      border-radius: 50%;
+      background-color: tomato;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+    }
+    .min {
+      position: absolute;
+      top: 6px;
+      text-align: center;
+      left: 40px;
+      width: 16px;
+      height: 16px;
+      font-size: 12px;
+      border-radius: 50%;
+      background-color: #fad664;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+    }
+  }
+  .content {
+    padding: 12px 16px;
+    .label {
+      font-weight: 700;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.8);
+      margin: 16px 0;
+    }
+    .input {
       height: 42px;
       line-height: 42px;
-      width: 124px;
-      text-align: center;
-      font-size: 14px;
-      color: rgba(0, 0, 0, 0.6);
-      background-color: rgba(0, 0, 0, 0.2);
-      border-radius: 0 4px 4px 0;
-      cursor: pointer;
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.22);
+      position: relative;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      border-radius: 4px;
+      .value {
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 14px;
+        padding-left: 12px;
+        width: 530px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        user-select: none;
+      }
+      .update-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 42px;
+        line-height: 42px;
+        width: 124px;
+        text-align: center;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.22);
+        }
       }
     }
   }
