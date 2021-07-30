@@ -3,12 +3,12 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-07-01 11:07:04
- * @LastEditTime: 2021-07-01 11:10:31
+ * @LastEditTime: 2021-07-30 17:04:58
  */
 import path from 'path';
 import _ from 'lodash';
 import fileAction from '@common/utils/file';
-import { getAppPath } from '@common/utils/appPath';
+import { getUserStoreDataPath } from '@common/utils/appPath';
 
 /**
  * @description 读取全局配置文件的内容
@@ -16,7 +16,7 @@ import { getAppPath } from '@common/utils/appPath';
 export function useReadGlobalConfigFile() {
   return () => {
     return new Promise((resolve: (values: { [key: string]: any }) => void, reject: (value: Error) => void) => {
-      getAppPath().then((appPath: string) => {
+      getUserStoreDataPath().then((appPath: string) => {
         const jsonPath = path.join(appPath, 'appConfig/global.config.json');
         fileAction
           .hasFile(jsonPath)
@@ -41,7 +41,7 @@ export function useReadGlobalConfigFile() {
 export function useUpdateGlobalConfigFile() {
   const readGlobalConfigFile = useReadGlobalConfigFile();
   return (updateKey: string, updateValues: any, callback?: () => void) => {
-    getAppPath().then((appPath: string) => {
+    getUserStoreDataPath().then((appPath: string) => {
       const jsonPath = path.join(appPath, 'appConfig/global.config.json');
       readGlobalConfigFile().then((values: { [key: string]: any }) => {
         if (values && !!Object.keys(values).length) {
