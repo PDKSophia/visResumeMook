@@ -12,6 +12,9 @@ module.exports = {
   devtool: 'inline-source-map',
   resolve: {
     extensions: ['.js', '.ts'],
+    alias: {
+      '@common': path.join(__dirname, '../', 'app/renderer/common'),
+    },
   },
   module: {
     rules: [
