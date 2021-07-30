@@ -3,6 +3,7 @@
  */
 import path from 'path';
 import customMenu from './customMenu';
+import './userData';
 import { app, BrowserWindow, ipcMain, dialog, Menu } from 'electron';
 
 export interface MyBrowserWindow extends BrowserWindow {
