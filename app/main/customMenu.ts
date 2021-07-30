@@ -3,10 +3,10 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-07-28 15:39:13
- * @LastEditTime: 2021-07-29 17:48:35
+ * @LastEditTime: 2021-07-30 15:09:37
  */
 import _ from 'lodash';
-import { MyBrowserWindow, isDev } from './electron';
+import { MyBrowserWindow } from './electron';
 import { MenuItemConstructorOptions, shell, app, MenuItem, BrowserWindow } from 'electron';
 
 const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
@@ -90,6 +90,22 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
         click: (item, focusedWindow) => {
           if (focusedWindow) {
             focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
+          }
+        },
+      },
+      {
+        label: '切换开发者工具',
+        role: 'toggleDevTools',
+        accelerator: (() => {
+          if (process.platform === 'darwin') {
+            return 'Alt+Command+I';
+          } else {
+            return 'Ctrl+Shift+I';
+          }
+        })(),
+        click: (item, focusedWindow) => {
+          if (focusedWindow) {
+            focusedWindow.webContents.openDevTools();
           }
         },
       },
@@ -181,25 +197,6 @@ if (process.platform === 'darwin') {
         },
       },
     ],
-  });
-}
-
-if (isDev()) {
-  (customMenu[2]?.submenu as any).push({
-    label: '切换开发者工具',
-    role: 'toggleDevTools',
-    accelerator: (() => {
-      if (process.platform === 'darwin') {
-        return 'Alt+Command+I';
-      } else {
-        return 'Ctrl+Shift+I';
-      }
-    })(),
-    click: (item: any, focusedWindow: MyBrowserWindow) => {
-      if (focusedWindow) {
-        focusedWindow.webContents.openDevTools();
-      }
-    },
   });
 }
 
