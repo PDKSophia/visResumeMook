@@ -3,7 +3,7 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-07-27 14:24:19
- * @LastEditTime: 2021-07-30 15:16:04
+ * @LastEditTime: 2021-07-30 16:05:45
  */
 /* eslint-disable @typescript-eslint/no-require-imports */
 const path = require('path');
@@ -89,10 +89,6 @@ module.exports = {
         {
           from: path.resolve(__dirname, '../assets'),
           to: path.resolve(__dirname, '../dist/assets'),
-        },
-        {
-          from: path.resolve(__dirname, '../appConfig'),
-          to: path.resolve(__dirname, '../dist/appConfig'),
         },
       ],
     }),
