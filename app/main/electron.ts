@@ -58,6 +58,10 @@ function createWindow() {
       settingWindow.minimize();
     }
   });
+  const ROOT_PATH = path.join(app.getAppPath(), '../');
+  ipcMain.on('get-root-path', (event, arg) => {
+    event.reply('reply-root-path', isDev() ? ROOT_PATH : __dirname);
+  });
 }
 
 app.whenReady().then(() => {
@@ -70,10 +74,6 @@ app.whenReady().then(() => {
 app.on('ready', () => {
   const menu = Menu.buildFromTemplate(customMenu);
   Menu.setApplicationMenu(menu);
-});
-
-ipcMain.on('get-root-path', (event, arg) => {
-  event.reply('reply-root-path', __dirname);
 });
 
 // 应用设置，保存自定义存储路径
