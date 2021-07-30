@@ -3,26 +3,26 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-30 10:25:30
- * @LastEditTime: 2021-07-29 15:01:42
+ * @LastEditTime: 2021-07-30 17:22:49
  */
 import React, { useState, useEffect } from 'react';
 import './index.less';
 import { ipcRenderer } from 'electron';
-import { getAppPath } from '@common/utils/appPath';
+import { getUserStoreDataPath } from '@common/utils/appPath';
 import { useReadGlobalConfigFile, useUpdateGlobalConfigFile } from '@src/hooks/useGlobalConfigActionHooks';
 
 function Setting() {
   const [resumeSavePath, setResumeSavePath] = useState('');
-  const readAppConfigThemeFile = useReadGlobalConfigFile();
+  const readGlobalConfigFile = useReadGlobalConfigFile();
   const updateGlobalConfigFile = useUpdateGlobalConfigFile();
   useEffect(() => {
-    readAppConfigThemeFile().then((value: { [key: string]: any }) => {
+    readGlobalConfigFile().then((value: { [key: string]: any }) => {
       if (value?.resumeSavePath) {
         setResumeSavePath(value?.resumeSavePath);
       } else {
-        getAppPath().then((appPath: string) => {
-          setResumeSavePath(`${appPath}resumeCache`);
-          updateGlobalConfigFile('resumeSavePath', `${appPath}resumeCache`);
+        getUserStoreDataPath().then((appPath: string) => {
+          setResumeSavePath(`${appPath}/resumeCache`);
+          updateGlobalConfigFile('resumeSavePath', `${appPath}/resumeCache`);
         });
       }
     });
