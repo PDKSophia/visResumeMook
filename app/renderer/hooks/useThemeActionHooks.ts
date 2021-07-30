@@ -3,12 +3,12 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-25 16:58:13
- * @LastEditTime: 2021-06-25 18:03:15
+ * @LastEditTime: 2021-07-30 17:16:12
  */
 import path from 'path';
 import _ from 'lodash';
 import fileAction from '@common/utils/file';
-import { getAppPath } from '@common/utils/appPath';
+import { getUserStoreDataPath } from '@common/utils/appPath';
 import { useDispatch, useSelector } from 'react-redux';
 
 /**
@@ -91,7 +91,7 @@ function useSelectTheme() {
 function useReadAppConfigThemeFile() {
   return () => {
     return new Promise((resolve: (values: { [key: string]: any }) => void, reject: (value: Error) => void) => {
-      getAppPath().then((appPath: string) => {
+      getUserStoreDataPath().then((appPath: string) => {
         const jsonPath = path.join(appPath, 'appConfig/theme.config.json');
         fileAction
           .hasFile(jsonPath)
@@ -116,7 +116,7 @@ function useReadAppConfigThemeFile() {
 function useUpdateAppConfigThemeFile() {
   const readAppConfigThemeFile = useReadAppConfigThemeFile();
   return (updateKey: string, updateValues: any, callback?: () => void) => {
-    getAppPath().then((appPath: string) => {
+    getUserStoreDataPath().then((appPath: string) => {
       const jsonPath = path.join(appPath, 'appConfig/theme.config.json');
       readAppConfigThemeFile().then((values: { [key: string]: any }) => {
         if (values && !!Object.keys(values).length) {
