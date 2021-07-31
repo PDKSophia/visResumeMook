@@ -3,7 +3,7 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-06-25 16:58:13
- * @LastEditTime: 2021-07-30 17:16:12
+ * @LastEditTime: 2021-07-31 09:52:54
  */
 import path from 'path';
 import _ from 'lodash';
@@ -59,12 +59,12 @@ function useInitThemeConfig() {
 function useSelectTheme() {
   const dispatch = useDispatch();
   return (themeConfigValues: any) => {
-    const prevTheme: string = themeConfigValues?.currentTheme || '';
+    const prevTheme: TSTheme.Item = themeConfigValues?.currentTheme;
     const initTheme = { id: 'dark', fontColor: '#ffffff', backgroundColor: '#27292c' };
 
     let nextTheme: TSTheme.Item;
     if (themeConfigValues?.themeList.length > 0) {
-      if (prevTheme) nextTheme = _.find(themeConfigValues?.themeList, { id: prevTheme }) || initTheme;
+      if (prevTheme) nextTheme = prevTheme || initTheme;
       else nextTheme = themeConfigValues?.themeList[0];
     } else {
       nextTheme = initTheme;
