@@ -33,7 +33,7 @@ export function toPrintPdf(resumeName?: string) {
         while (leftHeight > 0) {
           PDF.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight);
           leftHeight -= pageHeight;
-          position -= A4Height;
+          position -= imgHeight;
           if (leftHeight > 0) {
             PDF.addPage();
           }
