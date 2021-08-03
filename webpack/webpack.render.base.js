@@ -3,12 +3,17 @@
  * @Author: pengdaokuan
  * @LastEditors: pengdaokuan
  * @Date: 2021-07-27 14:24:19
- * @LastEditTime: 2021-07-30 16:05:45
+ * @LastEditTime: 2021-08-03 15:54:30
  */
 /* eslint-disable @typescript-eslint/no-require-imports */
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
+// const HappyPack = require('happypack');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const webpack = require('webpack');
+const smp = new SpeedMeasurePlugin();
 
 module.exports = {
   entry: {
@@ -37,13 +42,15 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
+        // loader: 'HappyPack/loader?id=visResumeMookHappyPack',
       },
       {
         test: /\.(jpg|png|jpeg|gif)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
+              limit: 2048,
               name: '[name]_[hash].[ext]',
               outputPath: 'images/',
             },
@@ -92,5 +99,20 @@ module.exports = {
         },
       ],
     }),
+    new AddAssetHtmlWebpackPlugin({
+      filepath: path.resolve(__dirname, '../dist/dll/reacts.dll.js'),
+    }),
+    new webpack.DllReferencePlugin({
+      manifest: path.resolve(__dirname, '../dist/dll/reacts.manifest.json'),
+    }),
+    // new HappyPack({
+    //   id: 'visResumeMookHappyPack',
+    //   threads: 8,
+    //   loaders: [
+    //     {
+    //       loader: 'babel-loader',
+    //     },
+    //   ],
+    // }),
   ],
 };
