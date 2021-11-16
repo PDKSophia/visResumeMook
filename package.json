@@ -6,13 +6,13 @@
   "main": "./dist/electron.js",
   "scripts": {
     "start:main": "webpack --config ./webpack/webpack.main.dev.js && electron ./dist/electron.js",
-    "start:render": "webpack-dev-server --config ./webpack/webpack.render.dev.js",
+    "start:render": "npm run build:dll && webpack-dev-server --config ./webpack/webpack.render.dev.js",
     "build:main": "webpack --config ./webpack/webpack.main.prod.js",
     "build:render": "webpack --config ./webpack/webpack.render.prod.js",
     "build:dll": "webpack --config ./webpack/webpack.dll.prod.js",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "build": "rm -rf dist package && npm run build:main && npm run build:render && npm run dist",
+    "build": "rm -rf dist package && npm run build:main && npm run build:render && npm run build:dll && npm run dist",
     "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron"
   },
   "build": {
