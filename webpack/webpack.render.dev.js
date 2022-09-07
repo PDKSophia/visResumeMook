@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: pengdaokuan
+ * @LastEditors: pengdaokuan
+ * @Date: 2022-09-07 09:55:15
+ * @LastEditTime: 2022-09-07 10:06:38
+ */
 const path = require('path');
 const webpackMerge = require('webpack-merge');
 const baseConfig = require('./webpack.base.js');
@@ -8,6 +15,7 @@ const devConfig = {
   entry: {
     // 👇 对应渲染进程的 app.tsx 入口文件
     index: path.resolve(__dirname, '../app/renderer/app.tsx'),
+    toolbar: path.resolve(__dirname, '../app/renderer/windowPage/toolbar/app.tsx'),
   },
   output: {
     filename: '[name].[hash].js',
@@ -53,6 +61,12 @@ const devConfig = {
       template: path.resolve(__dirname, '../app/renderer/index.html'),
       filename: path.resolve(__dirname, '../dist/index.html'),
       chunks: ['index'],
+    }),
+    new HtmlWebpackPlugin({
+      // 👇 以此文件为模版，自动生成 HTML
+      template: path.resolve(__dirname, '../app/renderer/windowPage/toolbar/index.html'),
+      filename: path.resolve(__dirname, '../dist/toolbar.html'),
+      chunks: ['toolbar'],
     }),
   ],
 };
