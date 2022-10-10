@@ -49,7 +49,8 @@ function ResumeAction() {
     const date = intToDateString(new Date().valueOf(), '_');
     const prefix = `${date}_${base?.username}_${base?.school}_${work?.job}_${createUID()}.json`;
     // 如果路径中不存在 resumeCache 文件夹，则默认创建此文件夹
-    if (resumeSavePath && resumeSavePath.search('resumeCache') > -1) {
+    
+    if (resumeSavePath && resumeSavePath.search('resumeCache') > -1 && fileAction.hasdirDir(resumeSavePath)) {
       fileAction?.write(`${resumeSavePath}/${prefix}`, resume, 'utf8');
     } else {
       fileAction
