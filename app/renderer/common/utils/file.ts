@@ -82,6 +82,14 @@ const fileAction = {
   mkdirDir: (path: string): Promise<string | undefined> => {
     return fsPromiseAPIs.mkdir(path, { recursive: true });
   },
+  /**
+   * @description 同步判断是否存在文件夹
+   * @param path 路径
+   * @returns {Boolean}
+   */
+  hasdirDir: (path: string) => {
+    return fs.existsSync(path)
+  }
 };
 
 export default fileAction;
